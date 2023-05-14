@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+.marquee {
+    background-color: #E7EEFF;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px;
+    text-align: left;
+    display: flex;
+    @media screen and (min-width: $breakpoint-small-up) {
+        font-size: 15px;
+        padding: 10px;
+        text-align: initial;
+        align-items: center;
+        justify-content: center;
+    }
+    svg {
+        width: 32px;
+        height: 32px;
+        @media screen and (min-width: $breakpoint-small-up) {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .text {
+        margin-left: 12px;
+    }
+}

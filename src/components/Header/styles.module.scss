@@ -1,0 +1,75 @@
+@import '../../variables.scss';
+
+.header {
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 32px;
+    padding-right: 48px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: solid 1px lightgrey;
+    @media screen and (max-width: $breakpoint-small) {
+        padding: 13px 16px;
+    }
+    .titleContainer {
+        display: flex;
+        flex-direction: row;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 100%;
+            justify-content: space-between;
+        }
+        .logo {
+            @media screen and (max-width: $breakpoint-small) {
+                width: 36px;
+                height: 36px;
+            }
+        } 
+        .title {
+            font-size: 32px;
+            font-family: 'Noto Sans';
+            font-weight: 600;
+            font-style: italic;
+            margin-left: 16px;
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: $breakpoint-small) {
+                font-size: 24px;
+                margin-left: 0;
+            }
+        }
+        .hamburgerIcon {
+            display: flex;
+            align-self: center;
+        }
+    }
+    .optionsContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        @media screen and (max-width: $breakpoint-small) {
+            display: none;
+        }
+        .option {
+            cursor: pointer;
+        }
+    }
+}
+.popup {
+    display: flex;
+    flex-direction: column;
+    .option {
+        border-bottom: solid 0.5px lightgrey;
+        padding: 6px 0;
+        font-size: 16px;
+        font-weight: 500;
+        &:hover, &:focus, &:active {
+            background-color: #E7EEFF;
+        }
+    }
+}
