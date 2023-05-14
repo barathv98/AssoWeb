@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/AssoWeb/static/css/main.34b34f20.css",
+    "main.js": "/AssoWeb/static/js/main.c4f31745.js",
+    "static/js/787.934d6fb5.chunk.js": "/AssoWeb/static/js/787.934d6fb5.chunk.js",
+    "static/media/about.jpg": "/AssoWeb/static/media/about.b5c562f006159e9eed3b.jpg",
+    "static/media/logo.png": "/AssoWeb/static/media/logo.bd4900aa569917d7d7d5.png",
+    "index.html": "/AssoWeb/index.html",
+    "static/media/success.svg": "/AssoWeb/static/media/success.4673c7a91c1fc9ab3b932729eb9d40a3.svg",
+    "main.34b34f20.css.map": "/AssoWeb/static/css/main.34b34f20.css.map",
+    "main.c4f31745.js.map": "/AssoWeb/static/js/main.c4f31745.js.map",
+    "787.934d6fb5.chunk.js.map": "/AssoWeb/static/js/787.934d6fb5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34b34f20.css",
+    "static/js/main.c4f31745.js"
+  ]
+}
