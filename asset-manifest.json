@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/AssoWeb/static/css/main.34b34f20.css",
-    "main.js": "/AssoWeb/static/js/main.c4f31745.js",
+    "main.css": "/AssoWeb/static/css/main.f2cbc040.css",
+    "main.js": "/AssoWeb/static/js/main.fe69d51e.js",
     "static/js/787.934d6fb5.chunk.js": "/AssoWeb/static/js/787.934d6fb5.chunk.js",
     "static/media/about.jpg": "/AssoWeb/static/media/about.b5c562f006159e9eed3b.jpg",
+    "static/media/about_us.jpg": "/AssoWeb/static/media/about_us.eed9268f0d20b0e64995.jpg",
     "static/media/logo.png": "/AssoWeb/static/media/logo.bd4900aa569917d7d7d5.png",
+    "static/media/book.svg": "/AssoWeb/static/media/book.28993f9c0d7490860a2446113830dcfd.svg",
+    "static/media/diary.svg": "/AssoWeb/static/media/diary.93497377721897b341bf6eff2dcc4c5d.svg",
+    "static/media/register.svg": "/AssoWeb/static/media/register.bc08d4672e7001cb74128a129638c1f7.svg",
     "index.html": "/AssoWeb/index.html",
     "static/media/success.svg": "/AssoWeb/static/media/success.4673c7a91c1fc9ab3b932729eb9d40a3.svg",
-    "main.34b34f20.css.map": "/AssoWeb/static/css/main.34b34f20.css.map",
-    "main.c4f31745.js.map": "/AssoWeb/static/js/main.c4f31745.js.map",
+    "main.f2cbc040.css.map": "/AssoWeb/static/css/main.f2cbc040.css.map",
+    "main.fe69d51e.js.map": "/AssoWeb/static/js/main.fe69d51e.js.map",
     "787.934d6fb5.chunk.js.map": "/AssoWeb/static/js/787.934d6fb5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34b34f20.css",
-    "static/js/main.c4f31745.js"
+    "static/css/main.f2cbc040.css",
+    "static/js/main.fe69d51e.js"
   ]
 }
