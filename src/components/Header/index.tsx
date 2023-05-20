@@ -19,7 +19,14 @@ const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
                 <div className={styles.titleContainer}>
                     <img className={styles.logo} src={require('../../assets/images/logo.png')} alt='company logo' />
                     <div className={styles.title}>ASSOCIATE PRINTS</div>
-                    {isMobile && <div className={styles.hamburgerIcon} onClick={() => setShowPopup((showPopup) => !showPopup)}><GiHamburgerMenu /></div>}
+                    {isMobile &&
+                        <div className={styles.hamburgerIcon} 
+                            onClick={() => {
+                                if(showPopup) window.scrollTo({top: 0,left: 0,behavior: "smooth",});
+                                setShowPopup((showPopup) => !showPopup)
+                            }}>
+                            <GiHamburgerMenu />
+                        </div>}
                 </div>
                 <div className={styles.optionsContainer}>
                     <div className={styles.option} onClick={() => aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>About Us</div>
