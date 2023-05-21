@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.heroBanner {
+  height: 300px;
+  width: 100vw;
+  .slideContainer {
+    height: 300px;
+    margin: auto;
+    overflow-y: hidden;
+  }
+}
+  
