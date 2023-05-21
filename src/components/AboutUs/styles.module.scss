@@ -20,14 +20,44 @@
     }
     .text {
         width: 50%;
-        padding: 16px;
+        padding: 24px;
         box-sizing: border-box;
         @media screen and (max-width: $breakpoint-small) {
             width: 100%;
+            padding: 0px;
         }
         .title {
             font-size: 28px;
             font-weight: 600;
+        }
+        .content {
+            margin-top: 16px;
+            text-align: justify;
+            line-height: 1.5;
+            .innerContent {
+                margin-top: 16px;  
+                ul {
+                    list-style: none;                    
+                }
+                li {
+                    padding-left: 12px;
+                    margin-top: 8px;
+                    position: relative;
+                }
+                li:before {
+                    position: absolute;
+                    display: block;
+                    content: '\2022'; /* bullet point, for screen readers */
+                    text-indent: -999999px; /* move the bullet point out of sight */
+                    left: -26px;
+                    width: 28px; /* desired width of the image */
+                    height: 28px; /* unrelated to image height; this is so it gets snipped */
+                    background-repeat: no-repeat;
+                    background-image: url('../../assets/icons/glitter.svg');
+                    background-size: 24px;
+                    background-position: center;
+                }
+            }
         }
     }
 }
