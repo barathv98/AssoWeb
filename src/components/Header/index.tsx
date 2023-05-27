@@ -1,9 +1,13 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import styles from './styles.module.scss';
 import { GiHamburgerMenu } from "react-icons/gi";
 import useDeviceDetect from '../../utils/hooks/useDeviceDetect';
 import { motion } from 'framer-motion';
 import { transitionConfig } from '../../utils/config/transitionConfig';
+import Sidebar from '../../common/components/Sidebar';
+import { BiCategory } from "react-icons/bi";
+import { GrContactInfo } from "react-icons/gr";
+import { CgOrganisation } from "react-icons/cg";
 
 interface HeaderProps {
     aboutRef: any;
@@ -13,6 +17,12 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
     const { isMobile } = useDeviceDetect();
     const [showPopup, setShowPopup] = useState<boolean>(false);
+
+    const onSidebarItemClick = useCallback((refElement: any) => {
+        setShowPopup(false);
+        refElement.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }, [setShowPopup]);
+
     return (
         <>
             <div className={styles.header}>
@@ -35,11 +45,18 @@ const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
                 </div>
             </div>
             <motion.div {...transitionConfig}>
-                {showPopup && <div className={styles.popup}>
-                    <div className={styles.option} onClick={() => aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>About Us</div>
-                    <div className={styles.option} onClick={() => productRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>Products</div>
-                    <div className={styles.option} onClick={() => contactRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>Contact Us</div>
-                </div>}
+                {showPopup && 
+                    <Sidebar
+                        onClose={() => setShowPopup(false)}
+                        content={
+                            <>
+                                <div className={styles.sidebarItem} onClick={() => onSidebarItemClick(aboutRef)}><CgOrganisation /><span>About Us</span></div>
+                                <div className={styles.sidebarItem} onClick={() => onSidebarItemClick(productRef)}><BiCategory /><span>Products</span></div>
+                                <div className={styles.sidebarItem} onClick={() => onSidebarItemClick(contactRef)}><GrContactInfo /><span>Contact Us</span></div>
+                            </>
+                        } 
+                    />
+                }
             </motion.div>
         </>
     )
