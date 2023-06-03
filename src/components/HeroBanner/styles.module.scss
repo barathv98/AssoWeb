@@ -7,6 +7,16 @@
     height: 300px;
     margin: auto;
     overflow-y: hidden;
+    .eachSlide {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    .image {
+      object-fit: none;
+      object-position: center;
+      width: 100vw;
+      height: 300px;
+    }
   }
 }
   
