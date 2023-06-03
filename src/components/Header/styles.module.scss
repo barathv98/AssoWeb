@@ -16,6 +16,7 @@
     z-index: 99;
     @media screen and (max-width: $breakpoint-small) {
         padding: 13px 16px;
+        z-index: 999;
     }
     .titleContainer {
         display: flex;
