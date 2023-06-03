@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/AssoWeb/static/css/main.be52c3a2.css",
+    "main.css": "/AssoWeb/static/css/main.6311c2f6.css",
     "main.js": "/AssoWeb/static/js/main.98e6d5bc.js",
     "static/js/787.934d6fb5.chunk.js": "/AssoWeb/static/js/787.934d6fb5.chunk.js",
     "static/media/about_us.jpg": "/AssoWeb/static/media/about_us.eed9268f0d20b0e64995.jpg",
@@ -11,12 +11,12 @@
     "index.html": "/AssoWeb/index.html",
     "static/media/success.svg": "/AssoWeb/static/media/success.4673c7a91c1fc9ab3b932729eb9d40a3.svg",
     "static/media/glitter.svg": "/AssoWeb/static/media/glitter.e5eb6a3faeca54b0a9b1.svg",
-    "main.be52c3a2.css.map": "/AssoWeb/static/css/main.be52c3a2.css.map",
+    "main.6311c2f6.css.map": "/AssoWeb/static/css/main.6311c2f6.css.map",
     "main.98e6d5bc.js.map": "/AssoWeb/static/js/main.98e6d5bc.js.map",
     "787.934d6fb5.chunk.js.map": "/AssoWeb/static/js/787.934d6fb5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.be52c3a2.css",
+    "static/css/main.6311c2f6.css",
     "static/js/main.98e6d5bc.js"
   ]
 }
