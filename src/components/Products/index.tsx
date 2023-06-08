@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './styles.module.scss';
 import { MdArrowForwardIos } from "react-icons/md";
 import {ReactComponent as BookIcon} from '../../assets/icons/book.svg';
-import {ReactComponent as DiaryIcon} from '../../assets/icons/diary.svg';
+// import {ReactComponent as DiaryIcon} from '../../assets/icons/diary.svg';
 import {ReactComponent as RegisterIcon} from '../../assets/icons/register.svg';
 import priceListLinks from '../../utils/constants';
 
@@ -15,7 +15,7 @@ const Products: FC<ProductsProps> = ({ productRef }) => {
     };
     return (<div className={styles.products} ref={productRef}>
         <div className={styles.image}>
-            <img src={require('../../assets/images/about_us.jpg')} alt="about us" />
+            <img src={require('../../assets/images/products.jpg')} alt="about us" />
         </div>
         <div className={styles.textContainer}>
             <div className={styles.sectionTitle}>Products</div>
@@ -47,7 +47,7 @@ const Products: FC<ProductsProps> = ({ productRef }) => {
                             <MdArrowForwardIos />
                         </div>
                     </div>
-                    <div className={styles.linkContainer}>
+                    {/* <div className={styles.linkContainer}>
                         <div className={`${styles.iconContainer} ${styles.diary}`}><DiaryIcon /></div>
                         <div className={styles.text}>
                             <div className={styles.title}>School Diaries</div>
@@ -58,7 +58,7 @@ const Products: FC<ProductsProps> = ({ productRef }) => {
                         <div className={styles.arrowContainer}>
                             <MdArrowForwardIos />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
