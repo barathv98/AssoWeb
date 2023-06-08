@@ -8,6 +8,7 @@ import Sidebar from '../../common/components/Sidebar';
 import { BiCategory } from "react-icons/bi";
 import { GrContactInfo } from "react-icons/gr";
 import { CgOrganisation } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
     aboutRef: any;
@@ -27,8 +28,8 @@ const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
         <>
             <div className={styles.header}>
                 <div className={styles.titleContainer}>
-                    <img className={styles.logo} src={require('../../assets/images/logo.png')} alt='company logo' />
-                    {isMobile ? <h2 className={styles.title}>ASSOCIATE PRINTS</h2> : <h1 className={styles.title}>ASSOCIATE PRINTS</h1>}
+                    <Link to="/"><img className={styles.logo} src={require('../../assets/images/logo.png')} alt='company logo' /></Link>
+                    <Link to="/">{isMobile ? <h2 className={styles.title}>ASSOCIATE PRINTS</h2> : <h1 className={styles.title}>ASSOCIATE PRINTS</h1>}</Link>
                     {isMobile &&
                         <div className={styles.hamburgerIcon} 
                             onClick={() => {

@@ -1,0 +1,31 @@
+@import '../../variables.scss';
+
+.productListing {
+    padding: 32px;
+    @media screen and (max-width: $breakpoint-small) {
+        padding: 8px;
+    }
+    @media screen and (min-width: $breakpoint-small-up) and (max-width: $breakpoint-large) {
+        padding: 16px;
+    }
+    .productCategories {
+        .categoryName {
+            text-align: start;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .categoryBooks {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            @media screen and (max-width: $breakpoint-small) {
+                gap: 8px;
+            }
+            @media screen and (min-width: $breakpoint-small-up) and (max-width: $breakpoint-large) {
+                gap: 8px;
+            }
+        }
+    }
+}
