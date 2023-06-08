@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/AssoWeb/static/css/main.6311c2f6.css",
-    "main.js": "/AssoWeb/static/js/main.98e6d5bc.js",
+    "main.css": "/AssoWeb/static/css/main.70bb142b.css",
+    "main.js": "/AssoWeb/static/js/main.5881cf97.js",
     "static/js/787.934d6fb5.chunk.js": "/AssoWeb/static/js/787.934d6fb5.chunk.js",
+    "static/media/products.jpg": "/AssoWeb/static/media/products.a256203602004b902cfd.jpg",
     "static/media/about_us.jpg": "/AssoWeb/static/media/about_us.eed9268f0d20b0e64995.jpg",
     "static/media/logo.png": "/AssoWeb/static/media/logo.bd4900aa569917d7d7d5.png",
     "static/media/book.svg": "/AssoWeb/static/media/book.28993f9c0d7490860a2446113830dcfd.svg",
-    "static/media/diary.svg": "/AssoWeb/static/media/diary.93497377721897b341bf6eff2dcc4c5d.svg",
     "static/media/register.svg": "/AssoWeb/static/media/register.bc08d4672e7001cb74128a129638c1f7.svg",
     "index.html": "/AssoWeb/index.html",
     "static/media/success.svg": "/AssoWeb/static/media/success.4673c7a91c1fc9ab3b932729eb9d40a3.svg",
     "static/media/glitter.svg": "/AssoWeb/static/media/glitter.e5eb6a3faeca54b0a9b1.svg",
-    "main.6311c2f6.css.map": "/AssoWeb/static/css/main.6311c2f6.css.map",
-    "main.98e6d5bc.js.map": "/AssoWeb/static/js/main.98e6d5bc.js.map",
+    "main.70bb142b.css.map": "/AssoWeb/static/css/main.70bb142b.css.map",
+    "main.5881cf97.js.map": "/AssoWeb/static/js/main.5881cf97.js.map",
     "787.934d6fb5.chunk.js.map": "/AssoWeb/static/js/787.934d6fb5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6311c2f6.css",
-    "static/js/main.98e6d5bc.js"
+    "static/css/main.70bb142b.css",
+    "static/js/main.5881cf97.js"
   ]
 }
