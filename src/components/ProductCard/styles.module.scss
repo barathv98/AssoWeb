@@ -3,7 +3,12 @@
 .productCard {
     width: calc((100vw - 120px) / 4);
     height: 325px;
-    border: 1px solid black;
+    box-shadow: rgba(96, 96, 96, 0.16) 0px 2px 6px;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+    text-align: start;
+    background-color: #fff;
     @media screen and (max-width: $breakpoint-small) {
         min-width: auto;
         width: calc((100vw - 28px) / 2);
@@ -14,14 +19,64 @@
     }
     .productImage {
         width: 100%;
-        height: 100px;
+        height: 150px;
     }
     .productContent {
-        padding: 4px;
-        .productName {
-            font-size: 16px;
-            font-weight: 500;
-            color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100% - 150px);
+        .contentTop {
+            .productName {
+                font-size: 16px;
+                font-weight: 500;
+                color: black;
+            }
+            .extrasStmt {
+                height: 20px;    
+                margin-top: 4px;         
+            }
+        }
+        .contentBottom {
+            .price {
+                font-size: 16px;
+                font-weight: 600;
+                color: #222;
+                margin-bottom: 8px;
+                .symbol {
+                    font-size: 14px;
+                }
+            }
+            .quantityRow {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                .quantityInput {
+                    .inputField {
+                        width: 80px;
+                        height: 36px;
+                        box-sizing: border-box;
+                        margin-left: 8px;
+                        font-size: 18px;
+                        color: #222;
+                        padding: 4px 8px;
+                        text-align: center;
+                    }
+                }
+                .addCartButton {
+                    width: 112px;
+                    height: 36px;
+                    background-color: #2d9bf0;
+                    border: none;
+                    border-radius: 4px;
+                    color: white;
+                    padding: 2px 16px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
         }
     }
 }

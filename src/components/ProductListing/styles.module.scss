@@ -2,6 +2,7 @@
 
 .productListing {
     padding: 32px;
+    background-color: #fafbfc;
     @media screen and (max-width: $breakpoint-small) {
         padding: 8px;
     }
