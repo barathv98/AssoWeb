@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
             <div className={styles.header}>
                 <div className={styles.titleContainer}>
                     <img className={styles.logo} src={require('../../assets/images/logo.png')} alt='company logo' />
-                    <div className={styles.title}>ASSOCIATE PRINTS</div>
+                    {isMobile ? <h2 className={styles.title}>ASSOCIATE PRINTS</h2> : <h1 className={styles.title}>ASSOCIATE PRINTS</h1>}
                     {isMobile &&
                         <div className={styles.hamburgerIcon} 
                             onClick={() => {
