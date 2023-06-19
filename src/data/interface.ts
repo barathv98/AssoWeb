@@ -18,3 +18,14 @@ export interface BooksList {
 }
 
 export type BooksLists = Array<BooksList>;
+
+export interface OrderItem {
+    id: number;
+    name: string;
+    quantity: number;
+    question: boolean;
+    cd: boolean;
+    price: number;
+}
+
+export type CartItems = Array<OrderItem>;

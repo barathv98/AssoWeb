@@ -1,10 +1,22 @@
 @import '../../variables.scss';
 
+.listingPage {
+    display: flex;
+    flex-direction: row;
+}
+.sidebar {
+    width: 400px;
+    height: 100vh;
+    border-right: solid 1px #ccc;
+    background-color: #fafbfc;
+}
+
 .productListing {
     padding: 32px;
     background-color: #fafbfc;
     @media screen and (max-width: $breakpoint-small) {
-        padding: 8px;
+        padding: 8px 0;
+        margin-bottom: 52px;
     }
     @media screen and (min-width: $breakpoint-small-up) and (max-width: $breakpoint-large) {
         padding: 16px;
@@ -14,6 +26,9 @@
             text-align: start;
             font-size: 24px;
             font-weight: 600;
+            @media screen and (max-width: $breakpoint-small) {
+                padding-left: 16px;
+            }
         }
         .categoryBooks {
             display: flex;
@@ -23,6 +38,7 @@
             margin-top: 12px;
             @media screen and (max-width: $breakpoint-small) {
                 gap: 8px;
+                flex-direction: column;
             }
             @media screen and (min-width: $breakpoint-small-up) and (max-width: $breakpoint-large) {
                 gap: 8px;

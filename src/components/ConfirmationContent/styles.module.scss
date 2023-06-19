@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.confirmationContent {
+    margin: 32px;
+    border: solid 1px #ccc;
+    @media screen and (min-width: $breakpoint-medium-up) {
+        width: 700px;
+        margin: 40px auto 0;
+    }
+}
