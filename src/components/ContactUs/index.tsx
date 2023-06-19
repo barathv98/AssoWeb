@@ -28,7 +28,7 @@ const ContactUs: FC<ContactUsProps> = ({ contactRef }) => {
                 <div className={styles.address}>
                     <div className={styles.icon}><FaPhoneAlt /></div>
                     <div className={styles.text}>
-                        <div>04562 - 276943</div>
+                        <div>9486287443</div>
                     </div>
                 </div>
                 <div className={styles.address}>

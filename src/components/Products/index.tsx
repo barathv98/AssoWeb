@@ -40,7 +40,7 @@ const Products: FC<ProductsProps> = ({ productRef }) => {
                         <div className={styles.text}>
                             <div className={styles.title}>Attendance Registers</div>
                             <div className={styles.subTitle}>
-                                Term books with Ques paper, Writing books, Hindi, GK, Computer Science Books, Drawing Books
+                                School Mirror, Fees Register, Workdone register, Cumulative Record, Mark & Grade Record, TC Book
                             </div>
                         </div>
                         <div className={styles.arrowContainer}>
