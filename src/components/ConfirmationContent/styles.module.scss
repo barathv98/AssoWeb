@@ -3,8 +3,38 @@
 .confirmationContent {
     margin: 32px;
     border: solid 1px #ccc;
+    padding: 16px;
     @media screen and (min-width: $breakpoint-medium-up) {
         width: 700px;
         margin: 40px auto 0;
+        padding: 32px;
+    }
+    .lottieIcon {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .textContent {
+        width: 400px;
+        color: black;
+        margin: 0 auto;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 85%;
+            margin-top: 16px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: 500;
+        }   
+        .subTitle {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
     }
 }

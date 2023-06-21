@@ -9,6 +9,8 @@ import PageNotFound from './pages/PageNotFound';
 import { GeneralProvider } from './GeneralProvider';
 import CartPage from './pages/CartPage';
 import ConfirmationPage from './pages/ConfirmationPage';
+import Footer from './components/Footer';
+import Copyright from './components/Copyright';
 
 function App() {
   const aboutRef = useRef();
@@ -27,6 +29,8 @@ function App() {
             <Route path="/order-confirmation/:state" element={<ConfirmationPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
+          <Footer />
+          <Copyright />
         </GeneralProvider>
       </BrowserRouter>
     </div>
