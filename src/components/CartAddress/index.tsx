@@ -22,10 +22,9 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
             setAddressError('School Address is empty');
         else if (schoolAddress.length <= 5)
             setAddressError('Please enter valid address');
-            var phoneno = /^\d{10,11}$/;
         if (!contactNum.length)
             setContactError('Contact number is empty');
-        else if (!contactNum.match(phoneno))
+        else if (!contactNum.match(/^\d{10,11}$/))
             setContactError('Please enter valid contact number');
     }, [schoolName, schoolAddress, contactNum]);
     return (

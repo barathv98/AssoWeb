@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import styles from './styles.module.scss';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsCartFill } from "react-icons/bs";
@@ -10,12 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useGeneral from '../../useGeneral';
 import ProductsSidebar from '../ProductsSidebar';
 
-interface HeaderProps {
-    aboutRef: any;
-    productRef: any;
-    contactRef: any;
-}
-const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
+const Header = () => {
     const { isMobile, isTablet } = useDeviceDetect();
     const [showPopup, setShowPopup] = useState<boolean>(false);
     const { cart } = useGeneral();
@@ -37,9 +32,9 @@ const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
                         </div>}
                 </div>
                 <div className={styles.optionsContainer}>
-                    {!isTablet && <div className={styles.option} onClick={() => aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>About Us</div>}
-                    <div className={styles.option} onClick={() => productRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>Products</div>
-                    {!isTablet && <div className={styles.option} onClick={() => contactRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>Contact Us</div>}
+                    {!isTablet && <div className={styles.option}>About Us</div>}
+                    <div className={styles.option}>Products</div>
+                    {!isTablet && <div className={styles.option}>Contact Us</div>}
                     <div className={styles.cartOption} onClick={() => navigate('/shopping-cart')}>
                         <BsCartFill color='#fff' />
                         <div>

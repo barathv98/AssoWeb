@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Header from './components/Header';
-import { useRef } from 'react';
 import ProductsListingPage from './pages/ProductsListingPage';
 import MarqueeRibbon from './components/MarqueeRibbon';
 import PageNotFound from './pages/PageNotFound';
@@ -11,19 +10,24 @@ import CartPage from './pages/CartPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import Footer from './components/Footer';
 import Copyright from './components/Copyright';
+import ContactPage from './pages/ContactPage';
+import AboutUsPage from './pages/AboutUsPage';
+import ProductsPage from './pages/ProductsPage';
+import DownloadsPage from './pages/DownloadsPage';
 
 function App() {
-  const aboutRef = useRef();
-  const productRef = useRef();
-  const contactRef = useRef();
   return (
     <div className="App">
       <BrowserRouter>
         <GeneralProvider>
           <MarqueeRibbon />
-          <Header aboutRef={aboutRef} productRef={productRef} contactRef={contactRef} />
+          <Header />
           <Routes>
-            <Route path="/" element={<HomePage aboutRef={aboutRef} productRef={productRef} contactRef={contactRef} />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/contact-us" element={<ContactPage />} />
+            <Route path="/downloads" element={<DownloadsPage />} />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:product" element={<ProductsListingPage />} />
             <Route path="/shopping-cart" element={<CartPage />} />
             <Route path="/order-confirmation/:state" element={<ConfirmationPage />} />

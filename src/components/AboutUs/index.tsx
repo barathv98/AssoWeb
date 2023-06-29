@@ -1,11 +1,7 @@
-import { FC } from 'react';
 import styles from './styles.module.scss';
 
-interface AboutUsProps {
-    aboutRef: any;
-}
-const AboutUs:FC<AboutUsProps> = ({ aboutRef }) => {
-    return (<div className={styles.aboutUs} ref={aboutRef}>
+const AboutUs = () => {
+    return (<div className={styles.aboutUs}>
         <div className={styles.image}>
             <img src={require('../../assets/images/about_us.jpg')} alt="about us" />
         </div>
