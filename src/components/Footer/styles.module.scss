@@ -31,6 +31,11 @@
                 text-decoration: none;
                 margin: 8px;
             }
+            &.firstRow {
+                @media screen and (max-width: $breakpoint-medium) {
+                    width: 100%;
+                }
+            }
         }
         .linksCompany {
             width: 40%;

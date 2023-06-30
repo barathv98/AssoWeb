@@ -116,7 +116,10 @@ const ProductCard: FC<ProductCardProps> = ({ book }) => {
 
     return (
         <div className={styles.productCard}>
-            <img className={styles.productImage} src={imgSrc} alt={`${book.name}`} />
+            <div className={styles.productImage}>
+                <img className={styles.image} src={imgSrc} alt={`${book.name}`} />
+                {book?.badgeText && <div className={styles.badgeText}>{book.badgeText}</div>}
+            </div>
             <div className={styles.productContent}>
                 <div className={styles.contentTop}>
                     <div className={styles.productName}>{book.name} {book.description && `- ${book.description}`}</div>

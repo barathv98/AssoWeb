@@ -24,8 +24,29 @@
     .productImage {
         width: 100%;
         height: 150px;
+        position: relative;
         @media screen and (max-width: $breakpoint-small) {
             width: 40%;
+        }
+        .image {
+            width: 100%;
+            height: 100%;
+        }
+        .badgeText {
+            width: fit-content;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: #2d9bf0;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            @media screen and (max-width: $breakpoint-small) {
+                font-size: 12px;
+                font-weight: 600;
+            }
         }
     }
     .productContent {
@@ -103,7 +124,7 @@
                     }
                 }
                 .addCartButton {
-                    width: 112px;
+                    width: 100px;
                     height: 36px;
                     background-color: #2d9bf0;
                     border: none;

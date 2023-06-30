@@ -14,7 +14,7 @@ export const booksList: BooksLists = [
                 questionPrice: 0,
                 cd: true,
                 cdPrice: 0,
-                badgeText: '',
+                badgeText: 'BEST SELLER',
                 imgName: 'book.jpg',
             },
             {

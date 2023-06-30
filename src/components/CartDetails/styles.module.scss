@@ -2,6 +2,7 @@
 
 .cart {
     padding: 32px;
+    min-height: calc(100vh - 350px);
     @media screen and (max-width: $breakpoint-small) {
         padding: 16px;
     }
@@ -57,14 +58,13 @@
         border-bottom: none;
         gap: 8px;
         @media screen and (max-width: $breakpoint-small) {
-            width: 100%;
-            height: 56px;
+            width: calc(100% - 16px);
             position: fixed;
             bottom: 0;
             border-top: solid 1px #ccc;
             flex-direction: column;
-            margin: 8px -16px;
-            padding: 0;
+            margin: 0 -16px;
+            padding: 8px;
             background-color: white;
         }
         .text {
@@ -86,7 +86,7 @@
             font-weight: 600;
             cursor: pointer;
             @media screen and (max-width: $breakpoint-small) {
-                width: calc(100% - 16px);
+                width: 100%;
             }
         }
     }

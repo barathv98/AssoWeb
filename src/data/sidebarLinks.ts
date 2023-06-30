@@ -5,12 +5,44 @@ const sidebarLinks = [
         child: [
             {
                 text: 'PreKG',
-                link: '/products/books#prekg',
+                link: '/products/prekg',
             },
             {
-                text: 'LKG, UKG',
-                link: '/products/books#lkgukg',
-            }
+                text: 'Term Books',
+                link: '/products/term-books',
+            },
+            {
+                text: 'Tamil Series',
+                link: '/products/tamil-series',
+            },
+            {
+                text: 'Tamil Writing',
+                link: '/products/tamil-writing',
+            },
+            {
+                text: 'English Writing',
+                link: '/products/english-writing',
+            },
+            {
+                text: 'General Knowledge (GK)',
+                link: '/products/gk',
+            },
+            {
+                text: 'Hindi Books',
+                link: '/products/hindi',
+            },
+            {
+                text: 'Computer Science',
+                link: '/products/computer',
+            },
+            {
+                text: 'Drawing',
+                link: '/products/drawing',
+            },
+            {
+                text: 'Others',
+                link: '/products/other-books',
+            },
         ]
     },
     {
