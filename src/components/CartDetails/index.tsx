@@ -10,6 +10,7 @@ interface CartDetailsProps {
 const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
     const { isMobileTablet } = useDeviceDetect();
     const { cart, orderTotal } = useGeneral();
+    console.log(cart);
     return (
         <div className={styles.cart}>
             <div className={styles.title}>Your Shopping Cart</div>

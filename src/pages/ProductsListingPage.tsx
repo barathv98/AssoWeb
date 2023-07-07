@@ -9,6 +9,7 @@ import { gkBooksList } from "../data/books/gk";
 import { hindiBooksList } from "../data/books/hindi";
 import { computerBooksList } from "../data/books/computer";
 import { drawingBooksList } from "../data/books/drawing";
+import ProductCategories from "../components/ProductCategories";
 
 const ProductsListingPage = () => {
     const { product } = useParams();
@@ -31,6 +32,8 @@ const ProductsListingPage = () => {
         productList = computerBooksList;
     else if (product === 'drawing')
         productList = drawingBooksList;
+    else if (product === 'books')
+        return <ProductCategories />;
     return (
         <ProductListing  productList={productList} />
     );

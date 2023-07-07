@@ -1,3 +1,4 @@
+import Downloads from '../Downloads';
 import styles from './styles.module.scss';
 
 const Products = () => {
@@ -9,7 +10,7 @@ const Products = () => {
             <div className={styles.sectionTitle}>Products</div>
             <div className={styles.content}>
                 We offer a wide variety of text books and activity books for kids from Pre KG to Std V.
-                <div className={styles.clickNote}>Please click below to view our catalogues👇</div>
+                <Downloads />
             </div>
         </div>
     </div>)

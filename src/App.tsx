@@ -13,7 +13,6 @@ import Copyright from './components/Copyright';
 import ContactPage from './pages/ContactPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ProductsPage from './pages/ProductsPage';
-import DownloadsPage from './pages/DownloadsPage';
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/contact-us" element={<ContactPage />} />
-            <Route path="/downloads" element={<DownloadsPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:product" element={<ProductsListingPage />} />
             <Route path="/shopping-cart" element={<CartPage />} />

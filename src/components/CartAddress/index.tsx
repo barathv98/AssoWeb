@@ -1,6 +1,9 @@
 import { FC, useCallback, useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import emailjs from '@emailjs/browser';
 import styles from './styles.module.scss';
+import { useNavigate } from "react-router-dom";
+import useGeneral from "../../useGeneral";
 
 interface CartAddressProps {
     setCartDetails: (state: boolean) => void;
@@ -12,21 +15,58 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
     const [nameError, setNameError] = useState<string>('');
     const [addressError, setAddressError] = useState<string>('');
     const [contactError, setContactError] = useState<string>('');
+    const { cart } = useGeneral();
+    const navigate = useNavigate();
+    const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
+    const templateId = process.env.REACT_APP_ORDER_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+
+    const isValid = useCallback(() => {
+        let flag: boolean = true;
+        if (!schoolName.length) {
+            setNameError('School Name is empty');
+            flag = false;
+        }
+        else if (schoolName.length <= 5) {
+            setNameError('Please enter valid school name');
+            flag = false;
+        }
+        if (!schoolAddress.length) {
+            setAddressError('School Address is empty');
+            flag = false;
+        }
+        else if (schoolAddress.length <= 5) {
+            setAddressError('Please enter valid address');
+            flag = false;
+        }
+        if (!contactNum.length) {
+            setContactError('Contact number is empty');
+            flag = false;
+        }
+        else if (!contactNum.match(/^\d{10,11}$/)) {
+            setContactError('Please enter valid contact number');
+            flag = false;
+        }
+        return flag;
+    }, [contactNum, schoolAddress.length, schoolName.length]);
     
     const onClickConfirm = useCallback(() => {
-        if (!schoolName.length)
-            setNameError('School Name is empty');
-        else if (schoolName.length <= 5)
-            setNameError('Please enter valid school name');
-        if (!schoolAddress.length)
-            setAddressError('School Address is empty');
-        else if (schoolAddress.length <= 5)
-            setAddressError('Please enter valid address');
-        if (!contactNum.length)
-            setContactError('Contact number is empty');
-        else if (!contactNum.match(/^\d{10,11}$/))
-            setContactError('Please enter valid contact number');
-    }, [schoolName, schoolAddress, contactNum]);
+        if (isValid() && serviceId && templateId && publicKey) {
+            let cartItemsStr: string = '';
+            cart?.forEach((item) => {
+                return (
+                    cartItemsStr += `${item.name} - ${item.quantity}\n`
+                );
+            })
+            emailjs.send(serviceId, templateId, {cart: cartItemsStr}, publicKey)
+                .then(() => {
+                    navigate('/order-confirmation/success');
+                })
+                .catch(() => {
+                    navigate('/order-confirmation/failed');
+                });
+        }
+    }, [isValid, navigate, publicKey, serviceId, templateId, cart]);
     return (
         <div className={styles.cartAddress}>
             <div className={styles.backLink} onClick={() => setCartDetails(true)}>
