@@ -3,55 +3,138 @@
 .contactUs {
     width: 100%;
     display: flex;
+    flex-direction: column;
     padding: 40px;
     box-sizing: border-box;
     @media screen and (max-width: $breakpoint-small) {
-        flex-direction: column-reverse;
         padding: 20px;
     }
-    .mapContainer {
-        width: 50%;
-        @media screen and (max-width: $breakpoint-small) {
-            width: auto;
-        }
-        iframe {
-            width: 90%;
-            @media screen and (max-width: $breakpoint-small) {
-                width: auto;
-            }
-        }
+    .title {
+        font-size: 28px;
+        font-weight: 600;
+        text-align: center;
     }
-    .addressContainer {
-        width: 50%;
+    .data {
         display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 60px;
-        padding-top: 16px;
-        box-sizing: border-box;
+        flex-direction: row-reverse;
+        gap: 40px;
         @media screen and (max-width: $breakpoint-small) {
-            width: auto;
-            padding: 16px;
+            flex-direction: column;
         }
-        .title {
-            font-size: 28px;
-            font-weight: 600;
-        }
-        .address {
-            font-size: 16px;
-            color: black;
-            text-align: left;
+        .detailsColumn {
             display: flex;
-            flex-direction: row;
-            line-height: 1.5;
-            .icon {
-                svg {
-                    width: 20px;
-                    height: 20px;
+            flex-direction: column;
+            width: 50%;
+            @media screen and (max-width: $breakpoint-small) {
+                width: 100%;
+            }
+            .mapContainer {
+                width: 100%;
+                @media screen and (max-width: $breakpoint-small) {
+                    width: auto;
+                }
+                iframe {
+                    width: 70%;
+                    @media screen and (max-width: $breakpoint-small) {
+                        width: auto;
+                    }
                 }
             }
-            .text {
-                margin-left: 8px;
+            .addressContainer {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 60px;
+                padding-top: 16px;
+                box-sizing: border-box;
+                @media screen and (max-width: $breakpoint-small) {
+                    width: auto;
+                    padding: 16px;
+                }
+                .address {
+                    font-size: 16px;
+                    color: black;
+                    text-align: left;
+                    display: flex;
+                    flex-direction: row;
+                    line-height: 1.5;
+                    .icon {
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                    .text {
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+        .formColumn {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            @media screen and (max-width: $breakpoint-small) {
+                width: 100%;
+                padding: 0;
+            }
+            .label {
+                font-size: 16px;
+                font-weight: 500;
+                text-align: start;
+                margin-bottom: 12px;
+            }
+            .inputField {
+                height: 24px;
+                margin-bottom: 12px;
+                &.error {
+                    border-color: red;
+                    outline-color: red;
+                }
+            }
+            .errorMessage {
+                font-size: 12px;
+                font-style: italic;
+                color: red;
+                text-align: start;
+                margin-top: -8px;
+                margin-bottom: 12px;
+            }
+            .textarea {
+                font-size: 16px;
+                font-weight: 500;
+                font-family: 'Inter';
+                color: black;
+                &.error {
+                    border-color: red;
+                }
+            }
+            .submitButton {
+                font-size: 17px;
+                font-weight: 500;
+                height: 40px;
+                border: 0;
+                border-radius: 4px;
+                background-color: #2d9bf0;
+                color: white;
+                margin-top: 12px;
+                cursor: pointer;
+            }
+            .message {
+                width: calc(100% - 32px);
+                padding: 12px;
+                background-color: #F7FFF9;
+                color: #318616;
+                border: solid 1px #318616;
+                border-radius: 8px;
+                margin-top: 16px;
+                &.error {
+                    color: #cc1830;
+                    border-color: #cc1830;
+                    background-color: #f5d7d7;
+                }
             }
         }
     }

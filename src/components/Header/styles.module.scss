@@ -22,6 +22,10 @@
         display: flex;
         flex-direction: row;
         align-items: center ;
+        a {
+            text-decoration: none;
+            color: black;
+        }
         @media screen and (max-width: $breakpoint-small) {
             width: 100%;
             justify-content: space-between;
@@ -47,6 +51,23 @@
                 margin-left: 0;
             }
         }
+        .cartIcon {
+            position: relative;
+            .cartItem {
+                width: 16px;
+                height: 16px;
+                background-color: red;
+                font-size: 10px;
+                color: white;
+                border-radius: 50%;
+                position: absolute;
+                top: -8px;
+                left: 9px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
         .hamburgerIcon {
             display: flex;
             align-self: center;
@@ -60,8 +81,29 @@
         @media screen and (max-width: $breakpoint-small) {
             display: none;
         }
+        a {
+            text-decoration: none;
+            color: black;
+        }
         .option {
             cursor: pointer;
+        }
+        .cartOption {
+            width: fit-content;
+            background-color: #2d9bf0;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            border-radius: 4px;
+            padding: 10px 14px;
+            gap: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            svg {
+                width: 16px;
+                height: 16px;
+            }
         }
     }
 }
