@@ -24,6 +24,7 @@
             height: 204px;
             box-shadow: rgba(96, 96, 96, 0.16) 0px 4px 8px;
             cursor: pointer;
+            overflow: hidden;
             @media screen and (max-width: $breakpoint-large) {
                 max-width: calc((100% - 112px)/4);
             }
@@ -32,6 +33,11 @@
             }
             @media screen and (max-width: $breakpoint-small) {
                 max-width: calc((100% - 16px)/2);
+            }
+            &:hover {
+                .image {
+                    transform: scale(1.1);
+                }
             }
             .image {
                 width: calc(100% - 12px);

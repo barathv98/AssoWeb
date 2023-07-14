@@ -12,6 +12,9 @@
         text-align: start;
         display: flex;
         cursor: pointer;
+        &:hover {
+            color: #2d9bf0;
+        }
         @media screen and (min-width: $breakpoint-medium-up) {
             font-size: 14px;
         }
@@ -61,6 +64,7 @@
         height: 64px;
         border-top: solid 1px #ccc;
         margin: 0 -16px;
+        background-color: white;
         @media screen and (min-width: $breakpoint-small-up) {
             width: 700px;
             position: relative;

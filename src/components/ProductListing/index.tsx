@@ -5,11 +5,14 @@ import ProductCard from "../ProductCard";
 import StickyCart from "../StickyCart";
 import styles from './styles.module.scss';
 import ProductsSidebar from "../ProductsSidebar";
+import GeneralCard from "../GeneralCard";
+import { ProductsLists } from "../../data/interface";
 
 interface ProductListingProps {
-    productList: any;
+    productList: ProductsLists;
+    generalProduct: boolean;
 }
-const ProductListing: FC<ProductListingProps> = ({ productList }) => {
+const ProductListing: FC<ProductListingProps> = ({ productList, generalProduct }) => {
     const { isMobile, isMobileTablet } = useDeviceDetect();
     const { cart } = useGeneral();
     return (
@@ -23,7 +26,9 @@ const ProductListing: FC<ProductListingProps> = ({ productList }) => {
                             <div className={styles.categoryBooks}>
                                 {list.categoryBooks.map((book: any) => {
                                     return (
-                                        <ProductCard book={book} key={book.id} />
+                                        generalProduct
+                                        ? <GeneralCard product={book} key={book.id} />
+                                        : <ProductCard product={book} key={book.id} />
                                     )
                                 })}
                             </div>

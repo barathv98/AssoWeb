@@ -1,51 +1,15 @@
 import { ProductsLists } from "../interface";
 
-export const prekgBooksList: ProductsLists = [
+export const otherBooksList: ProductsLists = [
     {
         categoryId: 1,
-        categoryName: 'Twinkle Series',
+        categoryName: '',
         categoryBooks: [
             {
                 id: 1,
-                name: 'Twinkle Series',
-                description: 'All in one for PreKG',
-                price: 500,
-                question: false,
-                questionPrice: 0,
-                cd: true,
-                cdPrice: 50,
-                badgeText: 'BEST SELLER',
-                imgName: 'book.jpg',
-            },
-        ]
-    },
-    {
-        categoryId: 1,
-        categoryName: 'SIX IN ONE',
-        categoryBooks: [
-            {
-                id: 1,
-                name: 'Six In One',
-                description: 'Fully laminated pages',
-                price: 175,
-                question: false,
-                questionPrice: 0,
-                cd: false,
-                cdPrice: 0,
-                badgeText: '',
-                imgName: 'book.jpg',
-            },
-        ]
-    },
-    {
-        categoryId: 1,
-        categoryName: 'Kids Series Individual Books',
-        categoryBooks: [
-            {
-                id: 1,
-                name: 'Elegant English',
+                name: 'Jumbo Table Book',
                 description: '',
-                price: 55,
+                price: 65,
                 question: false,
                 questionPrice: 0,
                 cd: false,
@@ -55,9 +19,9 @@ export const prekgBooksList: ProductsLists = [
             },
             {
                 id: 1,
-                name: 'கொஞ்சும் தமிழ்',
+                name: 'Table Book',
                 description: '',
-                price: 55,
+                price: 40,
                 question: false,
                 questionPrice: 0,
                 cd: false,
@@ -67,10 +31,10 @@ export const prekgBooksList: ProductsLists = [
             },
             {
                 id: 1,
-                name: 'Happy Maths',
+                name: 'My Scrap Book',
                 description: '',
                 price: 55,
-                question: false,
+                question: true,
                 questionPrice: 0,
                 cd: false,
                 cdPrice: 0,
@@ -79,10 +43,10 @@ export const prekgBooksList: ProductsLists = [
             },
             {
                 id: 1,
-                name: 'Wonderful General Knowledge',
+                name: 'My Project Book',
                 description: '',
                 price: 55,
-                question: false,
+                question: true,
                 questionPrice: 0,
                 cd: false,
                 cdPrice: 0,
@@ -91,10 +55,22 @@ export const prekgBooksList: ProductsLists = [
             },
             {
                 id: 1,
-                name: 'Colourful Drawing',
+                name: 'School Atlas',
                 description: '',
-                price: 55,
-                question: false,
+                price: 170,
+                question: true,
+                questionPrice: 0,
+                cd: false,
+                cdPrice: 0,
+                badgeText: '',
+                imgName: 'book.jpg',
+            },
+            {
+                id: 1,
+                name: "Student's Cumulative Record",
+                description: '',
+                price: 22,
+                question: true,
                 questionPrice: 0,
                 cd: false,
                 cdPrice: 0,
@@ -102,5 +78,5 @@ export const prekgBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
         ]
-    }
+    },
 ];

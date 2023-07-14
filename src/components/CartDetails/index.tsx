@@ -1,6 +1,5 @@
 import { FC } from "react";
 import useGeneral from "../../useGeneral";
-import { formatCurrency } from "../../utils/formatUtil";
 import useDeviceDetect from "../../utils/hooks/useDeviceDetect";
 import styles from './styles.module.scss';
 
@@ -10,7 +9,10 @@ interface CartDetailsProps {
 const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
     const { isMobileTablet } = useDeviceDetect();
     const { cart, orderTotal } = useGeneral();
-    console.log(cart);
+    const rupee = new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+    });
     return (
         <div className={styles.cart}>
             <div className={styles.title}>Your Shopping Cart</div>
@@ -38,16 +40,16 @@ const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
                             {!isMobileTablet && 
                                 <>
                                     <div className={styles.width18}>{item.quantity}</div>
-                                    <div className={styles.width18}>₹ {formatCurrency(item.price)}</div>
+                                    <div className={styles.width18}>{rupee.format(item.price)}</div>
                                 </>
                             }
-                            <div className={`${styles.weight500} ${isMobileTablet ? `${styles.width40} ${styles.alignEnd}` : styles.width18}`}>₹ {formatCurrency(item.price * item.quantity)}</div>
+                            <div className={`${styles.weight500} ${isMobileTablet ? `${styles.width40} ${styles.alignEnd}` : styles.width18}`}>{rupee.format(item.price * item.quantity)}</div>
                         </div>
                     );
                 })}
                 <div className={`${styles.rowHeading} ${styles.totalRow}`}>
                     <div className={`${isMobileTablet ? `${styles.widthBook} ${styles.alignStart}` : styles.width18}`}>Total Amount</div>
-                    <div className={`${styles.weight500} ${isMobileTablet ? `${styles.width40} ${styles.alignEnd}` : styles.width18}`}>₹ {formatCurrency(orderTotal)}</div>
+                    <div className={`${styles.weight500} ${isMobileTablet ? `${styles.width40} ${styles.alignEnd}` : styles.width18}`}>{rupee.format(orderTotal)}</div>
                 </div>
                 <div className={`${styles.rowHeading} ${styles.checkoutRow}`}>
                     <div className={styles.text}>Please review the items and click the button to checkout</div>

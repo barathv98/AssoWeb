@@ -32,10 +32,13 @@
             text-align: start;
             font-size: 24px;
             font-weight: 600;
-            margin-top: 24px;
+            margin-top: 32px;
+            margin-bottom: 24px;
             @media screen and (max-width: $breakpoint-small) {
+                font-size: 20px;
                 padding-left: 16px;
                 margin-top: 16px;
+                margin-bottom: 16px;
             }
         }
         .categoryBooks {

@@ -26,6 +26,7 @@ const ProductsSidebar: FC<ProductsSidebarProps> = ({ onClick }) => {
                                 <NavLink
                                     to={link.link}
                                     className={`${styles.navlink} ${styles.childLink}`}
+                                    style={({isActive}) => (isActive ? {color:'#2d9bf0'} : {})}
                                     onClick={onClick}
                                 >
                                     - {link.text}

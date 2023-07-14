@@ -1,6 +1,6 @@
-import { BooksLists } from "../interface";
+import { ProductsLists } from "../interface";
 
-export const termBooksList: BooksLists = [
+export const termBooksList: ProductsLists = [
     {
         categoryId: 1,
         categoryName: 'OXYGEN Series',

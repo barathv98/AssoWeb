@@ -40,7 +40,14 @@ const Header = () => {
                     {!isTablet && <Link to="/products/diaries"><div className={styles.option}>Diaries</div></Link>}
                     {!isTablet && <Link to="/products/registers"><div className={styles.option}>Registers</div></Link>}
                     <div className={styles.cartOption} onClick={() => navigate('/shopping-cart')}>
-                        <BsCartFill color='#fff' />
+                        <motion.svg
+                            whileHover={{
+                                rotateZ: [0, -20, 20, -20, 20, -20, 20, 0],
+                                transition: { duration: 0.5 },
+                            }}
+                        >
+                            <BsCartFill color='#fff' />
+                        </motion.svg>
                         <div>
                             {cart.length > 0 ? <div>{cart.length} Items</div> : <div>Cart</div>}
                         </div>
@@ -51,7 +58,7 @@ const Header = () => {
                 {showPopup && 
                     <Sidebar
                         onClose={() => setShowPopup(false)}
-                        content={<ProductsSidebar />}
+                        content={<ProductsSidebar onClick={isMobile ? () => setShowPopup(false) : () => {}} />}
                     />
                 }
             </motion.div>

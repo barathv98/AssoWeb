@@ -15,7 +15,7 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
     const [nameError, setNameError] = useState<string>('');
     const [addressError, setAddressError] = useState<string>('');
     const [contactError, setContactError] = useState<string>('');
-    const { cart } = useGeneral();
+    const { cart, setCart } = useGeneral();
     const navigate = useNavigate();
     const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
     const templateId = process.env.REACT_APP_ORDER_TEMPLATE_ID;
@@ -58,15 +58,16 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
                     cartItemsStr += `${item.name} - ${item.quantity}\n`
                 );
             })
-            emailjs.send(serviceId, templateId, {cart: cartItemsStr}, publicKey)
+            emailjs.send(serviceId, templateId, {name: schoolName, address: schoolAddress, contactNum: contactNum, cart: cartItemsStr}, publicKey)
                 .then(() => {
                     navigate('/order-confirmation/success');
+                    setCart([]);
                 })
                 .catch(() => {
                     navigate('/order-confirmation/failed');
                 });
         }
-    }, [isValid, navigate, publicKey, serviceId, templateId, cart]);
+    }, [isValid, navigate, publicKey, serviceId, templateId, schoolName, schoolAddress, contactNum, cart, setCart]);
     return (
         <div className={styles.cartAddress}>
             <div className={styles.backLink} onClick={() => setCartDetails(true)}>

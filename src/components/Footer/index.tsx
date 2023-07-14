@@ -12,7 +12,7 @@ const Footer = () => {
                     <Link to='/contact-us'>Contact Us</Link>
                 </div>
                 <div className={styles.linksColumn}>
-                    <Link to='/products#books'>Books</Link>
+                    <Link to='/products/books'>Books</Link>
                     <Link to='/products/diaries'>Diaries</Link>
                     <Link to='/products/registers'>Registers</Link>
                     <Link to='/products/hindi'>Hindi Books</Link>

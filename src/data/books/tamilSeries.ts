@@ -1,6 +1,6 @@
-import { BooksLists } from "../interface";
+import { ProductsLists } from "../interface";
 
-export const tamilSeriesBooksList: BooksLists = [
+export const tamilSeriesBooksList: ProductsLists = [
     {
         categoryId: 1,
         categoryName: 'Tamil Individual KG Books',

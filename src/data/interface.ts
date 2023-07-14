@@ -1,31 +1,32 @@
-export interface Book {
+export interface Product {
     id: number;
     name: string;
     description: string;
     price: number;
-    question: boolean;
-    questionPrice: number;
-    cd: boolean;
-    cdPrice: number;
-    badgeText: string;
     imgName: string;
+    question?: boolean;
+    questionPrice?: number;
+    cd?: boolean;
+    cdPrice?: number;
+    badgeText?: string;
+    highlights?: string;
 }
 
-export interface BooksList {
+export interface ProductsList {
     categoryId: number;
     categoryName: string;
-    categoryBooks: Array<Book>;
+    categoryBooks: Array<Product>;
 }
 
-export type BooksLists = Array<BooksList>;
+export type ProductsLists = Array<ProductsList>;
 
 export interface OrderItem {
     id: number;
     name: string;
     quantity: number;
-    question: boolean;
-    cd: boolean;
     price: number;
+    question?: boolean;
+    cd?: boolean;
 }
 
 export type CartItems = Array<OrderItem>;

@@ -1,6 +1,6 @@
-import { BooksLists } from "../interface";
+import { ProductsLists } from "../interface";
 
-export const gkBooksList: BooksLists = [
+export const gkBooksList: ProductsLists = [
     {
         categoryId: 1,
         categoryName: 'Twinkle General Knowledge Bank',

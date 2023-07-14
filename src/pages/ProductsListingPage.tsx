@@ -10,10 +10,13 @@ import { hindiBooksList } from "../data/books/hindi";
 import { computerBooksList } from "../data/books/computer";
 import { drawingBooksList } from "../data/books/drawing";
 import ProductCategories from "../components/ProductCategories";
+import { registersList } from "../data/registers";
+import { ProductsLists } from "../data/interface";
 
 const ProductsListingPage = () => {
     const { product } = useParams();
-    let productList;
+    
+    let productList: ProductsLists = [];
     if (product === 'prekg')
         productList = prekgBooksList;
     else if (product === 'term-books')
@@ -34,8 +37,10 @@ const ProductsListingPage = () => {
         productList = drawingBooksList;
     else if (product === 'books')
         return <ProductCategories />;
+    else if (product === 'registers')
+        productList = registersList ;
     return (
-        <ProductListing  productList={productList} />
+        <ProductListing productList={productList} generalProduct={product === 'registers'} />
     );
 };
 
