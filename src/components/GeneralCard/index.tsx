@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import useGeneral from '../../useGeneral';
 import { OrderItem, Product } from '../../data/interface';
@@ -18,25 +18,29 @@ const GeneralCard: FC<Props> = ({ product }) => {
 
     const [orderItem, setOrderItem] = useState<OrderItem>({
         id: product.id,
-        name: product.name,
+        billingName: product.billingName,
         quantity: itemInCart.length ? itemInCart[0].quantity : 0,
         price: product.price,
     });
+
+    const addingToCart = useCallback(() => {
+        setCart((current: any) =>
+                current.filter((obj: any) => {
+                    return obj.id !== product.id;
+                }),
+            );
+            setCart((current: any) => [...current, orderItem]);
+    }, [orderItem, product.id, setCart]);
 
     const onClickAddCart = useCallback(() => {
         if (!orderItem.quantity) {
             setQuantityError(true);
         }
         else {
-            setCart((current: any) =>
-                current.filter((obj: any) => {
-                    return obj.id !== product.id;
-                }),
-            );
-            setCart((current: any) => [...current, orderItem]);
-            setShowSnackbar(true);
+            addingToCart();
+            setShowSnackbar('Item added');
         }
-    }, [product, orderItem, setCart, setShowSnackbar]);
+    }, [orderItem, addingToCart, setShowSnackbar]);
 
     const onClickRemove = useCallback(() => {
         setCart((current: any) =>
@@ -67,6 +71,12 @@ const GeneralCard: FC<Props> = ({ product }) => {
         localStorage.setItem('asso_cart', JSON.stringify(cart));
     }, [cart]);
 
+    const buttonText = useMemo(() => {
+        if (itemInCart[0] && (itemInCart[0].quantity === orderItem.quantity))
+            return 'Added';
+        return 'Add';
+    }, [itemInCart, orderItem.quantity]);
+
     useEffect(() => {
         updateLocalStorageCart();
     }, [cart, updateLocalStorageCart]);
@@ -74,7 +84,7 @@ const GeneralCard: FC<Props> = ({ product }) => {
     return (
         <div className={styles.generalCard}>
             <div className={styles.productImage}>
-                <img className={styles.image} src={imgSrc} alt={`${product.name}`} />
+                <img className={styles.image} src={imgSrc} alt={`${product.name}`} loading="lazy" />
                 {product?.badgeText && <div className={styles.badgeText}>{product.badgeText}</div>}
             </div>
             <div className={styles.productContent}>
@@ -99,10 +109,14 @@ const GeneralCard: FC<Props> = ({ product }) => {
                     </div>
                     <div className={styles.buttonsContainer}>
                         {itemInCart[0] && 
-                            <div className={styles.deleteButton} onClick={onClickRemove}><RiDeleteBin6Line />Remove</div>
+                            <div className={styles.deleteButton} onClick={onClickRemove}>
+                                <RiDeleteBin6Line />Remove
+                            </div>
                         }
-                        <button className={styles.addCartButton} onClick={onClickAddCart}>
-                            {itemInCart[0] ? ((itemInCart[0].quantity !== orderItem.quantity) ? 'Add' : 'Added') : 'Add'}
+                        <button className={`${styles.addCartButton} ${buttonText === 'Add' ? styles.add : styles.added}`} 
+                            onClick={onClickAddCart}
+                        >
+                            {buttonText}
                         </button>
                     </div>
                 </div>

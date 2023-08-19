@@ -18,7 +18,9 @@ const ConfirmationContent: FC<ConfirmationContentProps> = ({ success }) => {
                     </div>
                     <div className={styles.textContent}>
                         <div className={styles.title}>Order Success!!</div>
-                        <div className={styles.subTitle}>Thanks for ordering with us. We have received your order, our team will contact you soon</div>
+                        <div className={styles.subTitle}>
+                            Thanks for ordering with us. We have received your order, our team will contact you soon
+                        </div>
                     </div>
                 </>
             ) 
@@ -29,7 +31,9 @@ const ConfirmationContent: FC<ConfirmationContentProps> = ({ success }) => {
                     </div>
                     <div className={styles.textContent}>
                         <div className={styles.title}>Order Failed</div>
-                        <div className={styles.subTitle}>Please head to <Link to='/shopping-cart'>Cart</Link> page to order again</div>
+                        <div className={styles.subTitle}>
+                            Please head to <Link to='/shopping-cart'>Cart</Link> page to order again
+                        </div>
                     </div>
                 </>
             )}

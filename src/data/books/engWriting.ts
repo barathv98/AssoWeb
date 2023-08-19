@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const engWritingBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 12,
         categoryName: 'KG Writing Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1059,
                 name: 'Enjoy with Alphabet - Capital & Small',
+                billingName: 'Enjoy with Alphabet - Capital & Small',
                 description: '',
                 price: 90,
                 question: false,
@@ -18,8 +19,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1057,
                 name: 'Alphabet Writing Practice Book - Capital Letters',
+                billingName: 'Alphabet Writing - Capital Letters',
                 description: '',
                 price: 50,
                 question: false,
@@ -30,8 +32,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1058,
                 name: 'Alphabet Writing Practice Book - small Letters',
+                billingName: 'Alphabet Writing - small Letters',
                 description: '',
                 price: 50,
                 question: false,
@@ -42,8 +45,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1060,
                 name: 'Cursive Writing - A',
+                billingName: 'Cursive Writing - A',
                 description: '',
                 price: 58,
                 question: false,
@@ -54,8 +58,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1061,
                 name: 'Cursive Writing - B',
+                billingName: 'Cursive Writing - B',
                 description: '',
                 price: 58,
                 question: false,
@@ -68,12 +73,13 @@ export const engWritingBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 13,
         categoryName: 'Std Writing Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1062,
                 name: 'Cursive Writing - 1',
+                billingName: 'Cursive Writing - 1',
                 description: '',
                 price: 58,
                 question: false,
@@ -84,8 +90,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1063,
                 name: 'Cursive Writing - 2',
+                billingName: 'Cursive Writing - 2',
                 description: '',
                 price: 58,
                 question: false,
@@ -96,8 +103,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1064,
                 name: 'Cursive Writing - 3',
+                billingName: 'Cursive Writing - 3',
                 description: '',
                 price: 58,
                 question: false,
@@ -108,8 +116,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1065,
                 name: 'Cursive Writing - 4',
+                billingName: 'Cursive Writing - 4',
                 description: '',
                 price: 58,
                 question: false,
@@ -120,8 +129,9 @@ export const engWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1066,
                 name: 'Cursive Writing - 5',
+                billingName: 'Cursive Writing - 5',
                 description: '',
                 price: 58,
                 question: false,

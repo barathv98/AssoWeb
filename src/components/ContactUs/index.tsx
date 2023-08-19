@@ -90,14 +90,26 @@ const ContactUs = () => {
                 </div>
                 <div className={styles.formColumn}>
                     <label htmlFor="name" className={styles.label}>Name / School Name</label>
-                    <input type="text" id="name" className={`${styles.inputField} ${nameError ? styles.error : ''}`} value={name} onChange={e => {setNameError(false);setName(e.target.value)}} />
+                    <input type="text" id="name" 
+                        className={`${styles.inputField} ${nameError ? styles.error : ''}`} 
+                        value={name} onChange={e => {setNameError(false);setName(e.target.value)}}
+                    />
                     <label htmlFor="city" className={styles.label}>City</label>
-                    <input type="text" id="city" className={`${styles.inputField} ${cityError ? styles.error : ''}`} value={city} onChange={e => {setCityError(false);setCity(e.target.value)}} />
+                    <input type="text" id="city" 
+                        className={`${styles.inputField} ${cityError ? styles.error : ''}`}
+                        value={city} onChange={e => {setCityError(false);setCity(e.target.value)}}
+                    />
                     <label htmlFor="contact-number" className={styles.label}>Contact Number</label>
-                    <input type="text" id="contact-number" className={`${styles.inputField} ${contactError ? styles.error : ''}`} value={contactNumber} onChange={e => {setContactError('');setContactNumber(e.target.value)}} />
+                    <input type="text" id="contact-number"
+                        className={`${styles.inputField} ${contactError ? styles.error : ''}`} 
+                        value={contactNumber} onChange={e => {setContactError('');setContactNumber(e.target.value)}}
+                    />
                     {contactError && <div className={styles.errorMessage}>{contactError}</div>}
                     <label htmlFor="message" className={styles.label}>Message</label>
-                    <textarea rows={4} value={message} className={`${styles.textarea} ${messageError ? styles.error : ''}`} onChange={e => {setMessageError(false);setMessage(e.target.value)}} />
+                    <textarea rows={4} value={message}
+                        className={`${styles.textarea} ${messageError ? styles.error : ''}`}
+                        onChange={e => {setMessageError(false);setMessage(e.target.value)}}
+                    />
                     <button type='submit' className={styles.submitButton} onClick={onClickSubmit}>Submit</button>
                     {showMessage && <div className={`${styles.message} ${showMessage === errorMsg && styles.error}`}>
                         {showMessage}

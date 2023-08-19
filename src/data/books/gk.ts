@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const gkBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 14,
         categoryName: 'Twinkle General Knowledge Bank',
         categoryBooks: [
             {
-                id: 1,
+                id: 1112,
                 name: 'Twinkle GK - 1',
+                billingName: 'Twinkle GK - 1',
                 description: '',
                 price: 90,
                 question: true,
@@ -18,8 +19,9 @@ export const gkBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1113,
                 name: 'Twinkle GK - 2',
+                billingName: 'Twinkle GK - 2',
                 description: '',
                 price: 100,
                 question: true,
@@ -30,8 +32,9 @@ export const gkBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1114,
                 name: 'Twinkle GK - 3',
+                billingName: 'Twinkle GK - 3',
                 description: '',
                 price: 100,
                 question: true,
@@ -42,8 +45,9 @@ export const gkBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1115,
                 name: 'Twinkle GK - 4',
+                billingName: 'Twinkle GK - 4',
                 description: '',
                 price: 100,
                 question: true,
@@ -54,8 +58,9 @@ export const gkBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1116,
                 name: 'Twinkle GK - 5',
+                billingName: 'Twinkle GK - 5',
                 description: '',
                 price: 105,
                 question: true,

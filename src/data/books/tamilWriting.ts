@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const tamilWritingBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 10,
         categoryName: 'KG Writing Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1069,
                 name: 'இளந்தளிர் எழுத்துப் பயிற்சி - LKG',
+                billingName: 'இளந்தளிர் எழுத்துப் பயிற்சி - LKG',
                 description: '',
                 price: 65,
                 question: false,
@@ -18,8 +19,9 @@ export const tamilWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1070,
                 name: 'பூந்தளிர் எழுத்துப் பயிற்சி - UKG',
+                billingName: 'பூந்தளிர் எழுத்துப் பயிற்சி - UKG',
                 description: '',
                 price: 60,
                 question: false,
@@ -30,8 +32,9 @@ export const tamilWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1067,
                 name: 'அகர வரிசைப் பயிற்சி',
+                billingName: 'அகர வரிசைப் பயிற்சி',
                 description: '',
                 price: 50,
                 question: false,
@@ -42,8 +45,9 @@ export const tamilWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1068,
                 name: 'உயிர் மெய் எழுத்துப் பயிற்சி',
+                billingName: 'உயிர் மெய் எழுத்துப் பயிற்சி',
                 description: '',
                 price: 62,
                 question: false,
@@ -56,12 +60,13 @@ export const tamilWritingBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 11,
         categoryName: 'Std Writing Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1071,
                 name: 'தமிழ் எழுத்துப் பயிற்சி - 1',
+                billingName: 'தமிழ் எழுத்துப் பயிற்சி - 1',
                 description: '',
                 price: 58,
                 question: false,
@@ -72,8 +77,9 @@ export const tamilWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1072,
                 name: 'தமிழ் எழுத்துப் பயிற்சி - 2',
+                billingName: 'தமிழ் எழுத்துப் பயிற்சி - 2',
                 description: '',
                 price: 58,
                 question: false,
@@ -84,8 +90,9 @@ export const tamilWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1073,
                 name: 'தமிழ் எழுத்துப் பயிற்சி - 3',
+                billingName: 'தமிழ் எழுத்துப் பயிற்சி - 3',
                 description: '',
                 price: 58,
                 question: false,
@@ -96,8 +103,9 @@ export const tamilWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1074,
                 name: 'தமிழ் எழுத்துப் பயிற்சி - 4',
+                billingName: 'தமிழ் எழுத்துப் பயிற்சி - 4',
                 description: '',
                 price: 63,
                 question: false,
@@ -108,8 +116,9 @@ export const tamilWritingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1075,
                 name: 'தமிழ் எழுத்துப் பயிற்சி - 5',
+                billingName: 'தமிழ் எழுத்துப் பயிற்சி - 5',
                 description: '',
                 price: 63,
                 question: false,

@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const tamilSeriesBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 9,
         categoryName: 'Tamil Individual KG Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1005,
                 name: 'கொஞ்சும் தமிழ் அரும்பு - PreKG',
+                billingName: 'கொஞ்சும் தமிழ் அரும்பு - PreKG',
                 description: '',
                 price: 55,
                 question: false,
@@ -18,8 +19,9 @@ export const tamilSeriesBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1009,
                 name: 'கொஞ்சும் தமிழ் மொட்டு - LKG',
+                billingName: 'கொஞ்சும் தமிழ் மொட்டு - LKG',
                 description: '',
                 price: 95,
                 question: false,
@@ -30,8 +32,9 @@ export const tamilSeriesBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1010,
                 name: 'கொஞ்சும் தமிழ் மலர் - UKG',
+                billingName: 'கொஞ்சும் தமிழ் மலர் - UKG',
                 description: '',
                 price: 110,
                 question: false,

@@ -14,7 +14,7 @@
 }
 
 .productListing {
-    padding: 32px;
+    padding: 0 32px 32px;
     background-color: #fafbfc;
     width: calc(100vw - 280px);
     @media screen and (max-width: $breakpoint-small) {
@@ -37,8 +37,7 @@
             @media screen and (max-width: $breakpoint-small) {
                 font-size: 20px;
                 padding-left: 16px;
-                margin-top: 16px;
-                margin-bottom: 16px;
+                margin: 16px 0;
             }
         }
         .categoryBooks {

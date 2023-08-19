@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 const Products = () => {
     return (<div className={styles.products}>
         <div className={styles.image}>
-            <img src={require('../../assets/images/products.jpg')} alt="about us" />
+            <img src={require('../../assets/images/products.jpg')} alt="about us" loading='lazy' />
         </div>
         <div className={styles.textContainer}>
             <div className={styles.sectionTitle}>Products</div>

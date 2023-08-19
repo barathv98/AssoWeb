@@ -12,6 +12,7 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
     const [schoolName, setSchoolName] = useState<string>('');
     const [schoolAddress, setSchoolAddress] = useState<string>('');
     const [contactNum, setContactNum] = useState<string>('');
+    const [transport, setTransport] = useState<string>('');
     const [nameError, setNameError] = useState<string>('');
     const [addressError, setAddressError] = useState<string>('');
     const [contactError, setContactError] = useState<string>('');
@@ -55,10 +56,16 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
             let cartItemsStr: string = '';
             cart?.forEach((item) => {
                 return (
-                    cartItemsStr += `${item.name} - ${item.quantity}\n`
+                    cartItemsStr += `${item.billingName} - ${item.quantity}\n`
                 );
             })
-            emailjs.send(serviceId, templateId, {name: schoolName, address: schoolAddress, contactNum: contactNum, cart: cartItemsStr}, publicKey)
+            emailjs.send(serviceId, templateId, {
+                name: schoolName,
+                address: schoolAddress,
+                contactNum: contactNum,
+                transport: transport,
+                cart: cartItemsStr
+            }, publicKey)
                 .then(() => {
                     navigate('/order-confirmation/success');
                     setCart([]);
@@ -67,7 +74,8 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
                     navigate('/order-confirmation/failed');
                 });
         }
-    }, [isValid, navigate, publicKey, serviceId, templateId, schoolName, schoolAddress, contactNum, cart, setCart]);
+    },
+    [isValid, navigate, publicKey, serviceId, templateId, schoolName, schoolAddress, contactNum, transport, cart, setCart]);
     return (
         <div className={styles.cartAddress}>
             <div className={styles.backLink} onClick={() => setCartDetails(true)}>
@@ -77,15 +85,30 @@ const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
             <div className={styles.title}>Your shipping address</div>
             <div className={styles.addressForms}>
                 <div className={styles.labelText}>School Name</div>
-                <textarea className={`${styles.inputField} ${nameError ? styles.error : ''}`} rows={2} 
-                    onChange={e => {setNameError('');setSchoolName(e.target.value);}} />
+                <textarea
+                    className={`${styles.inputField} ${nameError ? styles.error : ''}`}
+                    rows={2} 
+                    onChange={e => {setNameError('');setSchoolName(e.target.value);}} 
+                />
                 {nameError && <div className={styles.errorText}>{nameError}</div>}
                 <div className={styles.labelText}>School Address (full address)</div>
-                <textarea className={`${styles.inputField} ${addressError ? styles.error : ''}`} rows={4} onChange={e => {setAddressError('');setSchoolAddress(e.target.value);}} />
+                <textarea
+                    className={`${styles.inputField} ${addressError ? styles.error : ''}`}
+                    rows={4}
+                    onChange={e => {setAddressError('');setSchoolAddress(e.target.value);}}
+                />
                 {addressError && <div className={styles.errorText}>{addressError}</div>}
                 <div className={styles.labelText}>Contact number</div>
-                <input type="number" className={`${styles.inputField} ${contactError ? styles.error : ''}`} onChange={e => {setContactError('');setContactNum(e.target.value);}} />
+                <input type="number"
+                    className={`${styles.inputField} ${contactError ? styles.error : ''}`}
+                    onChange={e => {setContactError('');setContactNum(e.target.value);}}
+                />
                 {contactError && <div className={styles.errorText}>{contactError}</div>}
+                <div className={styles.labelText}>Transport Lorry Name (Optional)</div>
+                <input type="text"
+                    className={styles.inputField}  
+                    onChange={e => setTransport(e.target.value)}
+                />
             </div>
             <div className={styles.orderButtonRow}>
                 <button className={styles.orderButton} onClick={onClickConfirm}>CONFIRM ORDER</button>

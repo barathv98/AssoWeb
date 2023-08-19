@@ -12,6 +12,7 @@ import { drawingBooksList } from "../data/books/drawing";
 import ProductCategories from "../components/ProductCategories";
 import { registersList } from "../data/registers";
 import { ProductsLists } from "../data/interface";
+import { otherBooksList } from "../data/books/other";
 
 const ProductsListingPage = () => {
     const { product } = useParams();
@@ -25,7 +26,7 @@ const ProductsListingPage = () => {
         productList = tamilSeriesBooksList;
     else if (product === 'tamil-writing')
         productList = tamilWritingBooksList;
-    else if (product === 'eng-writing')
+    else if (product === 'english-writing')
         productList = engWritingBooksList;
     else if (product === 'gk')
         productList = gkBooksList;
@@ -35,6 +36,8 @@ const ProductsListingPage = () => {
         productList = computerBooksList;
     else if (product === 'drawing')
         productList = drawingBooksList;
+    else if (product === 'other-books')
+        productList = otherBooksList;
     else if (product === 'books')
         return <ProductCategories />;
     else if (product === 'registers')

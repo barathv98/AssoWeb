@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 import ProductsSidebar from "../ProductsSidebar";
 import GeneralCard from "../GeneralCard";
 import { ProductsLists } from "../../data/interface";
+import SimpleSnackbar from "../../common/components/Snackbar";
 
 interface ProductListingProps {
     productList: ProductsLists;
@@ -37,6 +38,7 @@ const ProductListing: FC<ProductListingProps> = ({ productList, generalProduct }
                 })}
                 {isMobile && cart.length > 0 && <StickyCart />}
             </div>
+            <SimpleSnackbar text="Item added" />
         </div>
     );
 };

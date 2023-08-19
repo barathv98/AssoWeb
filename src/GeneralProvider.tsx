@@ -6,8 +6,8 @@ interface GeneralContextType {
 	setCart: Dispatch<SetStateAction<CartItems>>;
 	orderTotal: number;
 	setOrderTotal: Dispatch<SetStateAction<number>>;
-	showSnackbar: boolean;
-	setShowSnackbar: Dispatch<SetStateAction<boolean>>;
+	showSnackbar: string;
+	setShowSnackbar: Dispatch<SetStateAction<string>>;
 }
 
 const defaultContext = {
@@ -15,7 +15,7 @@ const defaultContext = {
 	setCart: () => {},
 	orderTotal: 0,
 	setOrderTotal: () => {},
-	showSnackbar: false,
+	showSnackbar: '',
 	setShowSnackbar: () => {},
 };
 
@@ -34,7 +34,7 @@ export const GeneralProvider: FC<GeneralProviderProps> = ({ children }) => {
 		defaultContext.orderTotal
 	);
 
-	const [showSnackbar, setShowSnackbar] = useState<boolean>(
+	const [showSnackbar, setShowSnackbar] = useState<string>(
 		defaultContext.showSnackbar
 	);
 

@@ -102,6 +102,21 @@
                     cursor: pointer;
                     font-size: 14px;
                     font-weight: 600;
+                    transition: 0.5s;
+                    &.added {
+                        border: none;
+                        background-color: #2d9bf0;
+                        color: white;
+                    }
+                    &.add {
+                        border: solid 1px #2d9bf0;
+                        background-color: #f3f5fd;
+                        color: #2d9bf0;
+                        &:hover {
+                            background-color: #2d9bf0;
+                            color: white;
+                        }
+                    }
                 }
                 .deleteButton {
                     display: flex;

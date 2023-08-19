@@ -6,8 +6,9 @@ export const prekgBooksList: ProductsLists = [
         categoryName: 'Twinkle Series',
         categoryBooks: [
             {
-                id: 1,
+                id: 1002,
                 name: 'Twinkle Series',
+                billingName: 'Twinkle Series - PreKG',
                 description: 'All in one for PreKG',
                 price: 500,
                 question: false,
@@ -20,12 +21,13 @@ export const prekgBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 2,
         categoryName: 'SIX IN ONE',
         categoryBooks: [
             {
-                id: 1,
+                id: 1003,
                 name: 'Six In One',
+                billingName: 'Six In One - PreKG',
                 description: 'Fully laminated pages',
                 price: 175,
                 question: false,
@@ -38,12 +40,13 @@ export const prekgBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 3,
         categoryName: 'Kids Series Individual Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1004,
                 name: 'Elegant English',
+                billingName: 'Elegant English - PreKG',
                 description: '',
                 price: 55,
                 question: false,
@@ -54,8 +57,9 @@ export const prekgBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1005,
                 name: 'கொஞ்சும் தமிழ்',
+                billingName: 'கொஞ்சும் தமிழ் - PreKG',
                 description: '',
                 price: 55,
                 question: false,
@@ -66,8 +70,9 @@ export const prekgBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1006,
                 name: 'Happy Maths',
+                billingName: 'Happy Maths - PreKG',
                 description: '',
                 price: 55,
                 question: false,
@@ -78,8 +83,9 @@ export const prekgBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1007,
                 name: 'Wonderful General Knowledge',
+                billingName: 'Wonderful General Knowledge - PreKG',
                 description: '',
                 price: 55,
                 question: false,
@@ -90,8 +96,9 @@ export const prekgBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1008,
                 name: 'Colourful Drawing',
+                billingName: 'Colourful Drawing - PreKG',
                 description: '',
                 price: 55,
                 question: false,

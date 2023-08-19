@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const termBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 4,
         categoryName: 'OXYGEN Series',
         categoryBooks: [
             {
-                id: 1,
+                id: 1012,
                 name: 'LKG (All 3 terms)',
+                billingName: 'OXYGEN Series - LKG',
                 description: 'Activity Based Term Book',
                 price: 700,
                 question: true,
@@ -18,8 +19,9 @@ export const termBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1018,
                 name: 'UKG (All 3 terms)',
+                billingName: 'OXYGEN Series - UKG',
                 description: 'Activity Based Term Book',
                 price: 820,
                 question: true,
@@ -32,12 +34,13 @@ export const termBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 5,
         categoryName: 'Rainbow Series',
         categoryBooks: [
             {
-                id: 1,
+                id: 1025,
                 name: 'LKG (All 3 terms)',
+                billingName: 'Rainbow Series - LKG',
                 description: '',
                 price: 710,
                 question: true,
@@ -48,8 +51,9 @@ export const termBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1031,
                 name: 'UKG (All 3 terms)',
+                billingName: 'Rainbow Series - UKG',
                 description: '',
                 price: 740,
                 question: true,
@@ -62,12 +66,13 @@ export const termBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 6,
         categoryName: 'Garten Series',
         categoryBooks: [
             {
-                id: 1,
+                id: 1046,
                 name: 'LKG (All 3 terms)',
+                billingName: 'Garten Series - LKG',
                 description: '',
                 price: 420,
                 question: true,
@@ -78,8 +83,9 @@ export const termBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1051,
                 name: 'UKG (All 3 terms)',
+                billingName: 'Garten Series - UKG',
                 description: '',
                 price: 450,
                 question: true,
@@ -92,12 +98,13 @@ export const termBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 7,
         categoryName: 'Orion Series',
         categoryBooks: [
             {
-                id: 1,
+                id: 1036,
                 name: 'Orion - All in One LKG',
+                billingName: 'Orion Series - LKG',
                 description: 'Metallic Wrapper',
                 price: 480,
                 question: true,
@@ -108,8 +115,9 @@ export const termBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1038,
                 name: 'Orion - All in One UKG',
+                billingName: 'Orion Series - UKG',
                 description: 'Metallic Wrapper',
                 price: 490,
                 question: true,
@@ -122,12 +130,13 @@ export const termBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 8,
         categoryName: 'All In One',
         categoryBooks: [
             {
-                id: 1,
+                id: 1042,
                 name: 'All in One - A - LKG',
+                billingName: 'All in One - LKG',
                 description: '',
                 price: 315,
                 question: true,
@@ -138,8 +147,9 @@ export const termBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1044,
                 name: 'All in One - B - UKG',
+                billingName: 'All in One - UKG',
                 description: '',
                 price: 325,
                 question: true,

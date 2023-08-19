@@ -1,6 +1,7 @@
 export interface Product {
     id: number;
     name: string;
+    billingName: string;
     description: string;
     price: number;
     imgName: string;
@@ -22,7 +23,7 @@ export type ProductsLists = Array<ProductsList>;
 
 export interface OrderItem {
     id: number;
-    name: string;
+    billingName: string;
     quantity: number;
     price: number;
     question?: boolean;

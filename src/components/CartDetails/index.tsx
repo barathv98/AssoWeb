@@ -1,6 +1,7 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import useGeneral from "../../useGeneral";
 import useDeviceDetect from "../../utils/hooks/useDeviceDetect";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import styles from './styles.module.scss';
 
 interface CartDetailsProps {
@@ -8,11 +9,19 @@ interface CartDetailsProps {
 }
 const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
     const { isMobileTablet } = useDeviceDetect();
-    const { cart, orderTotal } = useGeneral();
+    const { cart, setCart, orderTotal } = useGeneral();
     const rupee = new Intl.NumberFormat('en-IN', {
         style: 'currency',
         currency: 'INR',
     });
+    const removeItem = useCallback((itemId: number) => {
+        setCart((current: any) =>
+            current.filter((obj: any) => {
+                return obj.id !== itemId;
+            }),
+        );
+    }, [setCart]);
+
     return (
         <div className={styles.cart}>
             <div className={styles.title}>Your Shopping Cart</div>
@@ -34,8 +43,15 @@ const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
                         <div className={`${styles.rowHeading} ${styles.itemRow}`} key={index}>
                             {!isMobileTablet && <div className={styles.widthSlNo}>{index + 1}</div>}
                             <div className={`${styles.widthBook} ${styles.bookRow}`}>
-                                {item.name}
-                                {isMobileTablet && <div className={styles.quantityRow}>Qty: {item.quantity} x ₹{item.price}</div>}
+                                <div className={styles.bookName}>
+                                    {item.billingName}
+                                    {item.question && ' + Questions'}
+                                    {item.cd && ' + CD'}
+                                    {isMobileTablet && <div className={styles.quantityRow}>Qty: {item.quantity} x ₹{item.price}</div>}
+                                </div>
+                                <div className={styles.deleteIcon} onClick={() => removeItem(item.id)}>
+                                    <RiDeleteBin6Line color="#757575" />
+                                </div>
                             </div>
                             {!isMobileTablet && 
                                 <>
@@ -43,13 +59,13 @@ const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
                                     <div className={styles.width18}>{rupee.format(item.price)}</div>
                                 </>
                             }
-                            <div className={`${styles.weight500} ${isMobileTablet ? `${styles.width40} ${styles.alignEnd}` : styles.width18}`}>{rupee.format(item.price * item.quantity)}</div>
+                            <div className={`${styles.weight500} ${isMobileTablet ? `${styles.width30} ${styles.alignEnd}` : styles.width18}`}>{rupee.format(item.price * item.quantity)}</div>
                         </div>
                     );
                 })}
                 <div className={`${styles.rowHeading} ${styles.totalRow}`}>
                     <div className={`${isMobileTablet ? `${styles.widthBook} ${styles.alignStart}` : styles.width18}`}>Total Amount</div>
-                    <div className={`${styles.weight500} ${isMobileTablet ? `${styles.width40} ${styles.alignEnd}` : styles.width18}`}>{rupee.format(orderTotal)}</div>
+                    <div className={`${styles.font18} ${styles.weight500} ${isMobileTablet ? `${styles.width40} ${styles.alignEnd}` : styles.width18}`}>{rupee.format(orderTotal)}</div>
                 </div>
                 <div className={`${styles.rowHeading} ${styles.checkoutRow}`}>
                     <div className={styles.text}>Please review the items and click the button to checkout</div>

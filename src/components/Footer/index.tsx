@@ -25,7 +25,12 @@ const Footer = () => {
                 </div>
                 <div className={`${styles.linksColumn} ${styles.linksCompany}`}>
                     <div>
-                        <img className={styles.logo} src={require('../../assets/images/logo.png')} alt='company logo' />
+                        <img
+                            className={styles.logo}
+                            src={require('../../assets/images/logo.png')}
+                            alt='company logo'
+                            loading="lazy"
+                        />
                     </div>
                     <div className={styles.address}>
                         <div>Associate Prints</div>

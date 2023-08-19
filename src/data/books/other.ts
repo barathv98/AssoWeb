@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const otherBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 20,
         categoryName: '',
         categoryBooks: [
             {
-                id: 1,
+                id: 1084,
                 name: 'Jumbo Table Book',
+                billingName: 'Jumbo Table Book',
                 description: '',
                 price: 65,
                 question: false,
@@ -18,8 +19,9 @@ export const otherBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1083,
                 name: 'Table Book',
+                billingName: 'Table Book',
                 description: '',
                 price: 40,
                 question: false,
@@ -30,8 +32,9 @@ export const otherBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1118,
                 name: 'My Scrap Book',
+                billingName: 'My Scrap Book',
                 description: '',
                 price: 55,
                 question: true,
@@ -42,8 +45,9 @@ export const otherBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1119,
                 name: 'My Project Book',
+                billingName: 'My Project Book',
                 description: '',
                 price: 55,
                 question: true,
@@ -54,8 +58,9 @@ export const otherBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1117,
                 name: 'School Atlas',
+                billingName: 'School Atlas',
                 description: '',
                 price: 170,
                 question: true,
@@ -66,8 +71,9 @@ export const otherBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1120,
                 name: "Student's Cumulative Record",
+                billingName: "Student's Cumulative Record",
                 description: '',
                 price: 22,
                 question: true,

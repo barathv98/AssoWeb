@@ -3,7 +3,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { Slide } from "react-awesome-reveal";
 import { Product, OrderItem } from '../../data/interface';
 import useGeneral from '../../useGeneral';
-import SimpleSnackbar from '../../common/components/Snackbar';
 import styles from './styles.module.scss';
 
 interface ProductCardProps {
@@ -17,7 +16,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     });
     const [orderItem, setOrderItem] = useState<OrderItem>({
         id: product.id,
-        name: product.name,
+        billingName: product.billingName,
         quantity: itemInCart.length ? itemInCart[0].quantity : 0,
         question: itemInCart.length ? itemInCart[0].question : false,
         cd: itemInCart.length ? itemInCart[0].cd : false,
@@ -37,20 +36,24 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
     const imgSrc = require(`../../assets/images/${product.imgName}`);
 
-    const onClickAddCart = useCallback(() => {
-        if (!orderItem.quantity) {
-            setQuantityError(true);
-        }
-        else {
-            setCart((current: any) =>
+    const addingToCart = useCallback(() => {
+        setCart((current: any) =>
                 current.filter((obj: any) => {
                     return obj.id !== product.id;
                 }),
             );
             setCart((current: any) => [...current, orderItem]);
-            setShowSnackbar(true);
+    }, [orderItem, product.id, setCart]);
+
+    const onClickAddCart = useCallback(() => {
+        if (!orderItem.quantity) {
+            setQuantityError(true);
         }
-    }, [product, orderItem, setCart, setShowSnackbar]);
+        else {
+            addingToCart();
+            setShowSnackbar('Item added');
+        }
+    }, [orderItem, addingToCart, setShowSnackbar]);
 
     const onClickRemove = useCallback(() => {
         setCart((current: any) =>
@@ -70,22 +73,28 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     }, [product.id, product.price, setCart]);
 
     const onChangeQuestion = useCallback((e: any) => {
+        let finalPrice = product.price;
+        if (product?.questionPrice && e.target.checked) finalPrice += product?.questionPrice;
         setOrderItem((prev) => {
             return({
                 ...prev,
+                price: finalPrice,
                 question: e.target.checked,
             })
         });
-    }, []);
+    }, [product.price, product?.questionPrice]);
 
     const onChangeCD = useCallback((e: any) => {
+        let finalPrice = product.price;
+        if (product?.cdPrice && e.target.checked) finalPrice += product?.cdPrice;
         setOrderItem((prev) => {
             return({
                 ...prev,
+                price: finalPrice,
                 cd: e.target.checked,
             })
         });
-    }, []);
+    }, [product.price, product?.cdPrice]);
 
     const onChangeQuantity = useCallback((e: any) => {
         setQuantityError(false);
@@ -108,6 +117,11 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     }, [itemInCart, orderItem.quantity]);
 
     useEffect(() => {
+        if (itemInCart[0]) addingToCart();
+        // eslint-disable-next-line
+    }, [orderItem.question, orderItem.cd]);
+
+    useEffect(() => {
         updateLocalStorageCart();
     }, [cart, updateLocalStorageCart]);
 
@@ -125,7 +139,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         <Slide direction='right' duration={200} fraction={0.2} triggerOnce>
         <div className={styles.productCard}>
             <div className={styles.productImage}>
-                <img className={styles.image} src={imgSrc} alt={`${product.name}`} />
+                <img className={styles.image} src={imgSrc} alt={`${product.name}`} loading='lazy' />
                 {product?.badgeText && <div className={styles.badgeText}>{product.badgeText}</div>}
             </div>
             <div className={styles.productContent}>
@@ -135,9 +149,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                         product?.questionPrice === 0
                             ? <div className={styles.extrasStmt}>Free Question Paper</div>
                             : (
-                                <div className={styles.extrasStmt} onClick={onChangeQuestion}>
-                                    <input type="checkbox" id="question" name="question" checked={orderItem.question} onClick={onChangeQuestion} />
-                                    <label htmlFor="question">Include Question (₹ {product.questionPrice})</label>
+                                <div className={styles.extrasStmt}>
+                                    <input type="checkbox" id={`question-${product.id}`} name="question" checked={orderItem.question} onChange={onChangeQuestion} />
+                                    <label htmlFor={`question-${product.id}`} onChange={onChangeQuestion}>Include Question (₹ {product.questionPrice})</label>
                                 </div>
                             )
                     )}
@@ -146,8 +160,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                             ? <div className={styles.extrasStmt}>Free CD</div>
                             : (
                                 <div className={styles.extrasStmt} onClick={onChangeCD}>
-                                    <input type="checkbox" id="cd" name="cd" checked={orderItem.cd} onClick={onChangeCD} />
-                                    <label htmlFor="cd">Include CD (₹ {product.cdPrice})</label>
+                                    <input type="checkbox" id={`cd-${product.id}`} name="cd" checked={orderItem.cd} onChange={onChangeCD} />
+                                    <label htmlFor={`cd-${product.id}`} onChange={onChangeCD}>Include CD (₹ {product.cdPrice})</label>
                                 </div>
                             )
                     )}
@@ -165,7 +179,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                             onChange={onChangeQuantity} />
                         </div>
                         <div className={styles.buttonsContainer}>
-                            <button className={`${styles.addCartButton} ${buttonText === 'Add' ? styles.add : styles.added}`} onClick={onClickAddCart}>
+                            <button className={`${styles.addCartButton} ${buttonText === 'Add' ? styles.add : styles.added}`} 
+                                onClick={onClickAddCart}
+                            >
                                 {buttonText}
                             </button>
                             {itemInCart[0] &&
@@ -177,7 +193,6 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     </div>
                 </div>
             </div>
-            <SimpleSnackbar text="Item added" />
         </div>
         </Slide>
     );

@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const computerBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 17,
         categoryName: 'My Windows To Computer',
         categoryBooks: [
             {
-                id: 1,
+                id: 1076,
                 name: 'My Windows To Computer - A',
+                billingName: 'My Windows To Computer - A',
                 description: '',
                 price: 58,
                 question: false,
@@ -18,8 +19,9 @@ export const computerBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1077,
                 name: 'My Windows To Computer - B',
+                billingName: 'My Windows To Computer - B',
                 description: '',
                 price: 58,
                 question: false,
@@ -30,8 +32,9 @@ export const computerBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1078,
                 name: 'My Windows To Computer - 1',
+                billingName: 'My Windows To Computer - 1',
                 description: '',
                 price: 80,
                 question: true,
@@ -42,8 +45,9 @@ export const computerBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1079,
                 name: 'My Windows To Computer - 2',
+                billingName: 'My Windows To Computer - 2',
                 description: '',
                 price: 80,
                 question: true,
@@ -54,8 +58,9 @@ export const computerBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1080,
                 name: 'My Windows To Computer - 3',
+                billingName: 'My Windows To Computer - 3',
                 description: '',
                 price: 85,
                 question: true,
@@ -66,8 +71,9 @@ export const computerBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1081,
                 name: 'My Windows To Computer - 4',
+                billingName: 'My Windows To Computer - 4',
                 description: '',
                 price: 95,
                 question: true,
@@ -78,8 +84,9 @@ export const computerBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1082,
                 name: 'My Windows To Computer - 5',
+                billingName: 'My Windows To Computer - 5',
                 description: '',
                 price: 95,
                 question: true,

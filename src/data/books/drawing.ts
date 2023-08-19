@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const drawingBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 18,
         categoryName: 'Rainbow Drawing Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1085,
                 name: 'Rainbow Drawing - A',
+                billingName: 'Rainbow Drawing - A',
                 description: '',
                 price: 58,
                 question: false,
@@ -18,8 +19,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1086,
                 name: 'Rainbow Drawing - B',
+                billingName: 'Rainbow Drawing - B',
                 description: '',
                 price: 58,
                 question: false,
@@ -30,8 +32,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1087,
                 name: 'Rainbow Drawing - 1',
+                billingName: 'Rainbow Drawing - 1',
                 description: '',
                 price: 58,
                 question: false,
@@ -42,8 +45,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1088,
                 name: 'Rainbow Drawing - 2',
+                billingName: 'Rainbow Drawing - 2',
                 description: '',
                 price: 58,
                 question: false,
@@ -54,8 +58,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1089,
                 name: 'Rainbow Drawing - 3',
+                billingName: 'Rainbow Drawing - 3',
                 description: '',
                 price: 58,
                 question: false,
@@ -66,8 +71,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1090,
                 name: 'Rainbow Drawing - 4',
+                billingName: 'Rainbow Drawing - 4',
                 description: '',
                 price: 58,
                 question: false,
@@ -78,8 +84,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1091,
                 name: 'Rainbow Drawing - 5',
+                billingName: 'Rainbow Drawing - 5',
                 description: '',
                 price: 58,
                 question: false,
@@ -92,12 +99,13 @@ export const drawingBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 19,
         categoryName: 'Creative Drawing Books',
         categoryBooks: [
             {
-                id: 1,
+                id: 1092,
                 name: 'Creative Drawing - 1',
+                billingName: 'Creative Drawing - 1',
                 description: '',
                 price: 58,
                 question: false,
@@ -108,8 +116,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1093,
                 name: 'Creative Drawing - 2',
+                billingName: 'Creative Drawing - 2',
                 description: '',
                 price: 58,
                 question: false,
@@ -120,8 +129,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1094,
                 name: 'Creative Drawing - 3',
+                billingName: 'Creative Drawing - 3',
                 description: '',
                 price: 58,
                 question: false,
@@ -132,8 +142,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1095,
                 name: 'Creative Drawing - 4',
+                billingName: 'Creative Drawing - 4',
                 description: '',
                 price: 58,
                 question: false,
@@ -144,8 +155,9 @@ export const drawingBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1096,
                 name: 'Creative Drawing - 5',
+                billingName: 'Creative Drawing - 5',
                 description: '',
                 price: 58,
                 question: false,

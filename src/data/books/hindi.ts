@@ -2,12 +2,13 @@ import { ProductsLists } from "../interface";
 
 export const hindiBooksList: ProductsLists = [
     {
-        categoryId: 1,
+        categoryId: 15,
         categoryName: 'Hindi Series',
         categoryBooks: [
             {
-                id: 1,
+                id: 1097,
                 name: 'Hindi Rastrabhasha - A',
+                billingName: 'Hindi Rastrabhasha - A',
                 description: '',
                 price: 55,
                 question: false,
@@ -18,8 +19,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1098,
                 name: 'Hindi Rastrabhasha - B',
+                billingName: 'Hindi Rastrabhasha - B',
                 description: '',
                 price: 60,
                 question: false,
@@ -30,8 +32,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1099,
                 name: 'Hindi Tamil English Dictionary',
+                billingName: 'Hindi Tamil English Dictionary',
                 description: '',
                 price: 60,
                 question: false,
@@ -42,8 +45,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1100,
                 name: 'Hindi Rastrabhasha - 1',
+                billingName: 'Hindi Rastrabhasha - 1',
                 description: '',
                 price: 75,
                 question: true,
@@ -54,8 +58,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1101,
                 name: 'Hindi Rastrabhasha - 2',
+                billingName: 'Hindi Rastrabhasha - 2',
                 description: '',
                 price: 75,
                 question: true,
@@ -66,8 +71,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1102,
                 name: 'Hindi Rastrabhasha - 3',
+                billingName: 'Hindi Rastrabhasha - 3',
                 description: '',
                 price: 75,
                 question: true,
@@ -78,8 +84,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1103,
                 name: 'Hindi Rastrabhasha - 4',
+                billingName: 'Hindi Rastrabhasha - 4',
                 description: '',
                 price: 80,
                 question: true,
@@ -90,8 +97,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1104,
                 name: 'Hindi Rastrabhasha - 5',
+                billingName: 'Hindi Rastrabhasha - 5',
                 description: '',
                 price: 80,
                 question: true,
@@ -104,12 +112,13 @@ export const hindiBooksList: ProductsLists = [
         ]
     },
     {
-        categoryId: 1,
+        categoryId: 16,
         categoryName: 'Hindi Sushma Hand Writing',
         categoryBooks: [
             {
-                id: 1,
+                id: 1105,
                 name: 'Hindi Sushma Hand Writing - A',
+                billingName: 'Hindi Sushma Hand Writing - A',
                 description: '',
                 price: 52,
                 question: false,
@@ -120,8 +129,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1106,
                 name: 'Hindi Sushma Hand Writing - B',
+                billingName: 'Hindi Sushma Hand Writing - B',
                 description: '',
                 price: 58,
                 question: false,
@@ -132,8 +142,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1107,
                 name: 'Hindi Sushma Hand Writing - 1',
+                billingName: 'Hindi Sushma Hand Writing - 1',
                 description: '',
                 price: 55,
                 question: true,
@@ -144,8 +155,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1108,
                 name: 'Hindi Sushma Hand Writing - 2',
+                billingName: 'Hindi Sushma Hand Writing - 2',
                 description: '',
                 price: 55,
                 question: false,
@@ -156,8 +168,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1109,
                 name: 'Hindi Sushma Hand Writing - 3',
+                billingName: 'Hindi Sushma Hand Writing - 3',
                 description: '',
                 price: 55,
                 question: false,
@@ -168,8 +181,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1110,
                 name: 'Hindi Sushma Hand Writing - 4',
+                billingName: 'Hindi Sushma Hand Writing - 4',
                 description: '',
                 price: 55,
                 question: false,
@@ -180,8 +194,9 @@ export const hindiBooksList: ProductsLists = [
                 imgName: 'book.jpg',
             },
             {
-                id: 1,
+                id: 1111,
                 name: 'Hindi Sushma Hand Writing - 5',
+                billingName: 'Hindi Sushma Hand Writing - 5',
                 description: '',
                 price: 55,
                 question: false,

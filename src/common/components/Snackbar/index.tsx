@@ -11,12 +11,12 @@ const SimpleSnackbar: React.FC<SnackbarProps> = ({ text }) => {
     if (reason === 'clickaway') {
       return;
     }
-    setShowSnackbar(false);
+    setShowSnackbar('');
   };
 
   React.useEffect(() => {
     setInterval(() => {
-        setShowSnackbar(false);
+        setShowSnackbar('');
     }, 4000);
   }, [showSnackbar, setShowSnackbar]);
 
@@ -24,7 +24,7 @@ const SimpleSnackbar: React.FC<SnackbarProps> = ({ text }) => {
     <div>
       <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        open={showSnackbar}
+        open={showSnackbar.length > 0}
         autoHideDuration={4000}
         onClose={handleClose}
         message={text}

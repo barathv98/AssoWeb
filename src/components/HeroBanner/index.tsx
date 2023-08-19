@@ -24,7 +24,7 @@ const HeroBanner = () => {
                 <Slide {...properties}>
                     {slideImages().map((img, index) => (
                     <div key={index} className={styles.eachSlide}>
-                        <img className={styles.image} src={img.imgSrc} alt="sample" />
+                        <img className={styles.image} src={img.imgSrc} alt="sample" loading="lazy" />
                     </div>
                     ))}
                 </Slide>
