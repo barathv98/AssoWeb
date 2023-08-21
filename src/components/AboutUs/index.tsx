@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styles from './styles.module.scss';
+import RenderImage from '../RenderImage';
 
 interface AboutUsProps {
     aboutRef: any;
@@ -7,7 +8,8 @@ interface AboutUsProps {
 const AboutUs:FC<AboutUsProps> = ({ aboutRef }) => {
     return (<div className={styles.aboutUs} ref={aboutRef}>
         <div className={styles.image}>
-            <img src={require('../../assets/images/about_us.jpg')} alt="about us" />
+            {/* <img src={require('../../assets/images/about_us.jpg')} alt="about us" /> */}
+            <RenderImage />
         </div>
         <div className={styles.text}>
             <div className={styles.title}>About Us</div>
