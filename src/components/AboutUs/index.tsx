@@ -8,8 +8,7 @@ interface AboutUsProps {
 const AboutUs:FC<AboutUsProps> = ({ aboutRef }) => {
     return (<div className={styles.aboutUs} ref={aboutRef}>
         <div className={styles.image}>
-            {/* <img src={require('../../assets/images/about_us.jpg')} alt="about us" /> */}
-            <RenderImage />
+            <RenderImage imageName='about_us_w7cifc' />
         </div>
         <div className={styles.text}>
             <div className={styles.title}>About Us</div>

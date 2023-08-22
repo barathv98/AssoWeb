@@ -1,9 +1,11 @@
-import React from 'react'
+import { FC } from 'react'
 import {AdvancedImage} from '@cloudinary/react';
 import {Cloudinary} from "@cloudinary/url-gen";
-import { quality } from "@cloudinary/url-gen/actions/delivery";
 
-const RenderImage = () => {
+interface Props {
+  imageName: string;
+}
+const RenderImage: FC<Props> = ({ imageName }) => {
 
   // Create and configure your Cloudinary instance.
   const cld = new Cloudinary({
@@ -13,7 +15,7 @@ const RenderImage = () => {
   }); 
 
   // Use the image with public ID, 'front_face'.
-  const myImage = cld.image('about_us_ljcyzo').delivery(quality(40));
+  const myImage = cld.image(imageName);
 
   // Render the transformed image in a React component.
   return (
