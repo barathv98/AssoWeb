@@ -144,7 +144,7 @@ export const termBooksList: ProductsLists = [
                 cd: false,
                 cdPrice: 0,
                 badgeText: '',
-                imgName: 'book.jpg',
+                imgName: '001.jpg',
             },
             {
                 id: 1044,
