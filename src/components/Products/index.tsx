@@ -5,6 +5,7 @@ import {ReactComponent as BookIcon} from '../../assets/icons/book.svg';
 // import {ReactComponent as DiaryIcon} from '../../assets/icons/diary.svg';
 import {ReactComponent as RegisterIcon} from '../../assets/icons/register.svg';
 import priceListLinks from '../../utils/constants';
+import RenderImage from '../RenderImage';
 
 interface ProductsProps {
     productRef: any;
@@ -15,7 +16,7 @@ const Products: FC<ProductsProps> = ({ productRef }) => {
     };
     return (<div className={styles.products} ref={productRef}>
         <div className={styles.image}>
-            <img src={require('../../assets/images/products.jpg')} alt="about us" />
+            <RenderImage imageName='products_i7jrpv' />
         </div>
         <div className={styles.textContainer}>
             <div className={styles.sectionTitle}>Products</div>
