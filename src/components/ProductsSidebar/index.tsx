@@ -12,7 +12,7 @@ const ProductsSidebar: FC<ProductsSidebarProps> = ({ onClick }) => {
             <div className={styles.title}>Quick Links</div>
             {sidebarLinks.map((link: any) => {
                 return (
-                    <>
+                    <div className={styles.bookSidebar} key={link.text}>
                         <NavLink
                             to={link.link}
                             className={styles.navlink}
@@ -35,7 +35,7 @@ const ProductsSidebar: FC<ProductsSidebarProps> = ({ onClick }) => {
                                 </NavLink>
                             )
                         })}
-                    </>
+                    </div>
                 );
             })}
         </div>

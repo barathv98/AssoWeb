@@ -1,31 +1,39 @@
 import { FC, useCallback } from "react";
+import PuffLoader from "react-spinners/PuffLoader";
 import useGeneral from "../../useGeneral";
 import useDeviceDetect from "../../utils/hooks/useDeviceDetect";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import styles from './styles.module.scss';
+import { useRequestRemoveCart } from "../../useRequest";
+import { rupee } from "../../utils/constants";
 
-interface CartDetailsProps {
-    setCartDetails: (state: boolean) => void;
-}
-const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
+interface CartDetailsProps {}
+const CartDetails: FC<CartDetailsProps> = () => {
     const { isMobileTablet } = useDeviceDetect();
-    const { cart, setCart, orderTotal } = useGeneral();
-    const rupee = new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
+    const { cart, setCart, getCartQuery, orderTotal, isAuthenticated } = useGeneral();
+
+    const { removeCart } = useRequestRemoveCart({
+        onSuccess: (res: any) => {
+            setCart(res.cart);
+        },
     });
+
     const removeItem = useCallback((itemId: number) => {
-        setCart((current: any) =>
-            current.filter((obj: any) => {
-                return obj.id !== itemId;
-            }),
-        );
-    }, [setCart]);
+        removeCart({ itemId: itemId });
+    }, [removeCart]);
+
+    const navigatePlaceOrderPage = useCallback(() => {
+        window.location.href = '/place-order';
+    }, []);
+
+    if (!isAuthenticated) return <div className={styles.unAuthenticatedCart}>Please login to check your cart</div>
+
+    if (getCartQuery.isLoading) return <div className={styles.loadingCart}><PuffLoader color="#2d9bf0" />Loading...</div>
 
     return (
         <div className={styles.cart}>
             <div className={styles.title}>Your Shopping Cart</div>
-            {cart.length ?
+            {cart?.length ?
             (<div>
                 <div className={styles.rowHeading}>
                     {!isMobileTablet && <div className={styles.widthSlNo}>Sl. No.</div>}
@@ -69,7 +77,12 @@ const CartDetails: FC<CartDetailsProps> = ({ setCartDetails }) => {
                 </div>
                 <div className={`${styles.rowHeading} ${styles.checkoutRow}`}>
                     <div className={styles.text}>Please review the items and click the button to checkout</div>
-                    <button className={styles.checkoutButton} onClick={() => setCartDetails(false)}>PROCEED TO CHECKOUT</button>
+                    <button
+                        className={styles.checkoutButton}
+                        onClick={navigatePlaceOrderPage}
+                    >
+                        PROCEED TO CHECKOUT
+                    </button>
                 </div>
             </div>)
             : (

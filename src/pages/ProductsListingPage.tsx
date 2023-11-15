@@ -13,9 +13,14 @@ import ProductCategories from "../components/ProductCategories";
 import { registersList } from "../data/registers";
 import { ProductsLists } from "../data/interface";
 import { otherBooksList } from "../data/books/other";
+import { useEffect } from "react";
 
 const ProductsListingPage = () => {
     const { product } = useParams();
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     
     let productList: ProductsLists = [];
     if (product === 'prekg')
@@ -42,6 +47,7 @@ const ProductsListingPage = () => {
         return <ProductCategories />;
     else if (product === 'registers')
         productList = registersList ;
+
     return (
         <ProductListing productList={productList} generalProduct={product === 'registers'} />
     );

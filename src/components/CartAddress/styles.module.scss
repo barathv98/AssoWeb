@@ -1,5 +1,23 @@
 @import '../../variables.scss';
 
+.unAuthenticated {
+    padding: 32px;
+    min-height: calc(100vh - 350px);
+    @media screen and (max-width: $breakpoint-small) {
+        padding: 16px;
+    }
+}
+.detailsLoader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    height: 300px;
+    @media screen and (min-width: $breakpoint-small-up) {
+        height: 600px;
+    }
+}
 .cartAddress {
     padding: 32px;
     @media screen and (max-width: $breakpoint-small) {
@@ -19,6 +37,26 @@
             font-size: 14px;
         }
     }
+    .orderSummary {
+        .title {
+            font-size: 20px;
+        }
+        .summaryContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #f6f6f6;
+            padding: 16px;
+            width: 700px;
+            border-radius: 4px;
+            margin: 0 auto;
+            @media screen and (max-width: $breakpoint-small) {
+                flex-direction: column;
+                width: calc(100% - 32px);
+                gap: 4px;
+            }
+        }
+    }
     .title {
         font-size: 24px;
         font-weight: 500;
@@ -35,26 +73,39 @@
             width: 700px;
             margin: 0 auto;
         }
-        .labelText {
-            text-align: start;
-            margin-bottom: 12px;
+        :global(.form-input) {
+            box-sizing: border-box;
         }
-        .inputField {
-            font-size: 16px;
-            font-family: 'Inter';
-            padding: 4px;
-            margin-bottom: 12px;
-            &.error {
-                border-color: red;
-                margin-bottom: 0;
+        .prefixFlag {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+        }
+        .sameRowFields {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            @media screen and (max-width: $breakpoint-medium) {
+                flex-direction: column;
+                gap: 0;
             }
         }
-        .errorText {
-            font-size: 13px;
-            font-style: italic;
-            color: red;
-            text-align: start;
-            margin-bottom: 12px;
+        .pincodeField {
+            width: 100%;
+            .districtDetails {
+                font-size: 12px;
+                font-style: italic;
+                text-align: start;
+            }
+        }
+        .disabledField {
+            width: 100%;
+            :global(.input-group) {
+                background-color: #f6f6f6;
+            }
         }
     }
     .orderButtonRow {
@@ -81,7 +132,38 @@
             margin: 8px 0;
             font-size: 14px;
             font-weight: 600;
-            cursor: pointer;
+            &.disabled {
+                cursor: not-allowed;
+                opacity: 0.6;
+                transform: none;
+                box-shadow: none;
+            }
+            &.enabled {
+                cursor: pointer;
+            }
         } 
+    }
+    .modal {
+        :global(.modal) {
+            width: 700px;
+            height: 400px;
+            @media screen and (max-width: $breakpoint-small) {
+                width: calc(100% - 32px);
+                height: 350px;
+                overflow: hidden;
+            }
+        }
+        .loader {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            justify-content: center;
+            width: calc(100% - 48px);
+            height: 400px;
+            @media screen and (max-width: $breakpoint-small) {
+                height: 300px;
+            } 
+        }
     }
 }

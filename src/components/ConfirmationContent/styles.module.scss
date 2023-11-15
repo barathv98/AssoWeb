@@ -1,13 +1,9 @@
 @import '../../variables.scss';
 
 .confirmationContent {
-    margin: 32px;
-    border: solid 1px #ccc;
-    padding: 16px;
+    width: calc(100% - 32px);
     @media screen and (min-width: $breakpoint-medium-up) {
-        width: 700px;
-        margin: 40px auto;
-        padding: 32px;
+        width: calc(100% - 48px);
     }
     .lottieIcon {
         width: 200px;
@@ -35,6 +31,18 @@
             font-weight: 500;
             margin-top: 12px;
             line-height: 1.5;
+        }
+        .backBtn {
+            padding: 16px;
+            margin-top: 24px;
+            color: white;
+            background-color: #2d9bf0;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
         }
     }
 }

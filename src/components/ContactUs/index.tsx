@@ -1,9 +1,9 @@
-import styles from './styles.module.scss';
+import { useCallback, useState } from 'react';
 import { ImLocation2 } from "react-icons/im";
 import { FaPhoneAlt } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
-import { useCallback, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import styles from './styles.module.scss';
+import { useRequestSendEmail } from '../../useRequest';
 
 const ContactUs = () => {
     const [name, setName] = useState<string>('');
@@ -17,9 +17,28 @@ const ContactUs = () => {
     const successMsg = 'Enquiry sent successfully, our team will contact you soon';
     const errorMsg = 'Something went wrong! You can contact on our mobile number';
     const [showMessage, setShowMessage] = useState<string>('');
-    const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+
+    const { sendEmail } = useRequestSendEmail({
+        onSuccess: () => {
+            setShowMessage(successMsg);
+            setName('');
+            setCity('');
+            setContactNumber('');
+            setMessage('');
+        },
+        onError: () => {
+            setShowMessage(errorMsg);
+        },
+        params: {
+            toEmail: 'printsassociate@gmail.com',
+            subject: 'Enquiry from website',
+            emailContent: `<div>
+                <div>Name: ${name}</div>
+                <div>City: ${city}</div>
+                <div>Contact number: ${contactNumber}</div>
+                <div>Message: ${message}</div>`
+        }
+    });
 
     const isValid = useCallback(() => {
         let flag: boolean = true;
@@ -44,16 +63,10 @@ const ContactUs = () => {
 
     const onClickSubmit = useCallback(() => {
         setShowMessage('');
-        if (isValid() && serviceId && templateId && publicKey) {
-            emailjs.send(serviceId, templateId, {name: name, city: city, contactNumber: contactNumber, message: message}, publicKey)
-                .then(() => {
-                    setShowMessage(successMsg);
-                })
-                .catch(() => {
-                    setShowMessage(errorMsg)
-                });
+        if (isValid()) {
+            sendEmail();
         }
-    }, [isValid, serviceId, templateId, publicKey, name, city, contactNumber, message]);
+    }, [isValid, sendEmail]);
 
     return (
         <div className={styles.contactUs}>

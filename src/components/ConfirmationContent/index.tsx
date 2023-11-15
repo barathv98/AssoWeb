@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Lottie from 'lottie-react';
-import { Link } from "react-router-dom";
 import successTickAnimation from '../../assets/icons/successTick.json';
 import failureAnimation from '../../assets/icons/failure.json';
 import styles from './styles.module.scss';
@@ -21,6 +20,7 @@ const ConfirmationContent: FC<ConfirmationContentProps> = ({ success }) => {
                         <div className={styles.subTitle}>
                             Thanks for ordering with us. We have received your order, our team will contact you soon
                         </div>
+                        <button className={styles.backBtn} onClick={() => window.location.href = '/'}>Back to Homepage</button>
                     </div>
                 </>
             ) 
@@ -32,8 +32,9 @@ const ConfirmationContent: FC<ConfirmationContentProps> = ({ success }) => {
                     <div className={styles.textContent}>
                         <div className={styles.title}>Order Failed</div>
                         <div className={styles.subTitle}>
-                            Please head to <Link to='/shopping-cart'>Cart</Link> page to order again
+                            Please head to Cart page to order again
                         </div>
+                        <button className={styles.backBtn} onClick={() => window.location.href = '/shopping-cart'}>Back to Cart</button>
                     </div>
                 </>
             )}

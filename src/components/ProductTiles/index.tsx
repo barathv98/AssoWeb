@@ -10,7 +10,7 @@ const ProductTiles = () => {
             <div className={styles.tileContainer}>
                 {productTiles.map((tile) => {
                     return (
-                        <div className={styles.tile} onClick={() => navigate(tile.url)}>
+                        <div className={styles.tile} onClick={() => navigate(tile.url)} key={tile.label}>
                             <img className={styles.image} src={require(`../../assets/images/${tile.image}`)} alt={'tile'} loading='lazy' />
                             <div className={styles.label}>{tile.label}</div>
                         </div>

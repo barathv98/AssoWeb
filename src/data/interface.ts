@@ -31,3 +31,15 @@ export interface OrderItem {
 }
 
 export type CartItems = Array<OrderItem>;
+
+export interface UserDetail {
+    mobile: string;
+    name?: string;
+    address?: string;
+    city?: string;
+    pincode?: string;
+    district?: string;
+    state?: string;
+    secContactNum?: string;
+    transport?: string;
+}

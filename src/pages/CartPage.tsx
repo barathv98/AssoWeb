@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import CartDetails from "../components/CartDetails";
-import CartAddress from "../components/CartAddress";
 
 const CartPage = () => {
-    const [cartDetails, setCartDetails] = useState<boolean>(true);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
-        <>
-            {cartDetails && <CartDetails setCartDetails={setCartDetails} />}
-            {!cartDetails && <CartAddress setCartDetails={setCartDetails} />}
-        </>
+        <CartDetails />
     );
 };
 

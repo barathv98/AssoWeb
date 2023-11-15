@@ -1,118 +1,177 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
-import emailjs from '@emailjs/browser';
-import styles from './styles.module.scss';
-import { useNavigate } from "react-router-dom";
+import BounceLoader from "react-spinners/BounceLoader";
+import PuffLoader from "react-spinners/PuffLoader";
+import { useRequestGetPODetails, useRequestGetUserDetail, useRequestPlaceOrder } from "../../useRequest";
+import { mobileRegex, pincodeRegex, rupee } from "../../utils/constants";
+import CountryFlag from "../../common/components/CountryFlag";
+import useTextInput from "../../common/useTextInput";
+import Input from "../../common/components/Input";
 import useGeneral from "../../useGeneral";
+import Modal from "../../common/components/Modal";
+import { UserDetail } from "../../data/interface";
+import ConfirmationContent from "../ConfirmationContent";
+import styles from './styles.module.scss';
 
-interface CartAddressProps {
-    setCartDetails: (state: boolean) => void;
-}
-const CartAddress: FC<CartAddressProps> = ({ setCartDetails }) => {
-    const [schoolName, setSchoolName] = useState<string>('');
-    const [schoolAddress, setSchoolAddress] = useState<string>('');
-    const [contactNum, setContactNum] = useState<string>('');
-    const [transport, setTransport] = useState<string>('');
-    const [nameError, setNameError] = useState<string>('');
-    const [addressError, setAddressError] = useState<string>('');
-    const [contactError, setContactError] = useState<string>('');
-    const { cart, setCart } = useGeneral();
-    const navigate = useNavigate();
-    const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
-    const templateId = process.env.REACT_APP_ORDER_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+interface CartAddressProps {}
+const CartAddress: FC<CartAddressProps> = () => {
+    const { cart, setCart, orderTotal, userDetail, setUserDetail, isAuthenticated } = useGeneral();
+    const [name, setName] = useTextInput('');
+    const [address, setAddress] = useTextInput('');
+    const [city, setCity] = useTextInput('');
+    const [pincode, setPincode] = useTextInput('');
+    const [secContactNum, setSecContactNum] = useTextInput('');
+    const [transport, setTransport] = useTextInput('');
+    const [orderBtnDisabled, setOrderBtnDisabled] = useState<boolean>(true);
+    const [district, setDistrict] = useState<string>('');
+    const [state, setState] = useState<string>('');
+    const [formErrors, setFormErrors] = useState<any>({});
+    const [showPopup, setShowPopup] = useState<boolean>(false);
+    const [orderState, setOrderState] = useState<string>('');
 
-    const isValid = useCallback(() => {
-        let flag: boolean = true;
-        if (!schoolName.length) {
-            setNameError('School Name is empty');
-            flag = false;
+    const { getUserDetail, isLoading } = useRequestGetUserDetail({
+        onSuccess: (data: UserDetail) => {
+            setUserDetail({...data});
+        },
+    });
+
+    const { getPODetails } = useRequestGetPODetails({
+        onSuccess: (data: any) => {
+            setDistrict(data?.District);
+            setState(data?.State);
+        },
+        params: String(pincode.value)?.replace(/ /g, ""),
+    });
+
+    const { placeOrder } = useRequestPlaceOrder({
+        onSuccess: () => {
+            setOrderState('success');
+            setCart([]);
+        },
+        onError: () => {
+            setOrderState('failure');
+        },
+        params: {
+            name: name.value,
+            address: address.value,
+            city: city.value,
+            pincode: pincode.value,
+            district: district,
+            state: state,
+            secContactNum: secContactNum.value,
+            transport: transport.value,
+            orderItems: cart,
         }
-        else if (schoolName.length <= 5) {
-            setNameError('Please enter valid school name');
-            flag = false;
-        }
-        if (!schoolAddress.length) {
-            setAddressError('School Address is empty');
-            flag = false;
-        }
-        else if (schoolAddress.length <= 5) {
-            setAddressError('Please enter valid address');
-            flag = false;
-        }
-        if (!contactNum.length) {
-            setContactError('Contact number is empty');
-            flag = false;
-        }
-        else if (!contactNum.match(/^\d{10,11}$/)) {
-            setContactError('Please enter valid contact number');
-            flag = false;
-        }
-        return flag;
-    }, [contactNum, schoolAddress.length, schoolName.length]);
+    });
     
     const onClickConfirm = useCallback(() => {
-        if (isValid() && serviceId && templateId && publicKey) {
-            let cartItemsStr: string = '';
-            cart?.forEach((item) => {
-                return (
-                    cartItemsStr += `${item.billingName} - ${item.quantity}\n`
-                );
-            })
-            emailjs.send(serviceId, templateId, {
-                name: schoolName,
-                address: schoolAddress,
-                contactNum: contactNum,
-                transport: transport,
-                cart: cartItemsStr
-            }, publicKey)
-                .then(() => {
-                    navigate('/order-confirmation/success');
-                    setCart([]);
-                })
-                .catch(() => {
-                    navigate('/order-confirmation/failed');
-                });
-        }
-    },
-    [isValid, navigate, publicKey, serviceId, templateId, schoolName, schoolAddress, contactNum, transport, cart, setCart]);
+        if (!pincodeRegex.test(pincode.value))
+            return setFormErrors({ pincode: 'Invalid pincode' });
+        if (secContactNum.value && !mobileRegex.test(secContactNum.value))
+            return setFormErrors({ secContactNum: 'Invalid mobile number' });
+        setShowPopup(true);
+        setOrderState('loading');
+        setFormErrors({});
+        placeOrder();
+    }, [pincode.value, secContactNum.value, placeOrder]);
+
+    useEffect(() => {
+        if (pincodeRegex.test(pincode.value))
+            getPODetails();
+    }, [pincode.value, getPODetails]);
+
+    useEffect(() => {
+        if (name.value && address.value && city.value && pincode.value)
+            setOrderBtnDisabled(false);
+        else
+            setOrderBtnDisabled(true);
+    }, [name.value, address.value, city.value, pincode.value]);
+
+    useEffect(() => {
+        setName(userDetail?.name || '');
+        setAddress(userDetail?.address || '');
+        setCity(userDetail?.city || '');
+        if (userDetail?.pincode)
+            setPincode(userDetail?.pincode);
+        setSecContactNum(userDetail?.secContactNum || '');
+        setTransport(userDetail?.transport || '');
+    }, [userDetail, setName, setAddress, setCity, setPincode, setSecContactNum, setTransport]);
+
+    useEffect(() => {
+        getUserDetail();
+        // eslint-disable-next-line
+    }, []);
+
+    if (!isAuthenticated) return <div className={styles.unAuthenticated}>Please login to place your order</div>
+
+    if (isLoading) {
+        return <div className={styles.detailsLoader}><PuffLoader color="#2d9bf0" />Fetching Details</div>
+    }
+
     return (
         <div className={styles.cartAddress}>
-            <div className={styles.backLink} onClick={() => setCartDetails(true)}>
+            <div className={styles.backLink} onClick={() => {}}>
                 <MdOutlineKeyboardBackspace color='#222' size={14} />
                 Back to Cart
             </div>
+            <div className={styles.orderSummary}>
+                <div className={styles.title}>Order Summary</div>
+                <div className={styles.summaryContainer}>
+                    <div>Total Items: {cart.length}</div>
+                    <div>Total Price: {rupee.format(orderTotal)}</div>
+                </div>
+            </div>
             <div className={styles.title}>Your shipping address</div>
             <div className={styles.addressForms}>
-                <div className={styles.labelText}>School Name</div>
-                <textarea
-                    className={`${styles.inputField} ${nameError ? styles.error : ''}`}
-                    rows={2} 
-                    onChange={e => {setNameError('');setSchoolName(e.target.value);}} 
-                />
-                {nameError && <div className={styles.errorText}>{nameError}</div>}
-                <div className={styles.labelText}>School Address (full address)</div>
-                <textarea
-                    className={`${styles.inputField} ${addressError ? styles.error : ''}`}
-                    rows={4}
-                    onChange={e => {setAddressError('');setSchoolAddress(e.target.value);}}
-                />
-                {addressError && <div className={styles.errorText}>{addressError}</div>}
-                <div className={styles.labelText}>Contact number</div>
-                <input type="number"
-                    className={`${styles.inputField} ${contactError ? styles.error : ''}`}
-                    onChange={e => {setContactError('');setContactNum(e.target.value);}}
-                />
-                {contactError && <div className={styles.errorText}>{contactError}</div>}
-                <div className={styles.labelText}>Transport Lorry Name (Optional)</div>
-                <input type="text"
-                    className={styles.inputField}  
-                    onChange={e => setTransport(e.target.value)}
-                />
+                <Input type="text" label="Name" required {...name} />
+                <Input type="text" label="Address" required {...address} />
+                <div className={styles.sameRowFields}>
+                    <Input type="text" label="City" required {...city} />
+                    <div className={styles.pincodeField}>
+                        <Input type="number" label="Pincode" required 
+                            helperText={(district && state) ? `${district} Dt., ${state}` : ''}
+                            errorMessage={formErrors?.pincode ? formErrors?.pincode : ''} {...pincode}
+                        />
+                    </div>
+                </div>
+                <div className={styles.sameRowFields}>
+                    <div className={styles.disabledField}>
+                        <Input type="text" label="Primary Contact Number" 
+                            prefix={<div className={styles.prefixFlag}><CountryFlag />+91</div>}
+                            value={userDetail?.mobile} disabled 
+                            helperText="This is the mobile number you used to login. This can't be changed"
+                        />
+                    </div>
+                    <Input type="text" label="Other Contact Number (optional)"
+                        prefix={<div className={styles.prefixFlag}><CountryFlag />+91</div>}
+                        errorMessage={formErrors?.secContactNum ? formErrors?.secContactNum : ''}
+                        {...secContactNum}
+                    />
+                </div>
+                <Input type="text" label="Transport (Optional)" {...transport} />
             </div>
             <div className={styles.orderButtonRow}>
-                <button className={styles.orderButton} onClick={onClickConfirm}>CONFIRM ORDER</button>
+                <button className={`${styles.orderButton} ${orderBtnDisabled ? styles.disabled : styles.enabled}`}
+                onClick={onClickConfirm} disabled={orderBtnDisabled}>
+                    CONFIRM ORDER
+                </button>
             </div>
+            {showPopup && 
+                <Modal title="" openState={showPopup}
+                    cssClass={styles.modal}
+                    content={
+                        orderState === 'loading'
+                        ? (
+                            <div className={styles.loader}>
+                                <BounceLoader color='#2d9bf0' />
+                                <div className={styles.text}>Order Processing</div>
+                            </div>
+                        )
+                        : <ConfirmationContent success={orderState === 'success'} />
+                    }
+                    mobileModalPosition="center"
+                />
+            }
         </div>
     );
 };
