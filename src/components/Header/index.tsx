@@ -8,6 +8,8 @@ import Sidebar from '../../common/components/Sidebar';
 import { BiCategory } from "react-icons/bi";
 import { GrContactInfo } from "react-icons/gr";
 import { CgOrganisation } from "react-icons/cg";
+import useAnalytics from '../../useAnalytics';
+import { MixpanelEvent } from '../../utils/constants';
 
 interface HeaderProps {
     aboutRef: any;
@@ -17,6 +19,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
     const { isMobile } = useDeviceDetect();
     const [showPopup, setShowPopup] = useState<boolean>(false);
+    const { trackEvent } = useAnalytics();
 
     const onSidebarItemClick = useCallback((refElement: any) => {
         setShowPopup(false);
@@ -34,14 +37,36 @@ const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
                             onClick={() => {
                                 if(showPopup) window.scrollTo({top: 0,left: 0,behavior: "smooth",});
                                 setShowPopup((showPopup) => !showPopup)
+                                trackEvent(MixpanelEvent.POPUP_CLICK, {})
                             }}>
                             <GiHamburgerMenu />
                         </div>}
                 </div>
                 <div className={styles.optionsContainer}>
-                    <div className={styles.option} onClick={() => aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>About Us</div>
-                    <div className={styles.option} onClick={() => productRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>Products</div>
-                    <div className={styles.option} onClick={() => contactRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })}>Contact Us</div>
+                    <div className={styles.option} 
+                        onClick={() => {
+                            aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+                            trackEvent(MixpanelEvent.ABOUTUS_CLICK, {})
+                        }}
+                    >
+                        About Us
+                    </div>
+                    <div className={styles.option}
+                        onClick={() => {
+                            productRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+                            trackEvent(MixpanelEvent.PRODUCTS_CLICK, {})
+                        }}
+                    >
+                        Products
+                    </div>
+                    <div className={styles.option}
+                        onClick={() => {
+                            contactRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+                            trackEvent(MixpanelEvent.CONTACTUS_CLICK, {})
+                        }}
+                    >
+                        Contact Us
+                    </div>
                 </div>
             </div>
             <motion.div {...transitionConfig}>
@@ -50,9 +75,33 @@ const Header: FC<HeaderProps> = ({ aboutRef, productRef, contactRef }) => {
                         onClose={() => setShowPopup(false)}
                         content={
                             <>
-                                <div className={styles.sidebarItem} onClick={() => onSidebarItemClick(aboutRef)}><CgOrganisation /><span>About Us</span></div>
-                                <div className={styles.sidebarItem} onClick={() => onSidebarItemClick(productRef)}><BiCategory /><span>Products</span></div>
-                                <div className={styles.sidebarItem} onClick={() => onSidebarItemClick(contactRef)}><GrContactInfo /><span>Contact Us</span></div>
+                                <div className={styles.sidebarItem}
+                                    onClick={() => {
+                                        onSidebarItemClick(aboutRef)
+                                        trackEvent(MixpanelEvent.ABOUTUS_CLICK, {})
+                                    }}
+                                >
+                                    <CgOrganisation />
+                                    <span>About Us</span>
+                                </div>
+                                <div className={styles.sidebarItem}
+                                    onClick={() => {
+                                        onSidebarItemClick(productRef)
+                                        trackEvent(MixpanelEvent.PRODUCTS_CLICK, {})
+                                    }}
+                                >
+                                    <BiCategory />
+                                    <span>Products</span>
+                                </div>
+                                <div className={styles.sidebarItem}
+                                    onClick={() => {
+                                        onSidebarItemClick(contactRef)
+                                        trackEvent(MixpanelEvent.CONTACTUS_CLICK, {})
+                                    }}
+                                >
+                                    <GrContactInfo />
+                                    <span>Contact Us</span>
+                                </div>
                             </>
                         } 
                     />

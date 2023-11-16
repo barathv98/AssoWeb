@@ -4,16 +4,20 @@ import { MdArrowForwardIos } from "react-icons/md";
 import {ReactComponent as BookIcon} from '../../assets/icons/book.svg';
 // import {ReactComponent as DiaryIcon} from '../../assets/icons/diary.svg';
 import {ReactComponent as RegisterIcon} from '../../assets/icons/register.svg';
-import priceListLinks from '../../utils/constants';
+import priceListLinks, { MixpanelEvent } from '../../utils/constants';
 import RenderImage from '../RenderImage';
+import useAnalytics from '../../useAnalytics';
 
 interface ProductsProps {
     productRef: any;
 }
 const Products: FC<ProductsProps> = ({ productRef }) => {
+    const { trackEvent } = useAnalytics();
+
     const onProductClick = (url: string) => {
         window.open(url, "_blank", "noreferrer");
     };
+
     return (<div className={styles.products} ref={productRef}>
         <div className={styles.image}>
             <RenderImage imageName='products_i7jrpv' />
@@ -24,7 +28,12 @@ const Products: FC<ProductsProps> = ({ productRef }) => {
                 We offer a wide variety of text books and activity books for kids from Pre KG to Std V.
                 <div className={styles.clickNote}>Please click below to view our catalogues👇</div>
                 <div className={styles.productLinks}>
-                    <div className={styles.linkContainer} onClick={() => onProductClick(priceListLinks.book)}>
+                    <div className={styles.linkContainer}
+                        onClick={() => {
+                            onProductClick(priceListLinks.book)
+                            trackEvent(MixpanelEvent.BOOK_CLICK, {})
+                        }}
+                    >
                         <div className={`${styles.iconContainer} ${styles.book}`}><BookIcon /></div>
                         <div className={styles.text}>
                             <div className={styles.title}>School Books</div>
@@ -36,7 +45,12 @@ const Products: FC<ProductsProps> = ({ productRef }) => {
                             <MdArrowForwardIos />
                         </div>
                     </div>
-                    <div className={styles.linkContainer} onClick={() => onProductClick(priceListLinks.register)}>
+                    <div className={styles.linkContainer}
+                        onClick={() => {
+                            onProductClick(priceListLinks.register)
+                            trackEvent(MixpanelEvent.REGISTER_CLICK, {})
+                        }}
+                    >
                         <div className={`${styles.iconContainer} ${styles.register}`}><RegisterIcon /></div>
                         <div className={styles.text}>
                             <div className={styles.title}>Attendance Registers</div>

@@ -10,6 +10,7 @@ const HomePage = () => {
     const aboutRef = useRef();
     const productRef = useRef();
     const contactRef = useRef();
+
     return <><MarqueeRibbon /><Header aboutRef={aboutRef} productRef={productRef} contactRef={contactRef} /><Products productRef={productRef} /><AboutUs aboutRef={aboutRef} /><ContactUs contactRef={contactRef} /><Copyright /></>;
 };
 
