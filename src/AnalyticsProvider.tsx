@@ -1,7 +1,7 @@
 import mixpanel from 'mixpanel-browser';
 import { createContext, useCallback, useMemo, useState } from 'react';
-import { MixpanelEvent } from './utils/constants';
-import { ReactFCC } from './common/interface';
+import { ReactFCC } from "./common/interface";
+import { MixpanelEvent } from "./utils/constants";
 
 export interface AnalyticsContextType {
 	trackEvent: (event: MixpanelEvent, data: any) => void;

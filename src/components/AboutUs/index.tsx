@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import styles from './styles.module.scss';
-import RenderImage from '../RenderImage';
+import RenderImage from "../RenderImage";
+import styles from "./styles.module.scss";
 
 interface AboutUsProps {
     aboutRef: any;
