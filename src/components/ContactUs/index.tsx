@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
-import { ImLocation2 } from "react-icons/im";
 import { FaPhoneAlt } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
-import styles from './styles.module.scss';
+import { ImLocation2 } from "react-icons/im";
 import { useRequestSendEmail } from '../../useRequest';
+import styles from './styles.module.scss';
 
 const ContactUs = () => {
     const [name, setName] = useState<string>('');
@@ -69,6 +69,7 @@ const ContactUs = () => {
     }, [isValid, sendEmail]);
 
     return (
+      <>
         <div className={styles.contactUs}>
             <div className={styles.title}>Contact Us</div>
             <div className={styles.data}>
@@ -130,7 +131,24 @@ const ContactUs = () => {
                 </div>
             </div>
         </div>
-    )
+        <div className={styles.address}>
+          <div className={styles.icon}>
+            <FaPhoneAlt />
+          </div>
+          <div className={styles.text}>
+            <div>9486287443</div>
+          </div>
+        </div>
+        <div className={styles.address}>
+          <div className={styles.icon}>
+            <GrMail />
+          </div>
+          <div className={styles.text}>
+            <div>printsassociate@gmail.com</div>
+          </div>
+        </div>
+        </>
+  );
 };
 
 export default ContactUs;

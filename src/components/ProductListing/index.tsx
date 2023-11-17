@@ -1,13 +1,13 @@
 import { FC } from "react";
+import SimpleSnackbar from '../../common/components/Snackbar';
+import { ProductsLists } from '../../data/interface';
 import useGeneral from "../../useGeneral";
 import useDeviceDetect from "../../utils/hooks/useDeviceDetect";
+import GeneralCard from '../GeneralCard';
 import ProductCard from "../ProductCard";
+import ProductsSidebar from '../ProductsSidebar';
 import StickyCart from "../StickyCart";
 import styles from './styles.module.scss';
-import ProductsSidebar from "../ProductsSidebar";
-import GeneralCard from "../GeneralCard";
-import { ProductsLists } from "../../data/interface";
-import SimpleSnackbar from "../../common/components/Snackbar";
 
 interface ProductListingProps {
     productList: ProductsLists;

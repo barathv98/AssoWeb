@@ -1,15 +1,15 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import BounceLoader from "react-spinners/BounceLoader";
-import PuffLoader from "react-spinners/PuffLoader";
-import { useRequestGetPODetails, useRequestGetUserDetail, useRequestPlaceOrder } from "../../useRequest";
-import { mobileRegex, pincodeRegex, rupee } from "../../utils/constants";
-import CountryFlag from "../../common/components/CountryFlag";
-import useTextInput from "../../common/useTextInput";
-import Input from "../../common/components/Input";
-import useGeneral from "../../useGeneral";
-import Modal from "../../common/components/Modal";
+import PuffLoader from 'react-spinners/PuffLoader';
+import CountryFlag from '../../common/components/CountryFlag';
+import Input from '../../common/components/Input';
+import Modal from '../../common/components/Modal';
+import useTextInput from '../../common/useTextInput';
 import { UserDetail } from "../../data/interface";
+import useGeneral from '../../useGeneral';
+import { useRequestGetPODetails, useRequestGetUserDetail, useRequestPlaceOrder } from '../../useRequest';
+import { mobileRegex, pincodeRegex, rupee } from '../../utils/constants';
 import ConfirmationContent from "../ConfirmationContent";
 import styles from './styles.module.scss';
 

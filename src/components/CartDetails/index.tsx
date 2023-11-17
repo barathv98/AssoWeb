@@ -1,11 +1,11 @@
 import { FC, useCallback } from "react";
+import { RiDeleteBin6Line } from 'react-icons/ri';
 import PuffLoader from "react-spinners/PuffLoader";
 import useGeneral from "../../useGeneral";
-import useDeviceDetect from "../../utils/hooks/useDeviceDetect";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { useRequestRemoveCart } from '../../useRequest';
+import { rupee } from '../../utils/constants';
+import useDeviceDetect from '../../utils/hooks/useDeviceDetect';
 import styles from './styles.module.scss';
-import { useRequestRemoveCart } from "../../useRequest";
-import { rupee } from "../../utils/constants";
 
 interface CartDetailsProps {}
 const CartDetails: FC<CartDetailsProps> = () => {

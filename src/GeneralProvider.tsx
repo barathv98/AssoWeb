@@ -1,6 +1,5 @@
 import React, { createContext, Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react';
 import { CartItems, UserDetail } from './data/interface';
-import { getCart } from './services/Api.service';
 import { useRequestGetCart } from './useRequest';
 
 interface GeneralContextType {

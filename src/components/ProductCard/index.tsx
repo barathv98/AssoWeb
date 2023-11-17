@@ -1,10 +1,10 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { Slide } from 'react-awesome-reveal';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { Slide } from "react-awesome-reveal";
-import { Product, OrderItem } from '../../data/interface';
+import { OrderItem, Product } from '../../data/interface';
 import useGeneral from '../../useGeneral';
-import styles from './styles.module.scss';
 import { useRequestRemoveCart, useRequestUpdateCart } from '../../useRequest';
+import styles from './styles.module.scss';
 
 interface ProductCardProps {
     product: Product;

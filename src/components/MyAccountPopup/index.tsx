@@ -2,7 +2,7 @@ import Modal from "../../common/components/Modal";
 import useGeneral from "../../useGeneral";
 import useDeviceDetect from "../../utils/hooks/useDeviceDetect";
 import PopupContent from "./PopupContent";
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 const MyAccountPopup = () => {
     const { isMobile } = useDeviceDetect();

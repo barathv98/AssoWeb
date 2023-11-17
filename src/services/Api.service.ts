@@ -1,6 +1,6 @@
 import axios from "axios";
-import { sendGetCustomHeader, sendPost, sendPostCustomHeader } from "./Http.service";
-import { UserDetail } from "../data/interface";
+import { UserDetail } from '../data/interface';
+import { sendGetCustomHeader, sendPost, sendPostCustomHeader } from './Http.service';
 
 export const requestOTP = async (params: any): Promise<any> => {
 	const endpoint = `sign-in`;

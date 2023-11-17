@@ -12,4 +12,13 @@ export const rupee = new Intl.NumberFormat('en-IN', {
     currency: 'INR',
 });
 
+export enum MixpanelEvent {
+    ABOUTUS_CLICK = 'aboutus_click',
+    PRODUCTS_CLICK = 'products_click',
+    CONTACTUS_CLICK = 'contactus_click',
+    BOOK_CLICK = 'book_click',
+    REGISTER_CLICK = 'register_click',
+    POPUP_CLICK = 'popup_click',
+}
+
 export default priceListLinks;

@@ -1,21 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
-import styles from './styles.module.scss';
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BsCartFill } from "react-icons/bs";
-import useDeviceDetect from '../../utils/hooks/useDeviceDetect';
 import { motion } from 'framer-motion';
-import { transitionConfig } from '../../utils/config/transitionConfig';
-import Sidebar from '../../common/components/Sidebar';
-import { Link, useNavigate } from 'react-router-dom';
-import useGeneral from '../../useGeneral';
-import ProductsSidebar from '../ProductsSidebar';
-import Modal from '../../common/components/Modal';
-import LoginContent from '../LoginContent';
 import Cookies from 'js-cookie';
-import { useRequestVerifyToken } from '../../useRequest';
+import { useEffect, useRef, useState } from 'react';
+import { BsCartFill } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
-import MyAccountPopup from '../MyAccountPopup';
+import { GiHamburgerMenu } from "react-icons/gi";
+import { Link, useNavigate } from 'react-router-dom';
+import Modal from '../../common/components/Modal';
+import Sidebar from '../../common/components/Sidebar';
+import useGeneral from '../../useGeneral';
+import { useRequestVerifyToken } from '../../useRequest';
+import { transitionConfig } from '../../utils/config/transitionConfig';
 import useClickOutside from '../../utils/hooks/useClickOutside';
+import useDeviceDetect from '../../utils/hooks/useDeviceDetect';
+import LoginContent from '../LoginContent';
+import MyAccountPopup from '../MyAccountPopup';
+import ProductsSidebar from '../ProductsSidebar';
+import styles from './styles.module.scss';
 
 const Header = () => {
     const { isMobile, isTablet } = useDeviceDetect();
