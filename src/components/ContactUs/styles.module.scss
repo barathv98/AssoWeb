@@ -80,36 +80,14 @@
                 width: 100%;
                 padding: 0;
             }
-            .label {
-                font-size: 16px;
-                font-weight: 500;
-                text-align: start;
-                margin-bottom: 12px;
+            :global(.form-input) {
+                box-sizing: border-box;
             }
-            .inputField {
-                height: 24px;
-                margin-bottom: 12px;
-                &.error {
-                    border-color: red;
-                    outline-color: red;
-                }
-            }
-            .errorMessage {
-                font-size: 12px;
-                font-style: italic;
-                color: red;
-                text-align: start;
-                margin-top: -8px;
-                margin-bottom: 12px;
-            }
-            .textarea {
-                font-size: 16px;
-                font-weight: 500;
-                font-family: 'Inter';
-                color: black;
-                &.error {
-                    border-color: red;
-                }
+            .prefixFlag {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
             }
             .submitButton {
                 font-size: 17px;
@@ -117,10 +95,19 @@
                 height: 40px;
                 border: 0;
                 border-radius: 4px;
-                background-color: #2d9bf0;
+                background-color: $l-primary;
                 color: white;
                 margin-top: 12px;
                 cursor: pointer;
+                &.disabled {
+                    cursor: not-allowed;
+                    opacity: 0.6;
+                    transform: none;
+                    box-shadow: none;
+                }
+                &.loading {
+                    cursor: not-allowed;
+                }
             }
             .message {
                 width: calc(100% - 32px);

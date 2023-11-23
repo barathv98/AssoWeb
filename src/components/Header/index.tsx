@@ -20,23 +20,34 @@ import styles from './styles.module.scss';
 const Header = () => {
     const { isMobile, isTablet } = useDeviceDetect();
     const [showPopup, setShowPopup] = useState<boolean>(false);
-    const { cart, getCartQuery, isAuthenticated, setIsAuthenticated, showLoginModal, setShowLoginModal, showMyAccountModal, setShowMyAccountModal } = useGeneral();
+    const {
+			cart,
+			isAuthenticated,
+			setIsAuthenticated,
+			showLoginModal,
+			setShowLoginModal,
+			showMyAccountModal,
+			setShowMyAccountModal,
+		} = useGeneral();
     const navigate = useNavigate();
     const clickRef = useRef<HTMLDivElement>(null);
 
     const { verifyToken } = useRequestVerifyToken({
-        onSuccess: () => {
-            setIsAuthenticated(true);
-            getCartQuery.getCart();
-        },
-    });
+			onSuccess: () => {
+				setIsAuthenticated(true);
+			},
+			onError: () => {
+				setIsAuthenticated(false);
+				Cookies.remove('token', { path: '/' });
+			},
+		});
 
-    useEffect(() => {
-        if (Cookies.get('token')) {
-            verifyToken();
-        }
-        // eslint-disable-next-line
-    }, []);
+		useEffect(() => {
+			if (Cookies.get('token')) {
+				verifyToken();
+			}
+			// eslint-disable-next-line
+		}, []);
 
     useClickOutside(clickRef, () => {setShowMyAccountModal(false)});
 

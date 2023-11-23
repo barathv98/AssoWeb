@@ -44,10 +44,12 @@ const GeneralCard: FC<Props> = ({ product }) => {
             }
             else {
                 updateCart({
-                    itemId: orderItem.id,
-                    name: orderItem.billingName,
-                    quantity: orderItem.quantity,
-                });
+									itemId: orderItem.id,
+									name: orderItem.billingName,
+									quantity: orderItem.quantity,
+									question: false,
+									cd: false,
+								});
             }
         }
     }, [orderItem, updateCart, isAuthenticated, setShowLoginModal]);

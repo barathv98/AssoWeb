@@ -127,10 +127,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const onChangeQuantity = useCallback((e: any) => {
         setQuantityError(false);
         setOrderItem((prev) => {
-            return({
-                ...prev,
-                quantity: parseInt(e.target.value),
-            })
+            return { ...prev, quantity: parseInt(e.target.value) };
         });
     }, []);
 

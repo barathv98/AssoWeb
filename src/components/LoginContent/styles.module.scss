@@ -67,9 +67,13 @@
         font-size: 16px;
         font-weight: 600;
         cursor: not-allowed;
-        &.active, &.loading {
+        &.active {
             cursor: pointer;
-            background-color: #2d9bf0;
+            background-color: $l-primary;
+        }
+        &.loading {
+            cursor: not-allowed;
+            background-color: $l-primary;
         }
     }
     .resendText {
@@ -82,7 +86,7 @@
         font-size: 14px;
         font-weight: 500;
         margin-top: 12px;
-        color: #2d9bf0;
+        color: $l-primary;
         cursor: pointer;
     }
     .error {

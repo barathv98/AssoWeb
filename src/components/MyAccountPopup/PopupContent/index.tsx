@@ -8,7 +8,7 @@ const PopupContent = () => {
 
 	const onClickLogout = useCallback(() => {
 		setIsAuthenticated(false);
-		Cookies.remove('token', { path: '' });
+		Cookies.remove('token', { path: '/' });
 		setShowMyAccountModal(false);
 		setCart([]);
 		window.location.reload();

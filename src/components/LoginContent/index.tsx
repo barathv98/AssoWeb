@@ -35,7 +35,7 @@ const LoginContent: FC<Props> = ({ closeModal }) => {
 	const { verifyOTP, isLoading: loadingVerifyOTP } = useRequestVerifyOTP({
 		onSuccess: (res: any) => {
 			setIsAuthenticated(true);
-			Cookies.set('token', res.token, { expires: 365, path: '' });
+			Cookies.set('token', res.token, { expires: 365, path: '/' });
 			closeModal();
 			setVerifyError(false);
 			window.location.reload();

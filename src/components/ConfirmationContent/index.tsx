@@ -6,8 +6,9 @@ import styles from './styles.module.scss';
 
 interface ConfirmationContentProps {
 	success: boolean;
+	closePopup: () => void;
 }
-const ConfirmationContent: FC<ConfirmationContentProps> = ({ success }) => {
+const ConfirmationContent: FC<ConfirmationContentProps> = ({ success, closePopup }) => {
 	return (
 		<div className={styles.confirmationContent}>
 			{success ? (
@@ -33,8 +34,8 @@ const ConfirmationContent: FC<ConfirmationContentProps> = ({ success }) => {
 					<div className={styles.textContent}>
 						<div className={styles.title}>Order Failed</div>
 						<div className={styles.subTitle}>Please head to Cart page to order again</div>
-						<button className={styles.backBtn} onClick={() => (window.location.href = '/shopping-cart')}>
-							Back to Cart
+						<button className={styles.backBtn} onClick={closePopup}>
+							Back to Ordering
 						</button>
 					</div>
 				</>

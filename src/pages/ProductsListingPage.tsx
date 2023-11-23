@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
+import ProductCategories from '../components/ProductCategories';
 import ProductListing from '../components/ProductListing';
 import { computerBooksList } from '../data/books/computer';
 import { drawingBooksList } from '../data/books/drawing';
@@ -35,7 +36,13 @@ const ProductsListingPage = () => {
 		window.scrollTo(0, 0);
 	}, [productList]);
 
-	return <ProductListing productList={productList} generalProduct={product === 'registers'} />;
+	if (product === 'books') return <ProductCategories />;
+
+	return (
+		<>
+			<ProductListing productList={productList} product={product || ''} />
+		</>
+	);
 };
 
 export default ProductsListingPage;

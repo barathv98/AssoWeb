@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse } from 'axios';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://localhost:5555';
+const BASE_URL = window.location.hostname !== 'localhost' ? 'https://asso-be.onrender.com' : 'http://localhost:5555';
 
 export const axiosInstance = axios.create({ baseURL: BASE_URL });
 

@@ -105,15 +105,16 @@
             text-decoration: none;
             color: black;
             &:hover {
-                color: #2d9bf0;
+                color: $l-primary;
             }
         }
         .option {
             cursor: pointer;
+            font-weight: 500;
         }
         .cartOption {
             width: fit-content;
-            background-color: #2d9bf0;
+            background-color: $l-primary;
             color: white;
             display: flex;
             flex-direction: row;
