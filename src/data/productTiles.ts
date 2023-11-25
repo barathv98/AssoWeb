@@ -1,4 +1,4 @@
-const productTiles = [
+export const bookTiles = [
 	{
 		image: 'book.jpg',
 		label: 'PreKG',
@@ -51,4 +51,20 @@ const productTiles = [
 	},
 ];
 
-export default productTiles;
+export const productTiles = [
+	{
+		image: 'book.jpg',
+		label: 'Books',
+		url: '/products/books',
+	},
+	{
+		image: 'book.jpg',
+		label: 'Registers',
+		url: '/products/registers',
+	},
+	{
+		image: 'book.jpg',
+		label: 'Diaries',
+		url: '/products/diaries',
+	},
+];

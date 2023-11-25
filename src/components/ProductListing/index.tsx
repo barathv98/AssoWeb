@@ -25,7 +25,11 @@ const ProductListing: FC<ProductListingProps> = ({ productList, product }) => {
 				</div>
 			)}
 			<div className={styles.productListing}>
-				{product === 'registers' && <DownloadBanner product={product} />}
+				{product === 'diaries' && <div className={styles.diaryTitle}>School Diaries</div>}
+				{(product === 'diaries' || product === 'registers') && <DownloadBanner product={product} />}
+				{product === 'diaries' && (
+					<div className={styles.diaryNote}>For more customised special diaries, please contact us</div>
+				)}
 				{productList.map((list: any) => {
 					return (
 						<div className={styles.productCategories} key={list.categoryId}>

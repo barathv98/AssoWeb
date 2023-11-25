@@ -32,6 +32,49 @@
         }
         .content {
             margin-top: 16px;
+            .productTiles {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 24px;
+                @media screen and (max-width: $breakpoint-small) {
+                    margin-left: -12px;
+                    margin-right: -12px;
+                }
+                .tile {
+                    height: 204px;
+                    box-shadow: rgba(96, 96, 96, 0.16) 0px 4px 8px;
+                    cursor: pointer;
+                    overflow: hidden;
+                    @media screen and (max-width: $breakpoint-small) {
+                        height: 175px;
+                    }
+                    &:hover {
+                        .image {
+                            transform: scale(1.1);
+                        }
+                    }
+                    .image {
+                        width: calc(100% - 12px);
+                        height: calc(100% - 43px);
+                        object-fit: contain;
+                        transition: 0.5s all ease-in-out;
+                    }
+                    .label {
+                        font-size: 16px;
+                        font-weight: 500;
+                        max-width: calc(100% - 16px);
+                        margin: 12px 0;
+                        padding: 0 4px 0 8px;
+                        text-align: start;
+                        border-left: 4px solid $l-primary;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+            }
         }
     }
 }

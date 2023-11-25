@@ -1,7 +1,8 @@
 const priceListLinks = {
-    book: 'https://drive.google.com/file/d/1hBmzGwWcB6onXFFWESNmWKrfQ60Uj5-b/view?usp=sharing',
-    register: 'https://drive.google.com/file/d/1Tg7MjI_laAFKvEnrA3J3l2Rqg_cNyqOV/view?usp=sharing',
-}
+	book: 'https://drive.google.com/file/d/1hBmzGwWcB6onXFFWESNmWKrfQ60Uj5-b/view?usp=sharing',
+	register: 'https://drive.google.com/file/d/1Tg7MjI_laAFKvEnrA3J3l2Rqg_cNyqOV/view?usp=sharing',
+	diary: '',
+};
 
 export const nameRegex = /^[a-zA-Z ]+$/;
 export const pincodeRegex = /^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/;

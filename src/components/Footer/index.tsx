@@ -1,8 +1,28 @@
-import { Link } from "react-router-dom";
+import { BsInfoCircleFill } from 'react-icons/bs';
+import { Link, useLocation } from 'react-router-dom';
+import useGeneral from '../../useGeneral';
 import styles from './styles.module.scss';
 
 const Footer = () => {
-    return (
+	const { cart } = useGeneral();
+	const { pathname } = useLocation();
+
+	return (
+		<>
+			{pathname === '/shopping-cart' && cart.length ? (
+				<div className={styles.noteRow}>
+					<div className={styles.note}>
+						<BsInfoCircleFill color="#757575" />
+						Educational reading books exempted(4901)
+					</div>
+					<div className={styles.note}>
+						<BsInfoCircleFill color="#757575" />
+						Composition dealer not to charge GST
+					</div>
+				</div>
+			) : (
+				''
+			)}
 			<footer className={styles.footer}>
 				<div className={styles.linksContainer}>
 					<div className={`${styles.linksColumn} ${styles.firstRow}`}>
@@ -42,7 +62,8 @@ const Footer = () => {
 					</div>
 				</div>
 			</footer>
-		);
+		</>
+	);
 };
 
 export default Footer;

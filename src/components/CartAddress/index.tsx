@@ -33,7 +33,7 @@ const CartAddress: FC<CartAddressProps> = () => {
 
 	const { getUserDetail, isLoading } = useRequestGetUserDetail({
 		onSuccess: (data: UserDetail) => {
-			setUserDetail({ ...data, pincode: String(data?.pincode) });
+			setUserDetail({ ...data, pincode: data?.pincode ? String(data?.pincode) : '' });
 		},
 	});
 
@@ -95,7 +95,7 @@ const CartAddress: FC<CartAddressProps> = () => {
 		setName(userDetail?.name || '');
 		setAddress(userDetail?.address || '');
 		setCity(userDetail?.city || '');
-		if (userDetail?.pincode) setPincode(userDetail?.pincode);
+		setPincode(userDetail?.pincode || '');
 		setSecContactNum(userDetail?.secContactNum || '');
 		setTransport(userDetail?.transport || '');
 	}, [userDetail, setName, setAddress, setCity, setPincode, setSecContactNum, setTransport]);

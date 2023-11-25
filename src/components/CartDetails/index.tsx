@@ -60,37 +60,76 @@ const CartDetails: FC<CartDetailsProps> = () => {
 					</div>
 					{cart.map((item, index) => {
 						return (
-							<div className={`${styles.rowHeading} ${styles.itemRow}`} key={index}>
-								{!isMobileTablet && <div className={styles.widthSlNo}>{index + 1}</div>}
-								<div className={`${styles.widthBook} ${styles.bookRow}`}>
-									<div className={styles.bookName}>
-										{item.billingName}
-										{item.question && ' + Questions'}
-										{item.cd && ' + CD'}
-										{isMobileTablet && (
-											<div className={styles.quantityRow}>
-												Qty: {item.quantity} x ₹{item.price}
-											</div>
-										)}
+							item.id > 1000 && (
+								<div className={`${styles.rowHeading} ${styles.itemRow}`} key={index}>
+									{!isMobileTablet && <div className={styles.widthSlNo}>{index + 1}</div>}
+									<div className={`${styles.widthBook} ${styles.bookRow}`}>
+										<div className={styles.bookName}>
+											{item.billingName}
+											{item.question && ' + Questions'}
+											{item.cd && ' + CD'}
+											{isMobileTablet && (
+												<div className={styles.quantityRow}>
+													Qty: {item.quantity} x ₹{item.price}
+												</div>
+											)}
+										</div>
+										<div className={styles.deleteIcon} onClick={() => removeItem(item.id)}>
+											<RiDeleteBin6Line color="#757575" />
+										</div>
 									</div>
-									<div className={styles.deleteIcon} onClick={() => removeItem(item.id)}>
-										<RiDeleteBin6Line color="#757575" />
+									{!isMobileTablet && (
+										<>
+											<div className={styles.width18}>{item.quantity}</div>
+											<div className={styles.width18}>{rupee.format(item.price)}</div>
+										</>
+									)}
+									<div
+										className={`${styles.weight500} ${
+											isMobileTablet ? `${styles.width30} ${styles.alignEnd}` : styles.width18
+										}`}
+									>
+										{rupee.format(item.price * item.quantity)}
 									</div>
 								</div>
-								{!isMobileTablet && (
-									<>
-										<div className={styles.width18}>{item.quantity}</div>
-										<div className={styles.width18}>{rupee.format(item.price)}</div>
-									</>
-								)}
-								<div
-									className={`${styles.weight500} ${
-										isMobileTablet ? `${styles.width30} ${styles.alignEnd}` : styles.width18
-									}`}
-								>
-									{rupee.format(item.price * item.quantity)}
+							)
+						);
+					})}
+					{cart.map((item, index) => {
+						return (
+							item.id < 1000 && (
+								<div className={`${styles.rowHeading} ${styles.itemRow}`} key={index}>
+									{!isMobileTablet && <div className={styles.widthSlNo}>{index + 1}</div>}
+									<div className={`${styles.widthBook} ${styles.bookRow}`}>
+										<div className={styles.bookName}>
+											{item.billingName}
+											{item.question && ' + Questions'}
+											{item.cd && ' + CD'}
+											{isMobileTablet && (
+												<div className={styles.quantityRow}>
+													Qty: {item.quantity} x ₹{item.price}
+												</div>
+											)}
+										</div>
+										<div className={styles.deleteIcon} onClick={() => removeItem(item.id)}>
+											<RiDeleteBin6Line color="#757575" />
+										</div>
+									</div>
+									{!isMobileTablet && (
+										<>
+											<div className={styles.width18}>{item.quantity}</div>
+											<div className={styles.width18}>{rupee.format(item.price)}</div>
+										</>
+									)}
+									<div
+										className={`${styles.weight500} ${
+											isMobileTablet ? `${styles.width30} ${styles.alignEnd}` : styles.width18
+										}`}
+									>
+										{rupee.format(item.price * item.quantity)}
+									</div>
 								</div>
-							</div>
+							)
 						);
 					})}
 					<div className={`${styles.rowHeading} ${styles.totalRow}`}>
