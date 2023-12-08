@@ -13,9 +13,12 @@ import { tamilSeriesBooksList } from '../data/books/tamilSeries';
 import { tamilWritingBooksList } from '../data/books/tamilWriting';
 import { termBooksList } from '../data/books/termBooks';
 import { registersList } from '../data/registers';
+import useAnalytics from '../useAnalytics';
+import { MixpanelEvent } from '../utils/constants';
 
 const ProductsListingPage = () => {
 	const { product } = useParams();
+	const { trackEvent } = useAnalytics();
 
 	const productList: any = useMemo(() => {
 		if (product === 'prekg') return prekgBooksList;
@@ -35,6 +38,22 @@ const ProductsListingPage = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [productList]);
+
+	useEffect(() => {
+		if (product === 'prekg') trackEvent(MixpanelEvent.PREKG_VIEW, {});
+		else if (product === 'term-books') trackEvent(MixpanelEvent.TERM_BOOKS_VIEW, {});
+		else if (product === 'tamil-series') trackEvent(MixpanelEvent.TAMIL_VIEW, {});
+		else if (product === 'tamil-writing') trackEvent(MixpanelEvent.TAMIL_WRITING_VIEW, {});
+		else if (product === 'english-writing') trackEvent(MixpanelEvent.ENG_WRITING_VIEW, {});
+		else if (product === 'gk') trackEvent(MixpanelEvent.GK_VIEW, {});
+		else if (product === 'hindi') trackEvent(MixpanelEvent.HINDI_VIEW, {});
+		else if (product === 'computer') trackEvent(MixpanelEvent.CS_VIEW, {});
+		else if (product === 'drawing') trackEvent(MixpanelEvent.DRAWING_VIEW, {});
+		else if (product === 'other-books') trackEvent(MixpanelEvent.OTHER_BOOKS_VIEW, {});
+		else if (product === 'registers') trackEvent(MixpanelEvent.REGISTERS_VIEW, {});
+		else if (product === 'books') trackEvent(MixpanelEvent.BOOKS_VIEW, {});
+		else if (product === 'diaries') trackEvent(MixpanelEvent.DIARIES_VIEW, {});
+	}, [product, trackEvent]);
 
 	if (product === 'books') return <ProductCategories />;
 

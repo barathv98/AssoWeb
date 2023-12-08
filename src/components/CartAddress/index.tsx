@@ -8,15 +8,17 @@ import Input from '../../common/components/Input';
 import Modal from '../../common/components/Modal';
 import useTextInput from '../../common/useTextInput';
 import { UserDetail } from '../../data/interface';
+import useAnalytics from '../../useAnalytics';
 import useGeneral from '../../useGeneral';
 import { useRequestGetPODetails, useRequestGetUserDetail, useRequestPlaceOrder } from '../../useRequest';
-import { mobileRegex, pincodeRegex, rupee } from '../../utils/constants';
+import { MixpanelEvent, mobileRegex, pincodeRegex, primaryColor, rupee } from '../../utils/constants';
 import ConfirmationContent from '../ConfirmationContent';
 import styles from './styles.module.scss';
 
 interface CartAddressProps {}
 const CartAddress: FC<CartAddressProps> = () => {
 	const navigate = useNavigate();
+	const { trackEvent } = useAnalytics();
 	const { cart, setCart, orderTotal, userDetail, setUserDetail, isAuthenticated, getCartQuery } = useGeneral();
 	const [name, setName] = useTextInput('');
 	const [address, setAddress] = useTextInput('');
@@ -71,11 +73,13 @@ const CartAddress: FC<CartAddressProps> = () => {
 		if (!pincodeRegex.test(pincode.value)) return setFormErrors({ pincode: 'Invalid pincode' });
 		if (secContactNum.value && !mobileRegex.test(secContactNum.value))
 			return setFormErrors({ secContactNum: 'Invalid mobile number' });
+		trackEvent(MixpanelEvent.CONFIRM_ORDER_CLICK, {});
 		setShowPopup(true);
-		setOrderState('loading');
 		setFormErrors({});
 		placeOrder();
-	}, [pincode.value, secContactNum.value, placeOrder]);
+		setOrderState('loading');
+		trackEvent(MixpanelEvent.ORDER_PROCESSING_VIEW, {});
+	}, [pincode.value, secContactNum.value, placeOrder, trackEvent]);
 
 	const onCloseOrderPopup = useCallback(() => {
 		setShowPopup(false);
@@ -103,6 +107,7 @@ const CartAddress: FC<CartAddressProps> = () => {
 	useEffect(() => {
 		getUserDetail();
 		getCartQuery.getCart();
+		trackEvent(MixpanelEvent.CART_ADDRESS_VIEW, {});
 		// eslint-disable-next-line
 	}, []);
 
@@ -114,7 +119,7 @@ const CartAddress: FC<CartAddressProps> = () => {
 	if (isLoading) {
 		return (
 			<div className={styles.detailsLoader}>
-				<PuffLoader color="#2d9bf0" />
+				<PuffLoader color={primaryColor} />
 				Fetching Details
 			</div>
 		);
@@ -122,7 +127,13 @@ const CartAddress: FC<CartAddressProps> = () => {
 
 	return (
 		<div className={styles.cartAddress}>
-			<div className={styles.backLink} onClick={() => navigate('/shopping-cart')}>
+			<div
+				className={styles.backLink}
+				onClick={() => {
+					navigate('/shopping-cart');
+					trackEvent(MixpanelEvent.BACK_CART_CLICK, {});
+				}}
+			>
 				<MdOutlineKeyboardBackspace color="#222" size={14} />
 				Back to Cart
 			</div>
@@ -198,7 +209,7 @@ const CartAddress: FC<CartAddressProps> = () => {
 					content={
 						orderState === 'loading' ? (
 							<div className={styles.loader}>
-								<BounceLoader color="#2d9bf0" />
+								<BounceLoader color={primaryColor} />
 								<div className={styles.text}>Order Processing</div>
 							</div>
 						) : (

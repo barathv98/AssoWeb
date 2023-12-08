@@ -6,10 +6,13 @@ import PulseLoader from 'react-spinners/PulseLoader';
 import CountryFlag from '../../common/components/CountryFlag';
 import Input from '../../common/components/Input';
 import useTextInput from '../../common/useTextInput';
+import useAnalytics from '../../useAnalytics';
 import { useRequestSendEmail } from '../../useRequest';
+import { MixpanelEvent } from '../../utils/constants';
 import styles from './styles.module.scss';
 
 const ContactUs = () => {
+	const { trackEvent } = useAnalytics();
 	const [name, setName] = useTextInput('');
 	const [city, setCity] = useTextInput('');
 	const [contactNumber, setContactNumber] = useTextInput('');
@@ -27,6 +30,7 @@ const ContactUs = () => {
 			setCity('');
 			setContactNumber('');
 			setMessage('');
+			trackEvent(MixpanelEvent.CONTACT_QUERY_SUCCESS, {});
 		},
 		onError: () => {
 			setShowMessage(errorMsg);
@@ -55,6 +59,7 @@ const ContactUs = () => {
 		setShowMessage('');
 		if (isValid()) {
 			sendEmail();
+			trackEvent(MixpanelEvent.CONTACT_QUERY_CLICK, {});
 		}
 	}, [isValid, sendEmail]);
 
@@ -62,6 +67,11 @@ const ContactUs = () => {
 		if (name.value.length && city.value.length && contactNumber.value.length) setBtnDisabled(false);
 		else setBtnDisabled(true);
 	}, [name.value.length, city.value.length, contactNumber.value.length]);
+
+	useEffect(() => {
+		trackEvent(MixpanelEvent.CONTACTUS_VIEW, {});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<div className={styles.contactUs}>

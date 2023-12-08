@@ -3,8 +3,10 @@ import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import OtpInput from 'react-otp-input';
 import PulseLoader from 'react-spinners/PulseLoader';
 import CountryFlag from '../../common/components/CountryFlag';
+import useAnalytics from '../../useAnalytics';
 import useGeneral from '../../useGeneral';
 import { useRequestRequestOTP, useRequestVerifyOTP } from '../../useRequest';
+import { MixpanelEvent } from '../../utils/constants';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -12,12 +14,12 @@ interface Props {
 }
 const LoginContent: FC<Props> = ({ closeModal }) => {
 	const { setIsAuthenticated } = useGeneral();
+	const { trackEvent } = useAnalytics();
 	const [loginStep, setLoginStep] = useState<string>('mobileNumberForm');
 	const [mobileNumber, setMobileNumber] = useState<string>('');
 	const [otp, setOtp] = useState<string>('');
 	const [resendOffset, setResendOffset] = useState<number>(30);
 	let timer: any = useRef(null);
-	// eslint-disable-next-line
 	const [requestError, setRequestError] = useState<boolean>(false);
 	const [verifyError, setVerifyError] = useState<boolean>(false);
 
@@ -63,7 +65,8 @@ const LoginContent: FC<Props> = ({ closeModal }) => {
 		setOtp('');
 		setVerifyError(false);
 		requestOTP();
-	}, [requestOTP]);
+		trackEvent(MixpanelEvent.OTP_RESEND_CLICK, {});
+	}, [requestOTP, trackEvent]);
 
 	useEffect(() => {
 		if (loginStep === 'OTPForm') {
@@ -89,7 +92,10 @@ const LoginContent: FC<Props> = ({ closeModal }) => {
 						className={`
                         ${mobileNumber.length === 10 ? styles.active : ''}
                         ${loadingRequestOTP ? styles.loading : ''}`}
-						onClick={requestOTP}
+						onClick={() => {
+							requestOTP();
+							trackEvent(MixpanelEvent.SEND_OTP_CLICK, {});
+						}}
 					>
 						{loadingRequestOTP ? <PulseLoader color="#fff" size={20} /> : 'Send OTP'}
 					</button>
@@ -113,7 +119,10 @@ const LoginContent: FC<Props> = ({ closeModal }) => {
 						className={`
                         ${otp.length === 6 ? styles.active : ''}
                         ${loadingVerifyOTP ? styles.loading : ''}`}
-						onClick={verifyOTP}
+						onClick={() => {
+							verifyOTP();
+							trackEvent(MixpanelEvent.VERIFY_OTP_CLICK, {});
+						}}
 					>
 						{loadingVerifyOTP ? <PulseLoader color="#fff" size={20} /> : 'Verify'}
 					</button>

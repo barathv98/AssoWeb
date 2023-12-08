@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import sidebarLinks from '../../data/sidebarLinks';
+import { primaryColor } from '../../utils/constants';
 import styles from './styles.module.scss';
 
 interface ProductsSidebarProps {
@@ -16,7 +17,7 @@ const ProductsSidebar: FC<ProductsSidebarProps> = ({ onClick }) => {
 						<NavLink
 							to={link.link}
 							className={styles.navlink}
-							style={({ isActive }) => (isActive ? { color: '#2d9bf0' } : {})}
+							style={({ isActive }) => (isActive ? { color: primaryColor } : {})}
 							onClick={onClick}
 							key={link.text}
 						>
@@ -28,7 +29,7 @@ const ProductsSidebar: FC<ProductsSidebarProps> = ({ onClick }) => {
 									<NavLink
 										to={link.link}
 										className={`${styles.navlink} ${styles.childLink}`}
-										style={({ isActive }) => (isActive ? { color: '#2d9bf0' } : {})}
+										style={({ isActive }) => (isActive ? { color: primaryColor } : {})}
 										onClick={onClick}
 										key={link.text}
 									>

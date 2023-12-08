@@ -121,6 +121,8 @@
                         color: #222;
                         padding: 4px 8px;
                         text-align: center;
+                        appearance: textfield;
+                        -moz-appearance: textfield;
                         &.error {
                             border-color: red;
                         }

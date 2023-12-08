@@ -16,7 +16,7 @@ export const otherBooksList: ProductsLists = [
 				cd: false,
 				cdPrice: 0,
 				badgeText: '',
-				imgName: 'book.jpg',
+				imgName: '1084.webp',
 			},
 			{
 				id: 1083,
@@ -29,7 +29,7 @@ export const otherBooksList: ProductsLists = [
 				cd: false,
 				cdPrice: 0,
 				badgeText: '',
-				imgName: 'book.jpg',
+				imgName: '1083.webp',
 			},
 			{
 				id: 1118,
@@ -42,7 +42,7 @@ export const otherBooksList: ProductsLists = [
 				cd: false,
 				cdPrice: 0,
 				badgeText: '',
-				imgName: 'book.jpg',
+				imgName: '1118.webp',
 			},
 			{
 				id: 1119,
@@ -55,7 +55,7 @@ export const otherBooksList: ProductsLists = [
 				cd: false,
 				cdPrice: 0,
 				badgeText: '',
-				imgName: 'book.jpg',
+				imgName: '1119.webp',
 			},
 			{
 				id: 1117,
@@ -68,7 +68,7 @@ export const otherBooksList: ProductsLists = [
 				cd: false,
 				cdPrice: 0,
 				badgeText: '',
-				imgName: 'book.jpg',
+				imgName: '1117.webp',
 			},
 			{
 				id: 1120,
@@ -81,7 +81,7 @@ export const otherBooksList: ProductsLists = [
 				cd: false,
 				cdPrice: 0,
 				badgeText: '',
-				imgName: 'book.jpg',
+				imgName: '1120.webp',
 			},
 		],
 	},

@@ -1,7 +1,9 @@
 import Lottie from 'lottie-react';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import failureAnimation from '../../assets/icons/failure.json';
 import successTickAnimation from '../../assets/icons/successTick.json';
+import useAnalytics from '../../useAnalytics';
+import { MixpanelEvent } from '../../utils/constants';
 import styles from './styles.module.scss';
 
 interface ConfirmationContentProps {
@@ -9,6 +11,14 @@ interface ConfirmationContentProps {
 	closePopup: () => void;
 }
 const ConfirmationContent: FC<ConfirmationContentProps> = ({ success, closePopup }) => {
+	const { trackEvent } = useAnalytics();
+
+	useEffect(() => {
+		if (success) trackEvent(MixpanelEvent.ORDER_SUCCESS_VIEW, {});
+		else trackEvent(MixpanelEvent.ORDER_FAILED_VIEW, {});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return (
 		<div className={styles.confirmationContent}>
 			{success ? (
@@ -21,7 +31,13 @@ const ConfirmationContent: FC<ConfirmationContentProps> = ({ success, closePopup
 						<div className={styles.subTitle}>
 							Thanks for ordering with us. We have received your order, our team will contact you soon
 						</div>
-						<button className={styles.backBtn} onClick={() => (window.location.href = '/')}>
+						<button
+							className={styles.backBtn}
+							onClick={() => {
+								window.location.href = '/';
+								trackEvent(MixpanelEvent.ORDER_HOME_RETURN_CLICK, {});
+							}}
+						>
 							Back to Homepage
 						</button>
 					</div>
@@ -34,7 +50,13 @@ const ConfirmationContent: FC<ConfirmationContentProps> = ({ success, closePopup
 					<div className={styles.textContent}>
 						<div className={styles.title}>Order Failed</div>
 						<div className={styles.subTitle}>Please head to Cart page to order again</div>
-						<button className={styles.backBtn} onClick={closePopup}>
+						<button
+							className={styles.backBtn}
+							onClick={() => {
+								closePopup();
+								trackEvent(MixpanelEvent.ORDER_CART_RETURN_CLICK, {});
+							}}
+						>
 							Back to Ordering
 						</button>
 					</div>

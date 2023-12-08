@@ -2,9 +2,10 @@ import { FC, useCallback, useEffect } from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import PuffLoader from 'react-spinners/PuffLoader';
+import useAnalytics from '../../useAnalytics';
 import useGeneral from '../../useGeneral';
 import { useRequestRemoveCart } from '../../useRequest';
-import { rupee } from '../../utils/constants';
+import { MixpanelEvent, primaryColor, rupee } from '../../utils/constants';
 import useDeviceDetect from '../../utils/hooks/useDeviceDetect';
 import styles from './styles.module.scss';
 
@@ -13,6 +14,7 @@ const CartDetails: FC<CartDetailsProps> = () => {
 	const { isMobileTablet } = useDeviceDetect();
 	const navigate = useNavigate();
 	const { cart, setCart, getCartQuery, orderTotal, isAuthenticated } = useGeneral();
+	const { trackEvent } = useAnalytics();
 
 	const { removeCart } = useRequestRemoveCart({
 		onSuccess: (res: any) => {
@@ -23,12 +25,14 @@ const CartDetails: FC<CartDetailsProps> = () => {
 	const removeItem = useCallback(
 		(itemId: number) => {
 			removeCart({ itemId: itemId });
+			trackEvent(MixpanelEvent.CART_ITEM_REMOVE_CLICK, {});
 		},
-		[removeCart]
+		[removeCart, trackEvent]
 	);
 
 	useEffect(() => {
 		getCartQuery.getCart();
+		trackEvent(MixpanelEvent.CART_DETAILS_VIEW, {});
 		// eslint-disable-next-line
 	}, []);
 
@@ -37,7 +41,7 @@ const CartDetails: FC<CartDetailsProps> = () => {
 	if (getCartQuery.isLoading)
 		return (
 			<div className={styles.loadingCart}>
-				<PuffLoader color="#2d9bf0" />
+				<PuffLoader color={primaryColor} />
 				Loading...
 			</div>
 		);
@@ -146,7 +150,13 @@ const CartDetails: FC<CartDetailsProps> = () => {
 					</div>
 					<div className={`${styles.rowHeading} ${styles.checkoutRow}`}>
 						<div className={styles.text}>Please review the items and click the button to checkout</div>
-						<button className={styles.checkoutButton} onClick={() => navigate('/place-order')}>
+						<button
+							className={styles.checkoutButton}
+							onClick={() => {
+								navigate('/place-order');
+								trackEvent(MixpanelEvent.CART_CHECKOUT_CLICK, {});
+							}}
+						>
 							PROCEED TO CHECKOUT
 						</button>
 					</div>

@@ -1,10 +1,19 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productTiles } from '../../data/productTiles';
+import useAnalytics from '../../useAnalytics';
+import { MixpanelEvent } from '../../utils/constants';
 import Downloads from '../Downloads';
 import styles from './styles.module.scss';
 
 const Products = () => {
 	const navigate = useNavigate();
+	const { trackEvent } = useAnalytics();
+
+	useEffect(() => {
+		trackEvent(MixpanelEvent.PRODUCTS_VIEW, {});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<div className={styles.products}>

@@ -3,18 +3,29 @@ import { Zoom } from 'react-awesome-reveal';
 import { ReactComponent as BookIcon } from '../../assets/icons/book.svg';
 import { ReactComponent as DiaryIcon } from '../../assets/icons/diary.svg';
 import { ReactComponent as RegisterIcon } from '../../assets/icons/register.svg';
-import priceListLinks from '../../utils/constants';
+import useAnalytics from '../../useAnalytics';
+import priceListLinks, { MixpanelEvent } from '../../utils/constants';
 import styles from './styles.module.scss';
 
 interface DownloadBannerProps {
 	product: string;
 }
 const DownloadBanner: FC<DownloadBannerProps> = ({ product }) => {
+	const { trackEvent } = useAnalytics();
+
 	const onClickBanner = useCallback(() => {
-		if (product === 'books') window.open(priceListLinks.book, '_blank', 'noreferrer');
-		else if (product === 'registers') window.open(priceListLinks.register, '_blank', 'noreferrer');
-		else if (product === 'diaries') window.open(priceListLinks.diary, '_blank', 'noreferrer');
-	}, [product]);
+		if (product === 'books') {
+			trackEvent(MixpanelEvent.BOOK_PRICELIST_CLICK, {});
+			window.open(priceListLinks.book, '_blank', 'noreferrer');
+		} else if (product === 'registers') {
+			trackEvent(MixpanelEvent.REGISTER_PRICELIST_CLICK, {});
+			window.open(priceListLinks.register, '_blank', 'noreferrer');
+		} else if (product === 'diaries') {
+			trackEvent(MixpanelEvent.DIARY_PRICELIST_CLICK, {});
+			window.open(priceListLinks.diary, '_blank', 'noreferrer');
+		}
+	}, [product, trackEvent]);
+
 	return (
 		<Zoom duration={400} triggerOnce>
 			<div className={`${styles.downloadBanner} download-banner`} onClick={onClickBanner}>
