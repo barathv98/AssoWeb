@@ -61,7 +61,7 @@ const ContactUs = () => {
 			sendEmail();
 			trackEvent(MixpanelEvent.CONTACT_QUERY_CLICK, {});
 		}
-	}, [isValid, sendEmail]);
+	}, [isValid, sendEmail, trackEvent]);
 
 	useEffect(() => {
 		if (name.value.length && city.value.length && contactNumber.value.length) setBtnDisabled(false);
