@@ -44,9 +44,16 @@
             font-weight: 500;
             color: #222;
             width: calc(100% - 78px);
+            appearance: textfield;
+            -moz-appearance: textfield;
             &:focus-within {
                 outline: 0;
             }
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
     }
     .otpField {
@@ -54,6 +61,13 @@
         input {
             width: 42px !important;
             height: 44px;
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
     }
     button {

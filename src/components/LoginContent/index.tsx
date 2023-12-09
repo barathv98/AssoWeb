@@ -86,7 +86,7 @@ const LoginContent: FC<Props> = ({ closeModal }) => {
 						<div className={styles.mobileCode}>
 							<CountryFlag /> +91 -{' '}
 						</div>
-						<input type="text" value={mobileNumber} onChange={(e) => onChangeMobileNumber(e)} />
+						<input type="number" value={mobileNumber} onChange={(e) => onChangeMobileNumber(e)} />
 					</div>
 					<button
 						className={`
@@ -113,6 +113,7 @@ const LoginContent: FC<Props> = ({ closeModal }) => {
 							renderSeparator={<span>-</span>}
 							renderInput={(props) => <input {...props} />}
 							shouldAutoFocus
+							inputType="number"
 						/>
 					</div>
 					<button

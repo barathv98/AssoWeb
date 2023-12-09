@@ -24,6 +24,7 @@ const Header = () => {
 	const [showPopup, setShowPopup] = useState<boolean>(false);
 	const {
 		cart,
+		setCart,
 		isAuthenticated,
 		setIsAuthenticated,
 		showLoginModal,
@@ -36,7 +37,8 @@ const Header = () => {
 	const { trackEvent } = useAnalytics();
 
 	const { verifyToken } = useRequestVerifyToken({
-		onSuccess: () => {
+		onSuccess: (resp: any) => {
+			setCart(resp?.cart || []);
 			setIsAuthenticated(true);
 		},
 		onError: () => {
