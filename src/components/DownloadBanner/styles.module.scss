@@ -1,0 +1,38 @@
+@import '../../variables.scss';
+
+.downloadBanner {
+    width: calc(100vw - 280px);
+    padding: 16px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 32px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border: solid 1px #f1f1f2;
+    border-radius: 8px;
+    @media screen and (max-width: $breakpoint-large) {
+        width: auto;
+    }
+    @media screen and (max-width: $breakpoint-small) {
+        margin-top: 0
+    }
+    &:hover {
+        background-color: #f1f1f2;
+    }
+    .icon {
+        svg {
+            width: 60px;
+            height: 60px;
+        }
+    }
+    .title {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: left;
+    }
+}

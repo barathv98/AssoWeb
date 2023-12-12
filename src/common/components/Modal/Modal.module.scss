@@ -1,0 +1,108 @@
+@import '../../../variables.scss';
+@import '../../../modal.scss';
+
+.modalContainer {
+    composes: modal-container is-open;
+	z-index: 9999999999;
+
+	& > .modal {
+        @media screen and (min-width: $breakpoint-small-up) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+	}
+}
+
+.modalOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.modal {
+    composes: modal;
+	border-radius: 16px;
+
+	&.bottom {
+		@media screen and (max-width: $breakpoint-small) {
+			border: none;
+			bottom: 0;
+			top: auto;
+			overflow-y: clip;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+
+	&.center {
+		@media screen and (max-width: $breakpoint-small) {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	&.full {
+		@media screen and (max-width: $breakpoint-small) {
+			height: 100svh;
+			width: 100svw;
+			border: none;
+		}
+	}
+
+	&.fullScreenMobile {
+		@media screen and (max-width: $breakpoint-small) {
+			height: 100vh;
+			border: none;
+			border-radius: 0;
+		}
+	}
+}
+
+.modalContent {
+    composes: modal__content;
+    @media screen and (max-width: $breakpoint-small) {
+        width: calc(100vw - 32px) !important;
+    }
+	.modalBody {
+		margin: 0;
+	}
+}
+
+.modalHeader {
+    composes: modal__header;
+	line-height: 140%;
+	color: #222;
+	font-family: $font-family-heading;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0;
+
+	.title {
+		font-size: 20px;
+		line-height: 1.4;
+		font-weight: 600;
+		display: flex;
+
+		@media screen and (min-width: $breakpoint-small) {
+			font-size: 24px;
+		}
+	}
+    .closeButton {
+        cursor: pointer;
+    }
+
+	& > button {
+		padding: 2px;
+		align-self: baseline;
+	}
+}
+
+.actionMenu {
+    composes: modal__actions;
+	padding: 16px 0;
+	margin-top: 0;
+	margin-bottom: -16px;
+}

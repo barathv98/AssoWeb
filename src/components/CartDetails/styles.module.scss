@@ -1,0 +1,154 @@
+@import '../../variables.scss';
+
+.cart {
+    padding: 32px;
+    min-height: calc(100vh - 350px);
+    @media screen and (max-width: $breakpoint-small) {
+        padding: 16px;
+    }
+    .title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 24px;
+        @media screen and (max-width: $breakpoint-small) {
+            font-size: 20px;
+        }
+    }
+    .rowHeading {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        padding: 16px;
+        border-bottom: solid 1px #ccc;
+        font-size: 16px;
+        font-weight: 400;
+        @media screen and (max-width: $breakpoint-small) {
+            padding: 8px 4px;
+        }
+    }
+    .itemRow {
+        @media screen and (max-width: $breakpoint-small) {
+            text-align: start;
+        }
+    }
+    .bookRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 500;
+        @media screen and (max-width: $breakpoint-small) {
+            font-weight: 450;
+        }
+        .bookName {
+            width: calc(100% - 16px);
+        }
+        .deleteIcon {
+            width: 16px;
+            cursor: pointer;
+        }
+    }
+    .quantityRow {
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 4px;
+    }
+    .totalRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        border-bottom: none;
+    }
+    .checkoutRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        border-bottom: none;
+        gap: 8px;
+        @media screen and (max-width: $breakpoint-small) {
+            width: calc(100% - 16px);
+            position: fixed;
+            bottom: 0;
+            border-top: solid 1px #ccc;
+            flex-direction: column;
+            margin: 0 -16px;
+            padding: 8px;
+            background-color: white;
+        }
+        .text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #4a4a4a;
+            @media screen and (max-width: $breakpoint-small) {
+                display: none;
+            }
+        }
+        .checkoutButton {
+            width: fit-content;
+            background-color: $l-primary;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            @media screen and (max-width: $breakpoint-small) {
+                width: 100%;
+            }
+        }
+    }
+    .widthSlNo {
+        width: 5%;
+    }
+    .widthBook {
+        width: 41%;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 70%;
+        }
+    }
+    .width40 {
+        width: 40%;
+    }
+    .width30 {
+        width: 30%;
+    }
+    .width18 {
+        width: 18%;
+    }
+    .alignStart {
+        text-align: start;
+    }
+    .alignEnd {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+    .weight500 {
+        font-weight: 500;
+    }
+    .font18 {
+        font-size: 18px;
+    }
+}
+.loadingCart {
+    padding: 32px;
+    min-height: calc(100vh - 350px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    @media screen and (max-width: $breakpoint-small) {
+        padding: 16px;
+    }
+}
+
+.unAuthenticatedCart {
+    padding: 32px;
+    min-height: calc(100vh - 350px);
+    @media screen and (max-width: $breakpoint-small) {
+        padding: 16px;
+    }   
+}

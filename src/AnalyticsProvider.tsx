@@ -19,9 +19,9 @@ export const AnalyticsProvider: ReactFCC<AnalyticsProviderProps> = ({ children }
 
 	const initAnalytics = useCallback(() => {
 		if (!isProd || isInitialized) return false;
-		mixpanel.init('d84d4df904519e15810cfd38c15e4976', {
+		mixpanel.init(process.env.REACT_APP_MIXPANEL_KEY as string, {
 			debug: !isProd,
-            track_pageview: true,
+			track_pageview: true,
 		});
 		setIsInitialized(true);
 		return true;

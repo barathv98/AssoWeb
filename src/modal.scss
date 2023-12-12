@@ -1,0 +1,86 @@
+@import './variables.scss';
+
+$modal-max-width: 456px + (16px * 2);
+
+.modal,
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.modal-container {
+  display: none;
+  background-color: transparentize(#000, 0.3);
+  height: 100%;
+  z-index: 20;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.modal {
+  padding: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  border: 16px solid transparent;
+
+  @media (min-width: $breakpoint-small) {
+    max-width: $modal-max-width;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.modal__content {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 16px;
+  height: 100%;
+  width: 100%;
+
+  @media (min-width: $breakpoint-small) {
+    padding: 24px;
+  }
+}
+
+.modal__close {
+  padding: 0;
+  display: block;
+  box-shadow: none;
+  border: 0;
+  line-height: 1;
+  font-size: 2rem;
+  color: #adadad;
+  margin-bottom: 16px;
+  margin-left: auto;
+  width: 1em;
+  cursor: pointer;
+
+  &:hover {
+    color: #3e7eff;
+    transform: none;
+    box-shadow: none;
+  }
+
+  @media (min-width: $breakpoint-small) {
+    margin-bottom: 24px;
+  }
+}
+
+.modal__hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.modal__header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.modal__actions {
+  margin-top: 48px;
+}

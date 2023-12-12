@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.productCategories {
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: $breakpoint-medium) {
+        padding: 12px;
+    }
+    :global(.download-banner) {
+        width: auto;
+        margin-left: 64px;
+        margin-right: 64px;
+        @media screen and (max-width: $breakpoint-medium) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

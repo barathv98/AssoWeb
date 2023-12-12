@@ -32,105 +32,46 @@
         }
         .content {
             margin-top: 16px;
-            .clickNote {
-                margin-top: 16px;
-            }
-            .productLinks {
+            .productTiles {
                 display: flex;
-                flex-direction: column;
-                gap: 24px;
-                margin-top: 16px;
-                @media screen and (max-width: $breakpoint-large) {
-                    gap: 12px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 24px;
+                @media screen and (max-width: $breakpoint-small) {
+                    margin-left: -12px;
+                    margin-right: -12px;
                 }
-                .linkContainer {
-                    width: 70%;
-                    display: flex;
-                    align-items: flex-start;
-                    justify-content: center;
+                .tile {
+                    height: 204px;
+                    box-shadow: rgba(96, 96, 96, 0.16) 0px 4px 8px;
                     cursor: pointer;
-                    @media screen and (max-width: $breakpoint-large) {
-                        width: 100%;
-                        align-items: center;
+                    overflow: hidden;
+                    @media screen and (max-width: $breakpoint-small) {
+                        height: 175px;
                     }
                     &:hover {
-                        .arrowContainer {
-                            svg {
-                                display: flex;
-                            }
+                        .image {
+                            transform: scale(1.1);
                         }
                     }
-                    .iconContainer {
-                        width: 64px;
-                        height: 64px;
-                        border-radius: 8px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        @media screen and (max-width: $breakpoint-large) {
-                            width: 50px;
-                            height: 50px;
-                        }
-                        &.book {
-                            background-color: #e4e3fe;
-                        }
-                        &.register {
-                            background-color: #f8f0e2;
-                        }
-                        &.diary {
-                            background-color: #e2f5f4;
-                        }
-                        svg {
-                            width: 36px;
-                            height: 36px;
-                            @media screen and (max-width: $breakpoint-large) {
-                                width: 30px;
-                                height: 30px;
-                            }
-                        }
+                    .image {
+                        width: calc(100% - 12px);
+                        height: calc(100% - 43px);
+                        object-fit: contain;
+                        transition: 0.5s all ease-in-out;
                     }
-                    .text {
-                        width: calc(100% - 94px);
-                        height: 64px;
-                        display: flex;
-                        flex-direction: column;
+                    .label {
+                        font-size: 16px;
+                        font-weight: 500;
+                        max-width: calc(100% - 16px);
+                        margin: 12px 0;
+                        padding: 0 4px 0 8px;
                         text-align: start;
-                        margin-left: 12px;
-                        .title {
-                            font-size: 18px;
-                            font-weight: 600;
-                            color: #222222;
-                            text-decoration: underline;
-                            text-underline-offset: 2px;
-                            @media screen and (max-width: $breakpoint-large) {
-                                font-size: 16px;
-                                font-weight: 500;
-                            }
-                        }
-                        .subTitle {
-                            font-size: 14px;
-                            font-weight: 400;
-                            color: #757575;
-                            margin-top: 4px;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            @media screen and (max-width: $breakpoint-large) {
-                                margin-top: 2px;
-                            }
-                        }
-                    }
-                    .arrowContainer {
-                        width: 30px;
-                        height: 64px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        svg {
-                            display: none;
-                        }
+                        border-left: 4px solid $l-primary;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                     }
                 }
             }
