@@ -7,6 +7,6 @@
 	"editor.formatOnSave": true,
 	"cSpell.words": ["daterange", "Payor", "wojtekmaj", "xborder"],
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": true
+		"source.organizeImports": "explicit"
 	}
 }
