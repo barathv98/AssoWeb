@@ -19,7 +19,6 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         billingName: product.billingName,
         quantity: itemInCart ? itemInCart.quantity : 0,
         question: itemInCart ? itemInCart.question : false,
-        cd: itemInCart ? itemInCart.cd : false,
         price: product.price,
     });
 
@@ -39,7 +38,6 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const finalizePrice = useCallback(() => {
         let finalPrice = product.price;
         if (orderItem.question && product?.questionPrice) finalPrice += product?.questionPrice;
-        if (orderItem.cd && product?.cdPrice) finalPrice += product?.cdPrice;
         setOrderItem((prev) => {
             return {
                 ...prev,
@@ -59,11 +57,10 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             }
             else {
                 updateCart({
-                    itemId: orderItem.id,
-                    name: orderItem.billingName,
+                    productId: orderItem.id,
+                    billingName: orderItem.billingName,
                     quantity: orderItem.quantity,
                     question: orderItem.question,
-                    cd: orderItem.cd,
                 });
             }
         }
@@ -74,12 +71,11 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             return({
                 ...prev,
                 question: false,
-                cd: false,
                 quantity: 0,
                 price: product.price,
             })
         });
-        removeCart({ itemId: orderItem.id });
+        removeCart({ productId: orderItem.id });
     }, [product.price, orderItem.id, removeCart]);
 
     const onChangeQuestion = useCallback((e: any) => {
@@ -94,35 +90,13 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         });
         if (orderItem.quantity) {
             updateCart({
-                itemId: orderItem.id,
-                name: orderItem.billingName,
+                productId: orderItem.id,
+                billingName: orderItem.billingName,
                 quantity: orderItem.quantity,
                 question: e.target.checked,
-                cd: orderItem.cd,
             });
         }
     }, [product.price, product?.questionPrice, orderItem, updateCart]);
-
-    const onChangeCD = useCallback((e: any) => {
-        let finalPrice = product.price;
-        if (product?.cdPrice && e.target.checked) finalPrice += product?.cdPrice;
-        setOrderItem((prev) => {
-            return({
-                ...prev,
-                price: finalPrice,
-                cd: e.target.checked,
-            })
-        });
-        if (orderItem.quantity) {
-            updateCart({
-                itemId: orderItem.id,
-                name: orderItem.billingName,
-                quantity: orderItem.quantity,
-                question: orderItem.question,
-                cd: e.target.checked,
-            });
-        }
-    }, [product.price, product?.cdPrice, orderItem, updateCart]);
 
     const onChangeQuantity = useCallback((e: any) => {
         setQuantityError(false);
@@ -140,7 +114,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     useEffect(() => {
         finalizePrice();
         // eslint-disable-next-line
-    }, [orderItem.question, orderItem.cd]);
+    }, [orderItem.question]);
 
     useEffect(() => {
         finalizePrice();
@@ -165,7 +139,6 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             billingName: product.billingName,
             quantity: itemInCart ? itemInCart.quantity : 0,
             question: itemInCart ? itemInCart.question : false,
-            cd: itemInCart ? itemInCart.cd : false,
             price: product.price,
         })
     }, [itemInCart, product]);
@@ -173,7 +146,6 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const price = useMemo(() => {
         let finalPrice = product.price;
         if (orderItem.question && product?.questionPrice) finalPrice += product?.questionPrice;
-        if (orderItem.cd && product?.cdPrice) finalPrice += product?.cdPrice;
         return finalPrice;
     }, [orderItem, product]);
 
@@ -201,26 +173,14 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                                     </div>
                                 )
                         )}
-                        {product?.cd && (
-                            product?.cdPrice === 0 
-                                ? <div className={styles.extrasStmt}>Free CD</div>
-                                : (
-                                    <div className={styles.extrasStmt}>
-                                        <label>
-                                            <input type="checkbox" id={`cd-${product.id}`} name="cd" checked={orderItem.cd} onChange={onChangeCD} />
-                                            Include CD (₹ {product.cdPrice})
-                                        </label>
-                                    </div>
-                                )
-                        )}
                     </div>
                     <div className={styles.contentBottom}>
                         <div className={styles.price}>
                             <span className={styles.symbol}>₹</span>
                             {price}
-                            {(orderItem.question || orderItem.cd) && 
+                            {(orderItem.question) && 
                                 <span className={styles.extraCost}>
-                                    ({product.price}(B) {orderItem.question && <>+ {product.questionPrice}(Q)</>} {orderItem.cd && <>+ {product.cdPrice}(CD)</>})
+                                    ({product.price}(B) {orderItem.question && <>+ {product.questionPrice}(Q)</>})
                                 </span>
                             }
                         </div>

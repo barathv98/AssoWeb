@@ -1,6 +1,7 @@
 import { useMutation } from 'react-query';
 import {
 	getCart,
+	getOrdersList,
 	getPODetails,
 	getUserDetail,
 	placeOrder,
@@ -85,3 +86,9 @@ export const useRequestPlaceOrder = ({ onSuccess, onError, params }: any): any =
 
 	return { placeOrder: placeOrderFn, isLoading };
 };
+
+export const useRequestGetOrdersList = ({ onSuccess }: any): any => {
+	const { mutate: getOrdersListFn, isLoading } = useMutation(getOrdersList, { onSuccess });
+
+	return { getOrdersList: getOrdersListFn, isLoading};
+}

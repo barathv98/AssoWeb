@@ -10,6 +10,7 @@ import AboutUsPage from './pages/AboutUsPage';
 import CartPage from './pages/CartPage';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
+import OrdersListPage from './pages/OrdersListPage';
 import PageNotFound from './pages/PageNotFound';
 import PlaceOrderPage from './pages/PlaceOrderPage';
 import ProductsListingPage from './pages/ProductsListingPage';
@@ -33,6 +34,7 @@ function App() {
 							<Route path="/products/:product" element={<ProductsListingPage />} />
 							<Route path="/shopping-cart" element={<CartPage />} />
 							<Route path="/place-order" element={<PlaceOrderPage />} />
+							<Route path="/orders-list" element={<OrdersListPage />} />
 							<Route path="*" element={<PageNotFound />} />
 						</Routes>
 						<Footer />

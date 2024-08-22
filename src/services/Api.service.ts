@@ -61,3 +61,9 @@ export const placeOrder = async (params: any): Promise<any> => {
 	const response = await sendPostCustomHeader(endpoint, { ...params });
 	return response?.data;
 }
+
+export const getOrdersList = async (): Promise<any> => {
+	const endpoint = `order`;
+	const response = await sendGetCustomHeader(endpoint);
+	return response?.data;
+}

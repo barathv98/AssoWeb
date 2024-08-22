@@ -44,12 +44,11 @@ const GeneralCard: FC<Props> = ({ product }) => {
             }
             else {
                 updateCart({
-									itemId: orderItem.id,
-									name: orderItem.billingName,
-									quantity: orderItem.quantity,
-									question: false,
-									cd: false,
-								});
+                    itemId: orderItem.id,
+                    billingName: orderItem.billingName,
+                    quantity: orderItem.quantity,
+                    question: false,
+                });
             }
         }
     }, [orderItem, updateCart, isAuthenticated, setShowLoginModal]);
@@ -62,7 +61,7 @@ const GeneralCard: FC<Props> = ({ product }) => {
                 price: product.price,
             })
         });
-        removeCart({ itemId: orderItem.id });
+        removeCart({ productId: orderItem.id });
     }, [product.price, orderItem.id, removeCart]);
 
     const onChangeQuantity = useCallback((e: any) => {

@@ -7,8 +7,6 @@ export interface Product {
     imgName: string;
     question?: boolean;
     questionPrice?: number;
-    cd?: boolean;
-    cdPrice?: number;
     badgeText?: string;
     highlights?: string;
 }
@@ -27,7 +25,6 @@ export interface OrderItem {
     quantity: number;
     price: number;
     question?: boolean;
-    cd?: boolean;
 }
 
 export type CartItems = Array<OrderItem>;

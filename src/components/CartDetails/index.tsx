@@ -24,7 +24,7 @@ const CartDetails: FC<CartDetailsProps> = () => {
 
 	const removeItem = useCallback(
 		(itemId: number) => {
-			removeCart({ itemId: itemId });
+			removeCart({ productId: itemId });
 			trackEvent(MixpanelEvent.CART_ITEM_REMOVE_CLICK, {});
 		},
 		[removeCart, trackEvent]
@@ -71,7 +71,6 @@ const CartDetails: FC<CartDetailsProps> = () => {
 										<div className={styles.bookName}>
 											{item.billingName}
 											{item.question && ' + Questions'}
-											{item.cd && ' + CD'}
 											{isMobileTablet && (
 												<div className={styles.quantityRow}>
 													Qty: {item.quantity} x ₹{item.price}
@@ -108,7 +107,6 @@ const CartDetails: FC<CartDetailsProps> = () => {
 										<div className={styles.bookName}>
 											{item.billingName}
 											{item.question && ' + Questions'}
-											{item.cd && ' + CD'}
 											{isMobileTablet && (
 												<div className={styles.quantityRow}>
 													Qty: {item.quantity} x ₹{item.price}
