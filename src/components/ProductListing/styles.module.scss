@@ -1,0 +1,73 @@
+@import '../../variables.scss';
+
+.listingPage {
+    display: flex;
+    flex-direction: row;
+}
+.sidebar {
+    width: 280px;
+    height: calc(100vh - 104px);
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    background-color: #fafbfc;
+    overflow-y: auto;
+    position: sticky;
+    top: 64px;
+}
+
+.productListing {
+    padding: 0 32px 32px;
+    background-color: #fafbfc;
+    width: calc(100vw - 280px);
+    @media screen and (max-width: $breakpoint-small) {
+        padding: 12px;
+        margin-bottom: 52px;
+    }
+    @media screen and (min-width: $breakpoint-small-up) and (max-width: $breakpoint-large) {
+        padding: 16px;
+    }
+    @media screen and (max-width: $breakpoint-large) {
+        width: auto;
+    }
+    .diaryTitle {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        @media screen and (min-width: $breakpoint-medium-up) {
+            margin-top: 24px;
+        }
+    }
+    .diaryNote {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 12px;
+    }
+    .productCategories {
+        .categoryName {
+            text-align: start;
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 24px;
+            @media screen and (max-width: $breakpoint-small) {
+                font-size: 20px;
+                padding-left: 16px;
+                margin: 16px 0;
+            }
+        }
+        .categoryBooks {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            @media screen and (max-width: $breakpoint-small) {
+                gap: 8px;
+                flex-direction: column;
+            }
+            @media screen and (min-width: $breakpoint-small-up) and (max-width: $breakpoint-large) {
+                gap: 8px;
+            }
+        }
+    }
+}

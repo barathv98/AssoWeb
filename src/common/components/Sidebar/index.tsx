@@ -14,7 +14,12 @@ const Sidebar: FC<SidebarProps> = (props) => {
             <div className={styles.container}>
                 <div className={styles.closeBtn} onClick={onClose}><GrClose /></div>
                 <div className={styles.title}>
-                    {logo && <img className={styles.logo} src={require('../../../assets/images/logo.png')} alt='company logo' />}
+                    {logo && 
+                        <img className={styles.logo}
+                            src={require('../../../assets/images/logo.png')}
+                            alt='company logo'
+                        />
+                    }
                 </div>
                 {content}
             </div>

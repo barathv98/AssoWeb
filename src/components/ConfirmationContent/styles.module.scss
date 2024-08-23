@@ -1,0 +1,48 @@
+@import '../../variables.scss';
+
+.confirmationContent {
+    width: calc(100% - 32px);
+    @media screen and (min-width: $breakpoint-medium-up) {
+        width: calc(100% - 48px);
+    }
+    .lottieIcon {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .textContent {
+        width: 400px;
+        color: black;
+        margin: 0 auto;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 85%;
+            margin-top: 16px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: 500;
+        }   
+        .subTitle {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+        .backBtn {
+            padding: 16px;
+            margin-top: 24px;
+            color: white;
+            background-color: $l-primary;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.popupContent {
+    width: 130px;
+    .contentRow {
+        text-align: start;
+        padding: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        &:hover {
+            background-color: #f6f6f6;
+            border: solid 1px #e0e0e0;
+        }
+    }
+}

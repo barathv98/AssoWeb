@@ -1,0 +1,70 @@
+@import '../../variables.scss';
+
+.modal {
+    :global(.modal) {
+        max-width: 700px;
+    }
+    :global(.modal-content) {
+        width: auto
+    }
+}
+
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    max-height: 500px;
+    overflow-y: auto;
+    @media screen and (max-width: $breakpoint-small) {
+        font-size: 14px;
+        max-height: calc(100vh - 112px);
+    }
+}
+.itemRow {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 12px;
+    .name {
+        width: 60%;
+        text-align: start;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 55%;
+        }
+    }
+    .quantity {
+        width: 20%;
+        @media screen and (max-width: $breakpoint-small) {
+            width: 28%;
+        }
+    }
+    .cost {
+        width: 20%;
+        padding-right: 5%;
+        text-align: end;
+        @media screen and (max-width: $breakpoint-small) {
+            padding-right: 2%;
+            width: 27%;
+        }
+    }
+    &.totalValue {
+        font-weight: 600;
+        font-size: 20px;
+        .quantity {
+            @media screen and (max-width: $breakpoint-small) {
+                min-width: fit-content;
+                margin-right: 16px;
+            }
+        }
+        .cost {
+            @media screen and (max-width: $breakpoint-small) {
+                min-width: fit-content;
+            }
+        }
+    }
+}
+.ruler {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin-bottom: 16px;
+}

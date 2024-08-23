@@ -1,0 +1,83 @@
+@import '../../variables.scss';
+
+.noteRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 32px;
+    @media screen and (max-width: $breakpoint-medium) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 4px 16px;
+        gap: 2px;
+    }
+    .note {
+        font-size: 14px;
+        color: #757575;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        @media screen and (max-width: $breakpoint-medium) {
+            font-size: 12px;
+        }
+    }
+}
+.footer {
+    width: 100%;
+    padding: 32px 64px;
+    background-color: #fafbfc;
+    font-size: 16px;
+    font-weight: 500;
+    box-sizing: border-box;
+    @media screen and (max-width: $breakpoint-medium) {
+        padding: 16px;
+        box-sizing: border-box;
+    }
+    .linksContainer {
+        display: flex;
+        flex-direction: row;
+        @media screen and (max-width: $breakpoint-medium) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .linksColumn {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            @media screen and (max-width: $breakpoint-medium) {
+                width: 50%;
+            }
+            a {
+                color: black;
+                text-align: start;
+                text-decoration: none;
+                margin: 8px;
+            }
+            &.firstRow {
+                @media screen and (max-width: $breakpoint-medium) {
+                    width: 100%;
+                }
+            }
+        }
+        .linksCompany {
+            width: 40%;
+            display: flex;
+            flex-direction: row;
+            @media screen and (max-width: $breakpoint-medium) {
+                width: 100%;
+                margin-top: 20px;
+            }
+            .logo {
+                width: 75px;
+                height: 75px;
+            }
+            .address {
+                text-align: start;
+                margin-left: 20px;
+                line-height: 1.5;
+            }
+        }
+    }
+}

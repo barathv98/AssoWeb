@@ -1,0 +1,105 @@
+@import '../../variables.scss';
+
+.loadingOrders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    min-height: 60vh;
+}
+.emptyList {
+    padding: 32px;
+    min-height: 60vh;
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .content {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 16px;
+    }
+}
+.ordersListComponent {
+    max-width: 770px;
+    margin: 32px auto 32px;
+    @media screen and (max-width: $breakpoint-small) {
+        margin: 16px;
+    }
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .ordersList {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
+        .orderCard {
+            width: 100%;
+            height: 100px;
+            padding: 16px;
+            border: solid 0.5px #e0e0e0;
+            display: flex;
+            flex-direction: row;
+            border-radius: 8px;
+            @media screen and (max-width: $breakpoint-small) {
+                width: calc(100% - 32px);
+                height: auto;
+            }
+            &:hover {
+                box-shadow: rgba(96, 96, 96, 0.16) 0px 2px 6px;
+            }
+            .icon {
+                width: 25%;
+                svg {
+                    width: 75px;
+                    height: 75px;
+                }
+            }
+            .detailsMobile {
+                width: 75%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 16px;
+                .largerText {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                .smallerText {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+                .detailsLink {
+                    font-size: 12px;
+                    font-style: italic;
+                    text-align: end;
+                    color: $l-primary;
+                    cursor: pointer;
+                }
+            }
+            .details {
+                width: 75%;
+                display: flex;
+                flex-direction: row;
+                .items {
+                    width: 50%;
+                }
+                .cost {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .detailsLink {
+                        font-style: italic;
+                        text-align: end;
+                        color: $l-primary;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
